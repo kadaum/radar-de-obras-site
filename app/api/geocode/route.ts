@@ -1,3 +1,4 @@
+/* oxlint-disable typescript/no-explicit-any -- External geocoding payloads are untyped JSON. */
 export async function GET(request: Request) {
   const q=(new URL(request.url).searchParams.get('q')??'').trim().slice(0,180);
   if(q.length<3)return Response.json({error:'Informe uma rua, cidade ou CEP.'},{status:400});

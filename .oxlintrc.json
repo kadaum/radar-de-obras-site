@@ -28,6 +28,9 @@
     "out/**",
     "build/**",
     "dist/**",
+    "public/assets/**",
+    "components/ui/**",
+    "hooks/**",
     "coverage/**",
     "next-env.d.ts"
   ],

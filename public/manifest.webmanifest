@@ -1,0 +1,10 @@
+{
+  "name": "Radar de Obras",
+  "short_name": "Radar de Obras",
+  "description": "Cadastros públicos de obras e infraestrutura no mapa do Brasil.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f3ed",
+  "theme_color": "#101915",
+  "icons": [{ "src": "/radar.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

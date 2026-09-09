@@ -2,6 +2,11 @@
 
 Web application for exploring public infrastructure records from Obrasgov on a map, in a searchable list, and in project detail views.
 
+- Live product: [radar-obras.ricardoguia.com](https://radar-obras.ricardoguia.com)
+- Interface and collection source: [kadaum/radar-de-obras](https://github.com/kadaum/radar-de-obras)
+
+The checked-in publication contains the national snapshot generated on September 8, 2026: 130,581 source records, including 128,837 with a usable mapped coordinate. These numbers describe the Obrasgov response for that collection, not every existing public work in Brazil.
+
 The application presents a curated, generated snapshot of source records. It does not claim that the snapshot is a complete inventory of Brazilian works, that a registered location is the exact construction site, or that a forecast date proves delay. Source data, map tiles, geocoding services, and their terms remain separate from this repository's code license.
 
 ## Run locally

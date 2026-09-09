@@ -1,3 +1,4 @@
+/* oxlint-disable typescript/no-explicit-any -- Obrasgov responses vary by endpoint and have no generated client types. */
 const API = 'https://api-publica.obrasgov.gestao.gov.br/obras';
 const endpoints = ['projeto-investimento','geometria','execucao-fisica','empenho','contrato','historico-situacao-cancelada-paralisada'];
 const rows = (payload: any) => Array.isArray(payload?.data) ? payload.data : [];
