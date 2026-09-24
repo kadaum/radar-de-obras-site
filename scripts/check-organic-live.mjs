@@ -33,12 +33,20 @@ await Promise.all(Array.from({ length: 4 }, async () => {
       const homeWithoutSlash = path === '/' && body.includes(`href="${origin}"`);
       if (!body.includes(`href="${canonical}"`) && !homeWithoutSlash) failures.push({ path, issue: 'canonical missing' });
       if (!body.includes('<h1')) failures.push({ path, issue: 'H1 missing' });
+      if (path === '/' && (!body.includes('/favicon.svg?v=2') || !body.includes('/apple-touch-icon.png?v=2')))
+        failures.push({ path, issue: 'branded icons missing from homepage' });
       checked.push(path);
     } catch (error) { failures.push({ path, issue: String(error) }); }
   }
 }));
-for (const path of ['/radar.html', '/sitemap.xml', '/robots.txt', '/llms.txt', '/dados/piloto-obras.csv', '/dados/piloto-obras.json']) {
-  try { await get(base + path); checked.push(path); }
+for (const path of ['/radar.html', '/sitemap.xml', '/robots.txt', '/llms.txt', '/dados/piloto-obras.csv', '/dados/piloto-obras.json', '/favicon.svg', '/favicon.ico', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png', '/manifest.webmanifest', '/og-radar.png']) {
+  try {
+    const { body } = await get(base + path);
+    if (path === '/radar.html' && !body.includes('/favicon.svg?v=2')) failures.push({ path, issue: 'branded icon missing from map' });
+    if (path === '/favicon.svg' && !body.includes('#203228')) failures.push({ path, issue: 'unexpected favicon' });
+    if (path === '/manifest.webmanifest' && !body.includes('/icon-192.png?v=2')) failures.push({ path, issue: 'install icon missing from manifest' });
+    checked.push(path);
+  }
   catch (error) { failures.push({ path, issue: String(error) }); }
 }
 try {

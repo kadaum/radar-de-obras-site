@@ -22,6 +22,13 @@ export const metadata: Metadata = {
   authors: [{ name: 'Ricardo Guia', url: 'https://ricardoguia.com' }],
   creator: 'Ricardo Guia',
   manifest: '/manifest.webmanifest',
+  icons: {
+    icon: [
+      { url: '/favicon.svg?v=2', type: 'image/svg+xml' },
+      { url: '/favicon.ico?v=2', sizes: 'any' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' }],
+  },
   robots: { index: true, follow: true },
 };
 

@@ -1,4 +1,4 @@
-// Build the vendored, editable map source and keep the public HTML metadata.
+// Build the vendored, editable map source and publish its HTML metadata with the assets.
 import fs from 'node:fs';
 import path from 'node:path';
 import { build } from 'vite';
@@ -16,9 +16,5 @@ for (const name of fs.readdirSync(path.join(outDir, 'assets'))) {
   fs.copyFileSync(path.join(outDir, 'assets', name), path.join(assetsDir, name));
 }
 const publicHtmlPath = path.join(root, 'public', 'radar.html');
-const before = fs.readFileSync(publicHtmlPath, 'utf8');
-const after = before.replace(/src="\/assets\/index-[^"]+\.js"/, `src="${js}"`)
-  .replace(/href="\/assets\/index-[^"]+\.css"/, `href="${css}"`);
-if (after === before && (!before.includes(js) || !before.includes(css))) throw new Error('Map HTML asset references not found');
-fs.writeFileSync(publicHtmlPath, after);
+fs.writeFileSync(publicHtmlPath, html);
 console.log(JSON.stringify({ js, css, worker: 'bundled with content hash' }));
