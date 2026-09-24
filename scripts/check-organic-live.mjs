@@ -29,7 +29,8 @@ await Promise.all(Array.from({ length: 4 }, async () => {
     try {
       const { body } = await get(origin + path);
       const canonical = `${origin}${path}`;
-      if (!body.includes(`href="${canonical}"`)) failures.push({ path, issue: 'canonical missing' });
+      const homeWithoutSlash = path === '/' && body.includes(`href="${origin}"`);
+      if (!body.includes(`href="${canonical}"`) && !homeWithoutSlash) failures.push({ path, issue: 'canonical missing' });
       if (!body.includes('<h1')) failures.push({ path, issue: 'H1 missing' });
       checked.push(path);
     } catch (error) { failures.push({ path, issue: String(error) }); }
