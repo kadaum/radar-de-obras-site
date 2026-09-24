@@ -1,0 +1,13 @@
+# Radar de Obras
+
+Leitura independente de registros da API pública Obrasgov. A cobertura descreve o cadastro consultado, não todas as obras do Brasil. Valores são investimentos previstos; situação e datas são informadas pela fonte.
+
+- [Cidades](https://radar-obras.ricardoguia.com/cidades): cinco recortes piloto.
+- [Fichas de obras](https://radar-obras.ricardoguia.com/obras): dez projetos com ID e fonte oficial.
+- [Metodologia](https://radar-obras.ricardoguia.com/metodologia): coleta, cobertura, validação e limites.
+- [Guia de interpretação](https://radar-obras.ricardoguia.com/guia-de-interpretacao): como ler situação, previsão, valor e localização.
+- [Dados e downloads](https://radar-obras.ricardoguia.com/dados): CSV e JSON das dez fichas, com dicionário.
+- [Levantamento](https://radar-obras.ricardoguia.com/levantamento): comparação reproduzível dos cinco recortes.
+- [Sitemap](https://radar-obras.ricardoguia.com/sitemap.xml).
+
+Fonte oficial: https://www.gov.br/obrasgov/pt-br/ferramentas-de-gestao-e-transparencia/api-de-dados-abertos-obrasgov-br_novo

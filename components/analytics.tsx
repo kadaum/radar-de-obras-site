@@ -49,5 +49,18 @@ export function Analytics() {
     });
   }, [pathname]);
 
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const link = target.closest<HTMLElement>('[data-analytics-action]');
+      const action = link?.dataset.analyticsAction;
+      if (!action || !['abrir_ficha','explorar_mapa','abrir_fonte','exportar_dados','comparar_cidades','abrir_labs'].includes(action)) return;
+      initializeAnalytics()?.('event', action, { send_to: MEASUREMENT_ID, page_path: window.location.pathname });
+    };
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
+
   return null;
 }
