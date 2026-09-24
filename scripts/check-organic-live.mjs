@@ -1,6 +1,7 @@
 // Read-only weekly health check. Run after publish or from the 90-day heartbeat.
 import fs from 'node:fs';
 const origin = 'https://radar-obras.ricardoguia.com';
+const base = process.argv[2] || origin;
 const api = 'https://api-publica.obrasgov.gestao.gov.br/obras/data-atualizacao';
 const manifest = JSON.parse(fs.readFileSync('public/data/projects-manifest.json', 'utf8'));
 const sitemap = fs.readFileSync('public/sitemap.xml', 'utf8');
@@ -27,7 +28,7 @@ await Promise.all(Array.from({ length: 4 }, async () => {
   while (cursor < paths.length) {
     const path = paths[cursor++];
     try {
-      const { body } = await get(origin + path);
+      const { body } = await get(base + path);
       const canonical = `${origin}${path}`;
       const homeWithoutSlash = path === '/' && body.includes(`href="${origin}"`);
       if (!body.includes(`href="${canonical}"`) && !homeWithoutSlash) failures.push({ path, issue: 'canonical missing' });
@@ -36,14 +37,21 @@ await Promise.all(Array.from({ length: 4 }, async () => {
     } catch (error) { failures.push({ path, issue: String(error) }); }
   }
 }));
-for (const path of ['/sitemap.xml', '/robots.txt', '/llms.txt', '/dados/piloto-obras.csv', '/dados/piloto-obras.json']) {
-  try { await get(origin + path); checked.push(path); }
+for (const path of ['/radar.html', '/sitemap.xml', '/robots.txt', '/llms.txt', '/dados/piloto-obras.csv', '/dados/piloto-obras.json']) {
+  try { await get(base + path); checked.push(path); }
   catch (error) { failures.push({ path, issue: String(error) }); }
 }
+try {
+  const liveOverview = JSON.parse((await get(base + '/data/map-overview.json')).body);
+  checked.push('/data/map-overview.json');
+  const represented = liveOverview.featureCollection.features.reduce((sum, feature) => sum + feature.properties.count, 0);
+  if (liveOverview.total !== manifest.total || represented !== liveOverview.withPoint || liveOverview.sourceLoad !== manifest.meta.sourceLoad)
+    failures.push({ path: '/data/map-overview.json', issue: 'overview and validated manifest differ' });
+} catch (error) { failures.push({ path: '/data/map-overview.json', issue: String(error) }); }
 let sourceLoad = null, sourceError = null;
 try { sourceLoad = JSON.parse((await get(api)).body).data_ultima_atualizacao ?? null; }
 catch (error) { sourceError = String(error); }
-const report = { checkedAt: new Date().toISOString(), domain: origin, checked: checked.length, failures,
+const report = { checkedAt: new Date().toISOString(), domain: base, checked: checked.length, failures,
   publishedSourceLoad: manifest.meta.sourceLoad, currentSourceLoad: sourceLoad,
   refreshNeeded: !!sourceLoad && sourceLoad !== manifest.meta.sourceLoad, sourceError };
 console.log(JSON.stringify(report, null, 2));

@@ -63,9 +63,9 @@ try{
   const loadAfter=await sourceLoad();
   if(loadAfter!==loadBefore)throw new Error(`Source load changed during collection: ${loadBefore} -> ${loadAfter}`);
   const orphan=db.prepare('SELECT COUNT(*) AS count FROM geometries g WHERE NOT EXISTS(SELECT 1 FROM projects p WHERE p.id=g.project_id)').get().count;
-  if(orphan)throw new Error(`${orphan} orphan geometries`);
+  if(orphan)throw new Error(`${String(orphan)} orphan geometries`);
   const integrity=db.prepare('PRAGMA integrity_check').get().integrity_check;
-  if(integrity!=='ok')throw new Error(`SQLite integrity: ${integrity}`);
+  if(integrity!=='ok')throw new Error(`SQLite integrity: ${String(integrity)}`);
   const validPoint=p=>Array.isArray(p)&&p.length===2&&p.every(Number.isFinite)&&p[0]>=-74&&p[0]<=-28&&p[1]>=-34&&p[1]<=6;
   function point(pins){for(const pin of pins??[]){const direct=[Number(pin.longitude),Number(pin.latitude)];
     const match=String(pin.pin??'').match(/POINT\s*\(\s*(-?[\d.]+)\s+(-?[\d.]+)\s*\)/i);
