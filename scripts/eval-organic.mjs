@@ -53,6 +53,10 @@ void test('enriched fichas keep official concepts separate and show the document
  const {html}=await fetchPage(workPath('4902.35-23'));
  for(const value of ['O restaurante já foi inaugurado?','14/09/2023','100% informado','CONSTRUDAHER','88154/2021','3.011.395,02','Restos a pagar pagos'])assert.ok(html.includes(value),value);
  assert.ok(html.includes('ifsp.edu.br/ultimas-noticias/4031-campus-pirituba-inaugura-restaurante-estudantil'));
+ const evidence=html.match(/<aside class="evidence-note"[\s\S]*?<\/aside>/)?.[0];
+ assert.ok(evidence);assert.ok(evidence.includes('href="#situacao-cadastrada"'));assert.ok(evidence.includes('href="#execucao-fisica"'));
+ assert.ok(!evidence.includes('api-publica.obrasgov'));assert.ok(!html.includes('Consultar fonte oficial'));
+ assert.ok(html.includes('Dados técnicos da fonte (JSON)'));
  const ufba=(await fetchPage(workPath('45892.29-61'))).html;
  assert.ok(ufba.includes('INO9VARE ENGENHARIA LTDA'));
  assert.ok(ufba.includes('14.419.615,93'));
