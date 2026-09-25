@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import test from 'node:test';
 import snapshot from '../lib/organic-data.json' with {type:'json'};
 import details from '../lib/organic-details.json' with {type:'json'};
+import enrichment from '../lib/work-enrichment.json' with {type:'json'};
 
 const base=process.argv[2]||'http://localhost:3002';
 const origin='https://radar-obras.ricardoguia.com';
@@ -42,6 +43,22 @@ void test('ten fichas serve source and distinct canonical with snapshot values',
   assert.equal(response.status,200,path);assert.equal(canonical(html),`${origin}${path}`);assert.ok(html.includes(id));assert.ok(html.includes(row.status));assert.ok(html.includes(row.organization));assert.ok(html.includes(`/radar.html?obra=${id}`));assert.ok(html.includes('api-publica.obrasgov.gestao.gov.br'));
   assert.ok(html.includes(cityPath(city)));assert.ok(schemas(html).some(item=>item['@type']==='WebPage'&&item.url===`${origin}${path}`));
  }}
+});
+void test('enriched fichas keep official concepts separate and show the documented conflict',async()=>{
+ assert.equal(enrichment.sourceLoad,snapshot.source.sourceLoad);
+ assert.deepEqual(Object.keys(enrichment.projects).sort(),Object.keys(details).sort());
+ const p=enrichment.projects['4902.35-23'];
+ assert.equal(p.executions.length,1);assert.equal(p.executions[0].percent,100);
+ assert.equal(p.contracts.length,1);assert.equal(p.commitments.length,11);
+ const {html}=await fetchPage(workPath('4902.35-23'));
+ for(const value of ['O restaurante já foi inaugurado?','14/09/2023','100% informado','CONSTRUDAHER','88154/2021','3.011.395,02','Restos a pagar pagos'])assert.ok(html.includes(value),value);
+ assert.ok(html.includes('ifsp.edu.br/ultimas-noticias/4031-campus-pirituba-inaugura-restaurante-estudantil'));
+ const ufba=(await fetchPage(workPath('45892.29-61'))).html;
+ assert.ok(ufba.includes('INO9VARE ENGENHARIA LTDA'));
+ assert.ok(ufba.includes('14.419.615,93'));
+ const noContract=(await fetchPage(workPath('128622.33-16'))).html;
+ assert.ok(noContract.includes('Nenhum contrato foi retornado'));
+ assert.ok(noContract.includes('Finalidade social informada'));
 });
 void test('filters remain nonindexable, preserve canonical, and 404 nonexistent entities',async()=>{
  const path='/cidades/rj/rio-de-janeiro';const {html}=await fetchPage(`${path}?q=128622.33-16`);

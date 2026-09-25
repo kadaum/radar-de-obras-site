@@ -4,6 +4,7 @@ const origin = 'https://radar-obras.ricardoguia.com';
 const base = process.argv[2] || origin;
 const api = 'https://api-publica.obrasgov.gestao.gov.br/obras/data-atualizacao';
 const manifest = JSON.parse(fs.readFileSync('public/data/projects-manifest.json', 'utf8'));
+const enrichment = JSON.parse(fs.readFileSync('lib/work-enrichment.json', 'utf8'));
 const sitemap = fs.readFileSync('public/sitemap.xml', 'utf8');
 const paths = [...sitemap.matchAll(/<loc>https:\/\/radar-obras\.ricardoguia\.com([^<]*)<\/loc>/g)].map(match => match[1]);
 if (paths.length !== 22 || new Set(paths).size !== paths.length) throw new Error(`Unexpected sitemap URL count: ${paths.length}`);
@@ -22,6 +23,8 @@ async function get(url) {
 }
 
 const failures = [];
+if (enrichment.sourceLoad !== manifest.meta.sourceLoad || Object.keys(enrichment.projects).length !== 10)
+  failures.push({ path: '/obras', issue: 'enriched fichas and validated manifest differ' });
 let cursor = 0;
 const checked = [];
 await Promise.all(Array.from({ length: 4 }, async () => {
@@ -35,6 +38,10 @@ await Promise.all(Array.from({ length: 4 }, async () => {
       if (!body.includes('<h1')) failures.push({ path, issue: 'H1 missing' });
       if (path === '/' && (!body.includes('/favicon.svg?v=2') || !body.includes('/apple-touch-icon.png?v=2')))
         failures.push({ path, issue: 'branded icons missing from homepage' });
+      if (path.startsWith('/obras/') && !body.includes('O que o projeto pretende entregar'))
+        failures.push({ path, issue: 'enriched content missing' });
+      if (path.startsWith('/obras/4902.35-23/') && !body.includes('O restaurante já foi inaugurado?'))
+        failures.push({ path, issue: 'source discrepancy missing' });
       checked.push(path);
     } catch (error) { failures.push({ path, issue: String(error) }); }
   }

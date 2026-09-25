@@ -130,6 +130,34 @@ body {
 .detail-list dt { color:#5b6f60; font-size:14px; }
 .detail-list dd { margin:0; font-weight:650; overflow-wrap:anywhere; }
 .description-section p { max-width:900px; }
+.evidence-note { border:1px solid #d1ba70; border-left:5px solid #c49228; background:#fff9e9; border-radius:8px; padding:20px 24px; margin:24px 0 30px; }
+.evidence-note h2 { margin:0 0 12px; font-size:21px; }
+.evidence-note p { margin:9px 0; line-height:1.6; }
+.evidence-note ul { margin:12px 0 0; padding-left:20px; display:grid; gap:5px; }
+.enrichment-section { border-top:1px solid #cfd9cb; padding-top:22px; margin:36px 0; }
+.enrichment-section h2 { margin:0 0 16px; }
+.enrichment-section h3 { margin:0 0 8px; font-size:17px; }
+.editorial-block { max-width:950px; margin:20px 0; }
+.editorial-block p { line-height:1.65; margin:0; white-space:pre-line; }
+.data-caption,.source-caption { color:#526a58; font-size:13px; line-height:1.55; }
+.source-caption { margin-top:14px; }
+.record-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:14px; }
+.record-card { border:1px solid #d1dacf; border-radius:9px; padding:20px; background:#fff; min-width:0; }
+.record-card>strong { display:block; font-size:22px; color:#1d6042; margin-bottom:10px; }
+.record-card p { line-height:1.5; }
+.record-card details { margin-top:14px; }
+.record-card summary,.record-details summary { cursor:pointer; font-weight:700; color:#1d6042; }
+.compact-list { margin:0; }
+.compact-list div { display:grid; grid-template-columns:minmax(105px,42%) 1fr; gap:9px; padding:9px 0; border-top:1px solid #e5ebe2; }
+.compact-list dt { color:#5b6f60; font-size:13px; }
+.compact-list dd { margin:0; overflow-wrap:anywhere; font-size:14px; font-weight:650; }
+.record-details { border:1px solid #d1dacf; border-radius:8px; padding:16px 18px; background:#fff; margin:15px 0; }
+.record-details[open] summary { margin-bottom:16px; }
+.table-scroll { max-width:100%; overflow-x:auto; }
+.record-table { width:100%; border-collapse:collapse; min-width:650px; font-size:13px; }
+.record-table th,.record-table td { padding:10px 9px; border-bottom:1px solid #e1e8dd; text-align:left; vertical-align:top; }
+.record-table th { background:#edf3e9; }
+.record-table td { overflow-wrap:anywhere; }
 .reading-section { max-width:950px; font-size:16px; }
 .reading-section li { line-height:1.6; margin:10px 0; }
 .wrap-code { overflow-wrap:anywhere; font-size:13px; }

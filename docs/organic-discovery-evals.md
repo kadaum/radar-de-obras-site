@@ -1,5 +1,12 @@
 # Avaliações de descoberta orgânica
 
+## Ampliação das dez fichas em 25/09/2026
+
+A coleta complementar manteve a carga oficial de 24/09/2026 estável antes e depois das consultas. Todos os dez IDs preservaram nome e UF; a amostra retornou finalidade social e meta em 10/10, execução física em 5/10, contratos em 4/10, empenhos em 4/10 e estudos de viabilidade em 6/10. As páginas distinguem dado ausente de zero e não somam empenhos com semântica incerta. A ficha de Pirituba confronta o status do cadastro e a execução física com a inauguração anunciada pelo IFSP.
+
+No Worker local, `npm run lint`, `npx tsc --noEmit` e `npm run build` passaram. `node scripts/eval-organic.mjs http://127.0.0.1:3004` passou em 6/6 avaliações, incluindo identidade da coleta, divergência de Pirituba, contrato da UFBA e ausência rotulada de contratos. `node scripts/check-organic-live.mjs http://127.0.0.1:3004` passou em 36/36 recursos e verificou HTML nas dez fichas. Os dois testes de fallback passaram. A ficha de Pirituba foi inspecionada visualmente em desktop no navegador conectado.
+
+
 Data: 24/09/2026. Ambientes locais: `vinext dev` em `http://localhost:3002` e Worker de build em `http://127.0.0.1:3003`; produção anterior: versão 10. A publicação no domínio público foi verificada.
 
 | Risco | Checagem e evidência | Resultado |
