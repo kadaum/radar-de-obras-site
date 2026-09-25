@@ -1,5 +1,7 @@
 # Contribuições das fichas
 
+Próxima evolução solicitada: conta com login Google e autenticação obrigatória para novos envios. Escopo e critérios registrados em [backlog.md](backlog.md). Ainda não implementado; a operação abaixo descreve a versão 17.
+
 O formulário recebe correção, observação datada ou link público. Não pede nome, e-mail, localização do visitante ou upload. O recebimento só é confirmado após a gravação no D1. Todo envio entra como `pending`; nenhuma rota pública lê a fila e nenhum texto enviado altera status, metadados ou a página automaticamente.
 
 ## Operação editorial
