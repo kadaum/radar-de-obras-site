@@ -7,6 +7,7 @@ import { pageMetadata } from '@/lib/metadata';
 import {WorkClassification} from '@/components/work-classification';
 import {NationalProjectContext} from '@/components/national-context';
 import {OfficialWorkRecords} from '@/components/official-work-records';
+import {nationalNearby} from '@/lib/national-nearby';
 import {WorkLocation} from '@/components/work-overview';
 import {DerivedWorkType} from '@/components/derived-work-type';
 import {indexableNationalWork} from '@/lib/national-eligibility.mjs';
@@ -20,6 +21,7 @@ export default async function NationalWorkPage({params}:Props){
  const {id}=await params;if(getWork(id))permanentRedirect(workPath(id));
  const work=await nationalWork(id);if(!work)notFound();
  const path=`/obras/${id}`;
+ const nearby=await nationalNearby(work);
  return <DiscoveryShell crumbs={[{name:'Início',path:'/'},{name:'Fichas',path:'/obras'},{name:`Projeto ${id}`,path}]}>
   <PageSchema path={path} name={work.name} description={`Cadastro Obrasgov ${id}. Situação informada: ${work.status}.`} />
   <article className="work-page"><header className="work-heading"><div className="eyebrow">{work.city || work.uf} · Projeto {id}</div><h1>{work.name}</h1><WorkClassification id={id} classification={work.context.classification.map(x=>({type:x.tipo}))}/><p>Dados do cadastro público, consultados em {formatDate(nationalManifest.collectedAt)}.</p></header>
@@ -32,7 +34,7 @@ export default async function NationalWorkPage({params}:Props){
    </dl><p className="context-note">Investimento previsto não é pagamento. Previsões vencidas não comprovam atraso. O endereço pode ser uma referência administrativa.</p></section>
    <NationalProjectContext context={work.context}/>
    <DerivedWorkType title={work.name}/>
-   <WorkLocation work={work} showNearby={false}/>
+   <WorkLocation work={work} nearbyRecords={nearby}/>
    <OfficialWorkRecords id={id}/>
    <div className="work-heading-actions"><Link prefetch={false} href={`/radar.html?obra=${encodeURIComponent(id)}`}>Ver no mapa e consultar detalhes atualizados</Link><Link prefetch={false} href="/radar.html?view=list">Voltar à lista de obras</Link></div>
    <section className="enrichment-section"><h2>Fonte e atualização</h2><p>Esta ficha preserva o cadastro da carga {formatDate(nationalManifest.sourceLoad)}. A consulta complementar de contratos e andamento tem data própria; falhas dessa consulta não apagam o cadastro preservado.</p><a href={SOURCE_PAGE}>Sobre a base pública Obrasgov ↗</a><details className="record-details"><summary>Registro técnico da fonte</summary><a href={sourceLink(id)}>Consultar dados brutos deste projeto (JSON) ↗</a></details></section>

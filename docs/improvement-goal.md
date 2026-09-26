@@ -2,7 +2,7 @@
 
 ## Estado atual
 
-Consultar [goal-status.md](goal-status.md), quadro autoritativo. Publicado: v23, carga 25/09/2026, 153.756 projetos. Coletor encerrado; nenhuma coleta ou publicação em execução. As seções abaixo registram o planejamento e histórico, não o estado operacional atual.
+Consultar [goal-status.md](goal-status.md), quadro autoritativo. Publicado: v24, carga 25/09/2026, 153.756 projetos. Coletor encerrado; nenhuma coleta ou publicação em execução. As seções abaixo registram o planejamento e histórico, não o estado operacional atual.
 
 Aberto em 25/09/2026 por solicitação do proprietário. Status: ativo. Base publicada: versão 18, commit b50eafe79397f73639cf5d926d4c98cf1844d425. Domínio e leitura pública devem ser preservados.
 

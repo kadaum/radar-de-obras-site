@@ -4,7 +4,7 @@ Este resumo prevalece sobre as entradas históricas de improvement-goal.md. Goal
 
 ## Publicado
 
-v23, commit 2b8c5d31c984b265b2841c3b110cbc6cbb4e1ed1, deploy appgdep_6ab73a4df8e8819192fe3b90c5c5a1fc, succeeded 03:22:01 UTC. Público preservado; Google não implementado. Carga validada 25/09/2026 com 153.756 projetos. Nenhum coletor ou preview local está ativo.
+v24, commit b32e1cac18600f45f39aa3d88672d8a0cec74871, deploy appgdep_6ab73db052fc81919de62686c3d0da9d, succeeded 03:36:26 UTC. Público preservado; Google não implementado. Carga validada 25/09/2026 com 153.756 projetos. Nenhum coletor ou preview local está ativo.
 
 - Fichas nacionais SSR, política de indexabilidade e quatro sitemaps nacionais; 153.289 URLs nacionais elegíveis mais 22 centrais.
 - Taxonomia oficial com ícones e tipo derivado conservador separado, recalculado da fonte. 24.925 correspondências; resto abstém. Avaliação limitada documentada.
@@ -29,4 +29,4 @@ v23, commit 2b8c5d31c984b265b2841c3b110cbc6cbb4e1ed1, deploy appgdep_6ab73a4df8e
 3. Comparação de custos: pesquisa documental concluída como piloto; proposta vencedora digitalizada ainda sem OCR validado/revisão técnica item a item. Nenhum julgamento de preço está publicado. Qualquer avanço para tal julgamento exige evidência adicional.
 4. Descoberta real em buscadores/agentes: testes técnicos não comprovam indexação, ranking ou citação. Search Console/telemetria não disponíveis nesta auditoria.
 
-Mudanças locais após v23, ainda não publicadas: documentação e auditoria; fichas nacionais com empenhos/pagos e estudos em detalhes expansíveis, progresso somente para medição única válida de consulta completa. Cache v2 consulta quatro endpoints em paralelo. Testes de cache 3/3, TypeScript e lint passaram. Validação de renderização/latência e publicação pendentes.
+Incremento v24 publicado: fichas nacionais com empenhos/pagos e estudos em detalhes expansíveis, progresso somente para medição única válida de consulta completa. Cache v2 consulta quatro endpoints em paralelo. Testes de cache 3/3, nacionais 4/4, TypeScript, lint e build passaram. Comparação fonte versus HTML inicial em 12 fichas: 81 valores conferidos (77 contratuais/financeiros + quatro tipos de estudo). Dez IDs sistemáticos e dois casos dirigidos, não estimativa de cobertura nacional. A primeira rodada sem cache para nove novos IDs teve respostas de 190–475 ms; repetições 10–16 ms no preview local. Tempos não representam produção ou carga concorrente. Mobile 360: detalhes financeiros expandidos por teclado sem overflow. Nenhum preview ou workflow ativo.
