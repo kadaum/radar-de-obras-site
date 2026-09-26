@@ -1,6 +1,7 @@
 import enrichment from '@/lib/work-enrichment.json';
 import Link from 'next/link';
 import { formatDate } from '@/lib/organic';
+import { PiritubaContractContext } from './pirituba-contract-context';
 
 type RecordItem = {
   id: string;
@@ -92,6 +93,7 @@ export function WorkEnrichment({ id }: { id: string }) {
         {contract.officialUrl && <p><a href={contract.officialUrl} target="_blank" rel="noopener noreferrer">Documento de transparência do contrato ↗</a></p>}
       </article>)}</div> : <p>Nenhum contrato foi retornado pela API para este ID. Isso não prova que não houve contratação.</p>}
       <p className="source-caption">Fonte: contratos vinculados no Obrasgov. Valor global contratual, investimento previsto e pagamento são medidas diferentes.</p>
+      <PiritubaContractContext id={id} />
     </section>
     <section className="enrichment-section" aria-labelledby="commitments-title">
       <h2 id="commitments-title">Empenhos e estudos</h2>

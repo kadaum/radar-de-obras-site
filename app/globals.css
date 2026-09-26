@@ -175,7 +175,7 @@ body {
 .download-grid b { margin-top:12px; }
 .city-chips { display:flex; flex-wrap:wrap; gap:9px; margin:20px 0 30px; }
 .city-chips a { background:#fff; padding:9px 12px; border:1px solid #d1dacf; border-radius:30px; text-decoration:none; font-size:14px; }
-.city-chips span { color:#6d8673; font-size:12px; font-weight:800; }
+.city-chips span { color:#52665a; font-size:12px; font-weight:800; }
 .survey-table caption { text-align:left; padding:15px; font-weight:700; }
 .survey-table tfoot { font-weight:800; background:#edf3e9; }
 .dictionary { min-width:600px; }
@@ -183,7 +183,10 @@ body {
 .discovery-footer p { font-size:13px; max-width:480px; margin:7px 0 0; }
 .discovery-footer nav { display:flex; flex-wrap:wrap; gap:14px; align-content:start; max-width:430px; }
 .discovery-footer a { color:#c8eb9d; font-size:13px; }
-.discovery :focus-visible,.map-topbar :focus-visible { outline:3px solid #6bbd88; outline-offset:3px; }
+.discovery :focus-visible,.map-topbar :focus-visible { outline:3px solid #175a43; outline-offset:3px; }
+.discovery-header :focus-visible,.discovery-footer :focus-visible,.map-topbar :focus-visible { outline-color:#a8dbb8; }
+.skip-link { position:absolute; top:8px; left:20px; z-index:10000; padding:12px 16px; background:#fff; color:#175a43; border:2px solid #175a43; border-radius:6px; transform:translateY(-180%); }
+.skip-link:focus { transform:translateY(0); }
 @media(max-width:700px){.header-inner{align-items:flex-start; flex-direction:column; gap:10px}.discovery-header nav{gap:9px 15px}.discovery-header .map-button{padding:5px 9px}.discovery-main{padding:25px 18px 60px}.breadcrumbs{padding:14px 18px 0}.fact-grid{grid-template-columns:1fr}.pilot-links,.detail-grid,.guide-grid,.download-grid{grid-template-columns:1fr}.section-heading{align-items:start;flex-direction:column}.map-topbar{padding:7px 10px;font-size:12px;flex-wrap:wrap}.map-topbar div{gap:8px 13px}.work-facts strong{font-size:19px}.evidence-note{padding:14px 15px}}
 @media(max-width:390px){.map-topbar{font-size:11px}.map-topbar-brand{font-size:12px}.discovery-header nav{font-size:12px;gap:8px 11px}.brand{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.city-card{transition:none}.city-card:hover{transform:none}}
