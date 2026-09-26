@@ -4,7 +4,7 @@ Este resumo prevalece sobre as entradas históricas de improvement-goal.md. Goal
 
 ## Publicado
 
-v25, commit c0a7f03d43d637c44f9e57df9267264375558522, deploy appgdep_6ab73f126c548191b95aaf131f587865, succeeded 03:42:23 UTC. Público preservado; Google não implementado. Carga validada 25/09/2026 com 153.756 projetos. Nenhum coletor ou preview local está ativo.
+v26, commit fe124a18f2b34792f75beac287140bfe6af7e52f, deploy appgdep_6ab740c20a3c8191b1549d984559b143, succeeded 03:49:34 UTC. Público preservado; Google não implementado. Carga validada 25/09/2026 com 153.756 projetos. Nenhum coletor ou preview local está ativo.
 
 - Fichas nacionais SSR, política de indexabilidade e quatro sitemaps nacionais; 153.289 URLs nacionais elegíveis mais 22 centrais.
 - Taxonomia oficial com ícones e tipo derivado conservador separado, recalculado da fonte. 24.925 correspondências; resto abstém. Avaliação limitada documentada.
@@ -36,3 +36,7 @@ Incremento v24 publicado: fichas nacionais com empenhos/pagos e estudos em detal
 Índice nacional de proximidade publicado, recalculado no build: 145.031 projetos com até três registros a 5 km; 420.150 vínculos. Todos os vínculos validados por integridade e 35 casos comparados com busca exaustiva. HTML de três fichas conferido; mobile 360px sem overflow e navegação por teclado para ficha próxima confirmada. Distância entre pontos aproximados/administrativos não comprova localização física. Fichas piloto mantêm seleção no recorte das cidades; nacionais usam novo índice. Build, tipos e lint passaram; preview encerrado.
 
 Automação semanal autoritativa confirmada ACTIVE em 26/09: acompanhar-radar-de-obras-por-90-dias, término 23/12/2026. Coordenação executada pelo Codex; não é cron autônomo na hospedagem. Runbook atualizado. O maior pacote tem 255.528.960 bytes expandidos, ainda abaixo do limite de 256 MiB; monitorar crescimento nas próximas cargas.
+
+## Incremento v26
+
+Lista usa somente sua própria busca e filtros: sidebar duplicado oculto no modo lista, contador no cabeçalho, botão Limpar busca e filtros. Mobile 390px sem overflow; busca Pirituba→resumo→fechar→limpar testados por teclado; resultado único e retorno a 153.756 confirmados. Build/lint/tsc passaram. Publicação succeeded. Mouse segue não verificado: ações do navegador não dispararam busca de forma confiável; não confundir limitação da automação com prova de defeito no produto. Formulário em produção observado inicialmente disabled durante carregamento; tentativa de inspeção final não teve resultado estável, sem conclusão nova de disponibilidade. Nenhum envio feito. Preview encerrado. Pacote 257.751.040 bytes, 533 arquivos; ativos antigos acumulados precisam de limpeza controlada antes de atingir 256 MiB.
