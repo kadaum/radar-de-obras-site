@@ -17,7 +17,7 @@ export function ContributionForm({ workId }: { workId: string }) {
     const form=event.currentTarget; const values=new FormData(form);
     setState('sending');setMessage('');
     try {
-      const response=await fetch('/api/contributions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({workId,kind,message:values.get('message'),observedOn:values.get('observedOn'),sourceUrl:values.get('sourceUrl'),website:values.get('website')})});
+      const response=await fetch('/api/contributions',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({workId,kind,message:values.get('message'),observedOn:values.get('observedOn'),sourceUrl:values.get('sourceUrl'),website:values.get('website'),email:values.get('email'),marketingConsent:values.get('marketingConsent')==='on'})});
       const result=await response.json() as { error?:string; receipt?:string };
       if(!response.ok)throw new Error(result.error || 'Não foi possível enviar. Tente novamente.');
       setMessage('Recebido para análise. Protocolo '+result.receipt+'. A contribuição ainda não foi publicada.');setState('success');form.reset();
@@ -29,8 +29,11 @@ export function ContributionForm({ workId }: { workId: string }) {
       <label htmlFor="contribution-kind">O que você quer informar?</label><NativeSelect id="contribution-kind" value={kind} onChange={e=>setKind(e.target.value)}><option value="correction">Corrigir uma informação</option><option value="observation">Informar o andamento observado</option><option value="public_source">Indicar foto ou documento público</option></NativeSelect>
       <label htmlFor="contribution-message">Conte o que você sabe</label><Textarea id="contribution-message" name="message" required minLength={20} maxLength={2000} rows={3} placeholder="Qual informação precisa mudar? O que você observou?" />
       <div className="contribution-fields"><div><label htmlFor="contribution-date">Data da observação{kind==='observation'?'':' (opcional)'}</label><Input id="contribution-date" name="observedOn" type="date" required={kind==='observation'} max={new Date().toISOString().slice(0,10)} /></div><div><label htmlFor="contribution-url">Link público{kind==='public_source'?'':' (opcional)'}</label><Input id="contribution-url" name="sourceUrl" type="url" maxLength={1500} required={kind==='public_source'} placeholder="https://" /></div></div>
+      <label htmlFor="contribution-email">Seu e-mail (opcional)</label><Input id="contribution-email" name="email" type="email" autoComplete="email" maxLength={254} placeholder="voce@exemplo.com" aria-describedby="contribution-email-help"/>
+      <p id="contribution-email-help" className="contribution-policy">Fica privado e pode ser usado para responder à sua contribuição. Não verificamos este endereço e não criamos uma conta.</p>
+      <label className="contribution-optin"><input type="checkbox" name="marketingConsent"/> <span>Quero receber por e-mail novidades e ofertas de Ricardo Guia relacionadas aos seus projetos. É opcional e posso pedir para parar a qualquer momento.</span></label>
       <div className="form-trap" aria-hidden="true"><label htmlFor="contribution-website">Deixe vazio</label><input id="contribution-website" name="website" tabIndex={-1} autoComplete="off" /></div>
-      <p className="contribution-policy">Sem cadastro. Não inclua dados pessoais. As contribuições são revisadas antes de qualquer publicação e não alteram o status oficial automaticamente.</p>
+      <p className="contribution-policy">Sem cadastro. Não inclua dados pessoais no relato. As contribuições são revisadas antes de qualquer publicação e não alteram o status oficial automaticamente.</p>
       <Button type="submit" disabled={state==='sending'} className="contribution-submit">{state==='sending'?'Enviando…':'Enviar para análise'}</Button>
       <p role={state==='error'?'alert':'status'} aria-live="polite" className="form-message">{message}</p>
     </fieldset></form>}

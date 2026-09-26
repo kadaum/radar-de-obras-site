@@ -363,3 +363,5 @@ body {
 .map-attribution { position:absolute; bottom:0; right:0; background:#ffffffed; padding:2px 4px; font-size:12px; }
 @media(max-width:700px){.mini-map{height:220px}}
 .contribution-card fieldset { border:0; padding:0; margin:0; min-width:0; }
+
+.contribution-optin{display:flex!important;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;margin:14px 0}.contribution-optin input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:#426536}.contribution-optin span{min-width:0}

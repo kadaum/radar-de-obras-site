@@ -1,10 +1,10 @@
 # Estado atual do goal — 26/09/2026
 
-Este resumo prevalece sobre as entradas históricas de improvement-goal.md. Goal ativo; não concluído.
+Este resumo prevalece sobre as entradas históricas de improvement-goal.md. Goal bloqueado por dependência externa; não concluído.
 
 ## Publicado
 
-v26, commit fe124a18f2b34792f75beac287140bfe6af7e52f, deploy appgdep_6ab740c20a3c8191b1549d984559b143, succeeded 03:49:34 UTC. Público preservado; Google não implementado. Carga validada 25/09/2026 com 153.756 projetos. Nenhum coletor ou preview local está ativo.
+v27, commit 8d8b9e37e603d2cfd12dd9758d72513fda50f768, deploy appgdep_6ab7419e540c81918f404caed2323324, succeeded 03:53:13 UTC. Público preservado; Google não implementado. Carga validada 25/09/2026 com 153.756 projetos. Nenhum coletor ou preview local está ativo.
 
 - Fichas nacionais SSR, política de indexabilidade e quatro sitemaps nacionais; 153.289 URLs nacionais elegíveis mais 22 centrais.
 - Taxonomia oficial com ícones e tipo derivado conservador separado, recalculado da fonte. 24.925 correspondências; resto abstém. Avaliação limitada documentada.
@@ -40,3 +40,25 @@ Automação semanal autoritativa confirmada ACTIVE em 26/09: acompanhar-radar-de
 ## Incremento v26
 
 Lista usa somente sua própria busca e filtros: sidebar duplicado oculto no modo lista, contador no cabeçalho, botão Limpar busca e filtros. Mobile 390px sem overflow; busca Pirituba→resumo→fechar→limpar testados por teclado; resultado único e retorno a 153.756 confirmados. Build/lint/tsc passaram. Publicação succeeded. Mouse segue não verificado: ações do navegador não dispararam busca de forma confiável; não confundir limitação da automação com prova de defeito no produto. Formulário em produção observado inicialmente disabled durante carregamento; tentativa de inspeção final não teve resultado estável, sem conclusão nova de disponibilidade. Nenhum envio feito. Preview encerrado. Pacote 257.751.040 bytes, 533 arquivos; ativos antigos acumulados precisam de limpeza controlada antes de atingir 256 MiB.
+
+## Incremento v27
+
+Build arquiva bundles index JS/CSS antigos em .sites-runtime/map-assets-archive, preservando ativos do build atual e referências do HTML anterior ao build. Workers e arquivos sem padrão index ficam intactos. Caminhos resolvidos validados antes de mover. Primeira limpeza arquivou 13 arquivos; public/assets de 12.492.227 para 1.652.087 bytes. Pacote publicado de 257.751.040 para 246.896.640 bytes. Identidade byte a byte dos quatro ativos do build e referências HTML aprovadas, lint/build final passaram, segundo build idempotente sem novo arquivo arquivado. JS/CSS referenciados em produção responderam 200. Contribuições GET produção 200, no-store, available true. Nenhum envio ou identidade de usuário testado. Sem processos ativos.
+
+## Avaliação ampliada em produção após v27
+
+Eval nacional ampliada comparou seis campos do cadastro por ficha (situação, investimento, responsável, localização, início e término) contra snapshot, além de contratos/empenhos/estudos contra API. 12 fichas, 153 comparações aprovadas; ressalvas financeiras e de prazo presentes no HTML inicial. Todas as consultas complementares completas nesta rodada. Primeiras respostas 414–1260 ms; segundas 49–924 ms (uma resposta alta), não benchmark controlado nem Core Web Vitals. Evidência em outputs/national-records-production-2026-09-26.json.
+
+Autenticação revalidada: variáveis Sites revisão 1, somente CONTRIBUTION_NETWORK_SECRET. Skill Sites authentication.md continua exigindo confirmação de caminho para OAuth público externo; documentação/ferramentas expostas não confirmam Google. Não há cliente Google fornecido, sessão, contas ou moderação vinculada implementados. Não concluir o goal. Os testes amplificados são mudança local de avaliação, sem nova versão de produto necessária.
+
+## Bloqueio registrado
+
+Após três rodadas consecutivas com a mesma dependência de autenticação, status do goal alterado para blocked. Revalidação final: ambiente revisão 1, apenas CONTRIBUTION_NETWORK_SECRET; sem cliente Google nem confirmação do caminho OAuth externo exigida pela skill Sites. Pergunta ao proprietário permanece sem resposta. Não há processo a aguardar. Retomar com configuração/suporte resolvidos, preservando todos os critérios da delivery-audit.md. v27 segue publicada e a automação semanal é independente deste bloqueio.
+
+## Mudança de escopo de identidade pelo proprietário
+
+26/09/2026: Google substituído por login por link de e-mail. Interromper preparação no Google Cloud. Banco Sites e /admin por produto permanecem. Plano concreto e critérios em email-login-plan.md; aguardando identificar remetente/provedor gratuito e confirmar caminho da hospedagem. Não apresentar OAuth Google como dependência vigente. Nenhuma nova versão publicada.
+
+## Login adiado pelo proprietário
+
+26/09/2026: usuário pediu deixar login para depois, mantendo exigência de custo zero. Não continuar OAuth, magic link ou contratação de remetente. Motivação é captar leads; formulário opcional no banco existente é alternativa futura, ainda não implementada. Contas/admin permanecem não entregues e adiados, não declarar concluídos. Não prometer armazenamento/envio ilimitados. Não há autorização para disparos comerciais. Esta decisão suspende a frente de login, não determina pausa de todo o objetivo nem conclusão automática das demais frentes.

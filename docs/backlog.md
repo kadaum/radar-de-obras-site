@@ -1,3 +1,13 @@
+# Decisão vigente: login adiado
+
+Em 26/09/2026, após avaliar Google e magic links, o proprietário pediu deixar login para depois. Não criar provedores, contratar serviços, configurar envio ou continuar Google Cloud. Custo zero é restrição. Objetivo comercial esclarecido: captar interessados/leads; contas são um possível meio, não requisito imediato. Alternativa a discutir futuramente: formulário opcional de nome/e-mail e interesse, armazenado no D1 existente, com escolha explícita de receber contato. Não implementar coleta nova nem assumir adesão automática a marketing a partir desta anotação. Não prometer capacidade ilimitada ou verificação de identidade sem mecanismo real. Nenhum recurso pago foi ativado.
+
+As especificações abaixo e email-login-plan.md ficam adiadas, não são trabalho ativo.
+
+# Decisão vigente: login por link de e-mail
+
+Em 26/09/2026 o proprietário substituiu Google por link de acesso enviado por e-mail, mantendo custo zero. Ver [email-login-plan.md](email-login-plan.md). A especificação Google abaixo é histórica e não deve orientar novas configurações.
+
 # Fila de melhorias do Radar de Obras
 
 ## P1 — Conta com login Google para contribuições
@@ -24,4 +34,4 @@ Verificar o suporte de autenticação do ambiente Sites e selecionar a integraç
 
 ### Situação atual
 
-A versão 17 recebe contribuições sem cadastro em fila privada. Esta entrada registra a mudança solicitada; o login e a coleta de e-mails ainda não estão ativos.
+A versão 27 recebe contribuições sem cadastro em fila privada. Esta entrada registra a mudança solicitada; o login e a coleta de e-mails ainda não estão ativos.

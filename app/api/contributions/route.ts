@@ -1,6 +1,8 @@
 import { env } from 'cloudflare:workers';
 import { getWork, ORIGIN } from '@/lib/organic';
-import {networkIdentifiers,networkContext,contributionInsertSql} from '@/lib/contribution-network.mjs';
+import {networkIdentifiers,networkContext} from '@/lib/contribution-network.mjs';
+
+import {contributionContact,protectedContributionSql,contributionBindings} from '@/lib/contribution-contact.mjs';
 
 export function GET(request:Request){
  const {ip,secret}=networkContext(request,(env as unknown as {CONTRIBUTION_NETWORK_SECRET?:string}).CONTRIBUTION_NETWORK_SECRET);
@@ -26,6 +28,7 @@ export async function POST(request: Request) {
   if(!['correction','observation','public_source'].includes(body.kind))return fail('Escolha um tipo de contribuição.');
   if(typeof body.message!=='string'||body.message.trim().length<20||body.message.length>2000)return fail('Escreva entre 20 e 2.000 caracteres.');
   if(body.status!==undefined||body.reviewNote!==undefined)return fail('Campo não permitido.');
+  let contact;try{contact=contributionContact(body);}catch(error){return fail(error instanceof Error?error.message:'E-mail inválido.');}
   const observedOn=body.observedOn || null;
   if(observedOn && (typeof observedOn!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(observedOn)||!Number.isFinite(Date.parse(observedOn))||new Date(observedOn).toISOString().slice(0,10)!==observedOn||observedOn>new Date().toISOString().slice(0,10)))return fail('Informe uma data válida, até hoje.');
   if(body.kind==='observation'&&!observedOn)return fail('Informe a data da observação.');
@@ -38,8 +41,8 @@ export async function POST(request: Request) {
     const {ip,secret}=networkContext(request,(env as unknown as {CONTRIBUTION_NETWORK_SECRET?:string}).CONTRIBUTION_NETWORK_SECRET);
     if(!ip||!secret)return fail('O envio está temporariamente indisponível. Seu texto continua no formulário.',503);
     const [reporterHash,previousHash]=await networkIdentifiers(ip,secret,now);
-    const result=await env.DB.prepare(contributionInsertSql).bind(id,body.workId,body.kind,body.message.trim(),observedOn,sourceUrl,now,reporterHash,reporterHash,previousHash,now-3600000).run();
-    if(result.meta.changes!==1)return fail('Limite de envios atingido. Tente novamente em uma hora.',429);
+    const result=await env.DB.prepare(protectedContributionSql).bind(...contributionBindings({id,workId:body.workId,kind:body.kind,message:body.message,observedOn,sourceUrl,now,reporterHash,previousHash,...contact})).run();
+    if(result.meta.changes!==1)return fail('Contribuição repetida ou limite de recebimento atingido. Aguarde antes de tentar novamente.',429);
     // Retention cleanup must never turn an already-saved submission into an error.
     await env.DB.prepare("UPDATE contributions SET reporter_hash='' WHERE created_at<? AND reporter_hash<>''").bind(now-172800000).run().catch(()=>{});
     return Response.json({receipt:id},{status:201,headers:{'Cache-Control':'no-store'}});

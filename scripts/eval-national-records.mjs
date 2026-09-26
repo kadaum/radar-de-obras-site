@@ -14,10 +14,17 @@ const results=[];
 for(const id of selected){
  const start=performance.now();const response=await fetch(`${base}/obras/${id}`);const html=await response.text();const firstRequestMs=Math.round(performance.now()-start);assert.equal(response.status,200);
  const warmStart=performance.now();const warm=await fetch(`${base}/obras/${id}`);await warm.arrayBuffer();const warmMs=Math.round(performance.now()-warmStart);
+ const bucket=Math.floor(Number(id.split('.')[0])/1000);
+ const source=decodeNationalShard(JSON.parse(fs.readFileSync('public'+manifest.directory+'/'+bucket+'.json')))[id];
+ const baseFields=[...html.matchAll(/<dt>([\s\S]*?)<\/dt><dd>([\s\S]*?)<\/dd>/g)].map(m=>[clean(m[1]),clean(m[2])]);
+ const date=v=>v?v.slice(0,10).split('-').reverse().join('/'):'Não informada';
+ const expectedBase={'Situação informada':source.status||'Não informada','Investimento previsto':source.investmentTotal>0?money(source.investmentTotal):'Sem valor positivo informado','Organização responsável':source.organization||'Não informada','Localização informada':source.address||source.city||source.uf||'Não informada','Início previsto':date(source.start),'Término previsto':date(source.end)};
+ for(const [label,value] of Object.entries(expectedBase))assert.deepEqual(baseFields.filter(([key])=>key===label).map(([,v])=>v),[clean(value)],id+': '+label);
+ assert.ok(html.includes('Investimento previsto não é pagamento. Previsões vencidas não comprovam atraso.'),id);
  const section=html.match(/<section class="enrichment-section" id="contratos-andamento">([\s\S]*?)<\/section>/)?.[1];assert.ok(section,id);
  const fields=[...section.matchAll(/<dt>([\s\S]*?)<\/dt><dd>([\s\S]*?)<\/dd>/g)].map(m=>[clean(m[1]),clean(m[2])]);
  const [contracts,executions,commitments,studies]=await Promise.all(['contrato','execucao-fisica','empenho','estudo-viabilidade'].map(route=>officialRecords(route,id)));
- let comparisons=0;
+ let comparisons=Object.keys(expectedBase).length;
  for(const [result,mapping] of [[contracts,{'Empresa contratada':r=>r.fornecedor_contrato||'Não informada','CNPJ da empresa':r=>r.cnpj_fornecedor_contrato||'Não informado','Valor global do contrato':r=>money(r.valor_global_contrato)}],[commitments,{'Credor':r=>r.credor||'Não informado','Valor do empenho':r=>money(r.valor_empenho),'Pago informado':r=>money(r.pago),'Restos a pagar pagos':r=>money(r.rppago)}]]){
   if(!result.complete)continue;
   for(const [label,getValue] of Object.entries(mapping)){const actual=fields.filter(([key])=>key===label).map(([,v])=>v);const expected=result.rows.map(r=>clean(String(getValue(r))));assert.deepEqual(actual,expected,`${id}: ${label}`);comparisons+=expected.length;}
