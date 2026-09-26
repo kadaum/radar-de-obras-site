@@ -4,7 +4,7 @@ Este resumo prevalece sobre as entradas históricas de improvement-goal.md. Goal
 
 ## Publicado
 
-v24, commit b32e1cac18600f45f39aa3d88672d8a0cec74871, deploy appgdep_6ab73db052fc81919de62686c3d0da9d, succeeded 03:36:26 UTC. Público preservado; Google não implementado. Carga validada 25/09/2026 com 153.756 projetos. Nenhum coletor ou preview local está ativo.
+v25, commit c0a7f03d43d637c44f9e57df9267264375558522, deploy appgdep_6ab73f126c548191b95aaf131f587865, succeeded 03:42:23 UTC. Público preservado; Google não implementado. Carga validada 25/09/2026 com 153.756 projetos. Nenhum coletor ou preview local está ativo.
 
 - Fichas nacionais SSR, política de indexabilidade e quatro sitemaps nacionais; 153.289 URLs nacionais elegíveis mais 22 centrais.
 - Taxonomia oficial com ícones e tipo derivado conservador separado, recalculado da fonte. 24.925 correspondências; resto abstém. Avaliação limitada documentada.
@@ -30,3 +30,9 @@ v24, commit b32e1cac18600f45f39aa3d88672d8a0cec74871, deploy appgdep_6ab73db052f
 4. Descoberta real em buscadores/agentes: testes técnicos não comprovam indexação, ranking ou citação. Search Console/telemetria não disponíveis nesta auditoria.
 
 Incremento v24 publicado: fichas nacionais com empenhos/pagos e estudos em detalhes expansíveis, progresso somente para medição única válida de consulta completa. Cache v2 consulta quatro endpoints em paralelo. Testes de cache 3/3, nacionais 4/4, TypeScript, lint e build passaram. Comparação fonte versus HTML inicial em 12 fichas: 81 valores conferidos (77 contratuais/financeiros + quatro tipos de estudo). Dez IDs sistemáticos e dois casos dirigidos, não estimativa de cobertura nacional. A primeira rodada sem cache para nove novos IDs teve respostas de 190–475 ms; repetições 10–16 ms no preview local. Tempos não representam produção ou carga concorrente. Mobile 360: detalhes financeiros expandidos por teclado sem overflow. Nenhum preview ou workflow ativo.
+
+## Incremento v25
+
+Índice nacional de proximidade publicado, recalculado no build: 145.031 projetos com até três registros a 5 km; 420.150 vínculos. Todos os vínculos validados por integridade e 35 casos comparados com busca exaustiva. HTML de três fichas conferido; mobile 360px sem overflow e navegação por teclado para ficha próxima confirmada. Distância entre pontos aproximados/administrativos não comprova localização física. Fichas piloto mantêm seleção no recorte das cidades; nacionais usam novo índice. Build, tipos e lint passaram; preview encerrado.
+
+Automação semanal autoritativa confirmada ACTIVE em 26/09: acompanhar-radar-de-obras-por-90-dias, término 23/12/2026. Coordenação executada pelo Codex; não é cron autônomo na hospedagem. Runbook atualizado. O maior pacote tem 255.528.960 bytes expandidos, ainda abaixo do limite de 256 MiB; monitorar crescimento nas próximas cargas.
