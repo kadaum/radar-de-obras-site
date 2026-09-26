@@ -27,11 +27,12 @@ void test('national HTML answers core questions without JS or the upstream API',
 void test('reported impact remains attributed and secondary, including implausible source values',async()=>{
  const response=await fetch(`${base}/obras/13421.16-84`);assert.equal(response.status,200);
  const html=await response.text();
- const impact=html.match(/<details class="record-details"><summary>População e empregos declarados<\/summary>[\s\S]*?<\/details>/)?.[0];
+ const impact=html.match(/<details class="record-details"><summary>População e empregos declarados<\/summary>[\s\S]*?Não usamos esses números[\s\S]*?<\/details>/)?.[0];
  assert.ok(impact);assert.ok(impact.includes('1.213.647.762'));assert.ok(impact.includes('erros de escala'));
+ assert.ok(impact.includes('Valor atípico — requer verificação'));assert.ok(impact.includes('não prova de erro'));
  assert.ok(!html.match(/<header[\s\S]*?<\/header>/)?.[0].includes('1.213.647.762'));
  assert.ok(html.includes('© OpenStreetMap contributors'));
- const hub=await (await fetch(`${base}/obras`)).text();assert.ok(hub.includes('Buscar uma obra na lista nacional'));assert.ok(hub.includes('153.703'));
+ const hub=await (await fetch(`${base}/obras`)).text();assert.ok(hub.includes('Buscar uma obra na lista nacional'));assert.ok(hub.includes(snapshot.total.toLocaleString('pt-BR')));
  const llms=await (await fetch(`${base}/llms.txt`)).text();assert.ok(llms.includes('/sitemap-index.xml'));assert.ok(!llms.includes('dez projetos com ID'));
 });
 void test('national sitemap matches completeness policy for every record',()=>{

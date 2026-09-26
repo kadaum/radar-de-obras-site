@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "sourceLoad": "2026-09-25T00:00:00",
+  "percentile": 99.5,
+  "fields": {
+    "beneficiaries": {
+      "positiveRecords": 18914,
+      "threshold": 1954528,
+      "flagged": 94
+    },
+    "jobs": {
+      "positiveRecords": 16095,
+      "threshold": 3000,
+      "flagged": 75
+    }
+  }
+}

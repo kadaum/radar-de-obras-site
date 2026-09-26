@@ -1,5 +1,16 @@
 # Goal de evolução do Radar de Obras
 
+## Estado confirmado em 26/09/2026
+
+- Incremento local posterior: controle de qualidade das contagens de impacto recalculado no build. Inteiros negativos/fracionários são inconsistentes; acima do percentil 99,5 das contagens positivas de cada campo, sinalização estatística com original em detalhe adicional. Não confirma erro nem certifica valores não sinalizados. Duas avaliações de qualidade, quatro nacionais, TypeScript/lint/build e navegação mobile 360px passaram. Ainda não publicado; evidência em outputs/impact-quality-validation-2026-09-26.md, fora do checkout.
+
+- Publicado: v21, commit `daba71396b3962ef0afd280dd65fe33dcde40e95`, deploy `appgdep_6ab73479322c8191b64bc76a5d682ed1`, confirmado succeeded às 02:57:08 UTC. As seções incrementais abaixo são histórico e não substituem este estado.
+- Entregas acumuladas v19–21: fichas nacionais SSR, taxonomia oficial amigável, seis regras conservadoras de tipo derivado, fontes/contexto/mapas, proteção de contribuições, navegação e acessibilidade, documentação financeira histórica de Pirituba.
+- Carga pública: 24/09/2026. Coleta candidata 25/09 ativa na sessão 57382: projetos concluídos, geometria chegou à página 100 de 1199. Não reiniciar ou promover sem término e validação.
+- Correção local posterior à v21: sitemap nacional deixou de inventar lastmod usando a data de coleta. Campo opcional omitido até existir histórico por página que cubra alterações materiais. Teste de todas as URLs elegíveis passou (153.235). Ainda requer build/publicação junto ao próximo incremento.
+- Referência desta correção: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap — lastmod deve representar atualização significativa verificável.
+- Pendências explícitas: Google e ciclo de contas/moderação; concluir atualização coerente; controles de plausibilidade dos indicadores de impacto; QA restante de fluxos, zoom e acessibilidade; revisão do escopo nacional de contratos/empenhos e limitações; auditoria final requisito por requisito. Não concluir o goal com base apenas nos testes existentes.
+
 Aberto em 25/09/2026 por solicitação do proprietário. Status: ativo. Base publicada: versão 18, commit b50eafe79397f73639cf5d926d4c98cf1844d425. Domínio e leitura pública devem ser preservados.
 
 ## Resultado esperado
