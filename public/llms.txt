@@ -3,13 +3,13 @@
 Leitura independente de registros da API pública Obrasgov. A cobertura descreve o cadastro consultado, não todas as obras do Brasil. Valores são investimentos previstos; situação e datas são informadas pela fonte.
 
 - [Cidades](https://radar-obras.ricardoguia.com/cidades): cinco recortes piloto.
-- [Fichas de obras](https://radar-obras.ricardoguia.com/obras): entrada para as fichas do cadastro nacional, com uma seleção de dez projetos com contexto adicional. Fichas nacionais seguem /obras/{id}; os dez projetos selecionados usam também um slug, com redirecionamento canônico.
-- [Metodologia](https://radar-obras.ricardoguia.com/metodologia): coleta, cobertura, validação e limites.
-- [Guia de interpretação](https://radar-obras.ricardoguia.com/guia-de-interpretacao): como ler situação, previsão, valor e localização.
+- [Fichas de obras](https://radar-obras.ricardoguia.com/obras): fichas do cadastro nacional e uma seleção de dez projetos com contexto adicional. Fichas nacionais seguem /obras/{id}; os projetos selecionados também usam um slug, com redirecionamento canônico.
+- [Metodologia](https://radar-obras.ricardoguia.com/metodologia): coleta, cobertura, validação, classificação derivada e limites.
+- [Guia de interpretação](https://radar-obras.ricardoguia.com/guia-de-interpretacao): situação, previsão, valor e localização.
 - [Dados e downloads](https://radar-obras.ricardoguia.com/dados): CSV e JSON das dez fichas, com dicionário.
-- [Levantamento](https://radar-obras.ricardoguia.com/levantamento): comparação reproduzível dos cinco recortes.
-- [Índice de sitemaps](https://radar-obras.ricardoguia.com/sitemap-index.xml): páginas editoriais e fichas nacionais elegíveis para indexação.
+- [Levantamento](https://radar-obras.ricardoguia.com/levantamento): comparação dos cinco recortes.
+- [Índice de sitemaps](https://radar-obras.ricardoguia.com/sitemap-index.xml): páginas editoriais e fichas nacionais elegíveis.
 
-As fichas entregam texto, classificação oficial, responsáveis e fontes em HTML. Seções expansíveis preservam o conteúdo no HTML. A data do cadastro e a data da consulta complementar são distintas. Consulta indisponível não comprova ausência de contrato ou medição. Executor e tomador do cadastro não identificam necessariamente a empresa contratada. Investimento previsto, valor contratual e pagamento são medidas diferentes. População e empregos são números declarados sem confirmação independente. Não há avaliação publicada de sobrepreço.
+As fichas entregam texto, classificação oficial, responsáveis e fontes em HTML. Seções expansíveis preservam o conteúdo no HTML. Tipo identificado no título é uma indicação derivada por regras fixas, separada da taxonomia oficial; não confirma entrega, funcionamento ou escopo completo. A data do cadastro e a data da consulta complementar são distintas. Consulta indisponível não comprova ausência de contrato ou medição. Executor e tomador não identificam necessariamente a empresa contratada. Investimento previsto, valor contratual e pagamento são medidas diferentes. População e empregos são números declarados sem confirmação independente. Não há avaliação publicada de sobrepreço.
 
 Fonte oficial: https://www.gov.br/obrasgov/pt-br/ferramentas-de-gestao-e-transparencia/api-de-dados-abertos-obrasgov-br_novo

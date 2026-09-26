@@ -158,3 +158,12 @@ Registrar por gate: comando ou procedimento, ambiente, casos, resultado, evidên
 - Build passou de 306.146.963 para 241.019.372 bytes. eval-national-fiches agora compara também cada campo de contexto reconstruído com source-data para todos os 153.703 IDs: 4/4 aprovado. Saúde 44 recursos sem falhas; TypeScript/lint aprovados.
 - Arquivos intermediários antigos preservados em .sites-runtime e retirados do pacote. Estado local D1 do preview também preservado fora de dist. Preview agora usa --persist-to fora da saída de build; não empacotar SQLite de testes.
 - Windows: workflow requer Git Bash no PATH do processo e TAR_OPTIONS=--force-local para o caminho absoluto com letra de unidade. Nenhuma mudança no PATH global ou nos scripts do plugin.
+
+### Classificação derivada conservadora — integração local
+
+- Código congelado da avaliação incorporado sem ampliar regras: SHA256 660ee1ffe8dc899b7e27344bf58a039f4a384bf5485cd8cc49d5ebba85613d12 (LF). Seis classes: UBS, UPA, CAPS, creche/educação infantil, restaurante/refeitório, biblioteca.
+- Detalhe nativo "Tipo identificado no título" preserva o nome cadastrado e separa a interpretação da taxonomia oficial. Metodologia explica regra, amostra, repetição textual e ausência de validação externa. Nenhuma afirmação de100% de precisão.
+- Recalculado a partir do título em cada renderização; atualização validada da fonte não exige recategorizar manualmente. Snapshot24/09:24925 correspondências,128778 abstinências. Cobertura não equivale a precisão.
+- eval-derived-types.mjs 4/4: hash congelado,140 casos da avaliação, regressões locativas, troca de título, cobertura nacional e HTML. TypeScript/lint aprovados. Em390x844, detalhe abriu por Enter, foco visível, largura375 sem overflow.
+- Corrigido gerador de llms.txt, que ainda continha texto antigo do piloto e sobrescreveria a descrição nacional no refresh. Gerador de descoberta incorporado ao build.
+- Nova coleta em execução: sessão57382, candidato .sites-runtime/organic-candidate-21iOgC. Última observação confirmou página100 de769 de projeto-investimento,20200 registros. Não promover antes do relatório validated e dos gates; nenhum dado novo foi publicado.

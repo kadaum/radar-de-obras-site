@@ -5,6 +5,7 @@ import { DiscoveryShell, PageSchema } from '@/components/discovery';
 import { EvidenceNote, TechnicalSources, WorkEnrichment } from '@/components/work-enrichment';
 import { WorkOverview, WorkLocation, WorkPublicContext } from '@/components/work-overview';
 import { ContributionForm } from '@/components/contribution-form';
+import { DerivedWorkType } from '@/components/derived-work-type';
 import { WorkClassification } from '@/components/work-classification';
 import { cityPath, data, displayNames, formatDate, getWork, mapLink, workPath, workSlugs } from '@/lib/organic';
 import { pageMetadata } from '@/lib/metadata';
@@ -29,6 +30,7 @@ export default async function WorkPage({params}:Props){
         <WorkPublicContext id={id} />
         <section className="description-section"><h2>Sobre o projeto</h2><details className="record-details"><summary>Descrição completa e nome no cadastro</summary><p>{detail.description || 'A API consultada não informou uma descrição complementar para este projeto.'}</p>{work.name !== detail.description && <p><strong>Nome cadastrado:</strong> {work.name}</p>}<p><strong>Órgão:</strong> {work.organization || 'Não informado'}</p><p className="context-note">Descrição transcrita do cadastro. Não é verificação independente da execução.</p></details></section>
         <WorkEnrichment id={id} />
+        <DerivedWorkType title={work.name}/>
         <section className="description-section"><h2>Datas informadas</h2><dl className="detail-list"><div><dt>Início previsto</dt><dd>{formatDate(work.start)}</dd></div><div><dt>Término previsto</dt><dd>{formatDate(work.end)}</dd></div><div><dt>Início efetivo</dt><dd>{formatDate(detail.actualStart)}</dd></div><div><dt>Término efetivo</dt><dd>{formatDate(detail.actualEnd)}</dd></div></dl><p className="context-note">Consulta complementar em {formatDate(detail.checkedAt)}. {inconsistent?'A data efetiva fornecida é anterior ao início previsto no snapshot. ':''}Previsões vencidas não comprovam atraso; situação e datas podem estar desatualizadas ou inconsistentes.</p></section>
         <ContributionForm workId={id} />
         <section className="provenance"><h2>Fonte e atualização</h2><dl className="detail-list"><div><dt>ID estável na fonte</dt><dd>{id}</dd></div><div><dt>Sistema informado</dt><dd>{detail.sourceSystem || 'Não informado'}</dd></div><div><dt>Tipo informado</dt><dd>{detail.intervention || 'Não informado'}</dd></div><div><dt>Snapshot de projetos</dt><dd>{formatDate(data.source.collectedAt)}</dd></div><div><dt>Valores coletados</dt><dd>{formatDate(data.source.investmentCollectedAt)}</dd></div><div><dt>Detalhe consultado</dt><dd>{formatDate(detail.checkedAt)}</dd></div></dl><p>Fonte: API pública Obrasgov, projeto {id}. {detail.snapshotDifference?'A consulta complementar difere de um ou mais campos do snapshot; esta ficha rotula cada período.':'Os campos principais conferem com a consulta complementar realizada.'}</p><TechnicalSources id={id} /></section>

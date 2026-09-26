@@ -1,0 +1,4618 @@
+{
+  "version": "holdout-v1",
+  "classifier_version": "direct-object-prototype-0.2",
+  "frozen_rule_sha256": "660ee1ffe8dc899b7e27344bf58a039f4a384bf5485cd8cc49d5ebba85613d12",
+  "rule_hash_unchanged": true,
+  "method": {
+    "seed": "holdout-v1",
+    "selection": "SHA256(holdout-v1|id), 20 per class +20 rejected with difficult context",
+    "excluded_prior_ids": 89,
+    "prior_overlap": 0,
+    "note": "Holdout por IDs em relação aos89 projetos da review-v2. O mesmo agente leu títulos e descrições completos e conhecia as regras; não há cegamento, anotador independente ou verdade documental externa. Alguns padrões e possíveis registros foram vistos em exploração anterior. Regras não ajustadas após seleção.",
+    "semantic_target": "Indicação do equipamento que é objeto da intervenção, incluindo reforma interna; não classificar simples destino/local beneficiado. Não implica construção integral, entrega ou funcionamento.",
+    "negatives": "20 casos rejeitados pelo algoritmo com palavras de equipamento e contexto difícil; são candidatos negativos, não negativos verdadeiros por definição. Revisão revelou perdas de cobertura.",
+    "pool_counts_excluding_prior": {
+      "ubs": 22263,
+      "upa": 857,
+      "restaurante": 164,
+      "creche": 1435,
+      "biblioteca": 66,
+      "caps": 123
+    },
+    "hard_negative_pool": 124
+  },
+  "positive_summary": {
+    "n": 120,
+    "supported": 120,
+    "incorrect": 0,
+    "uncertain": 0,
+    "source_conflicts_other_dimensions": 3,
+    "warning": "120/120 é somente resultado observado, não garantia de100% ou estimativa independente de acurácia real. Repetição de títulos reduz diversidade semântica."
+  },
+  "negative_summary": {
+    "n": 20,
+    "correct_rejection": 2,
+    "missed_supported": 16,
+    "uncertain": 2,
+    "warning": "Seleção propositalmente difícil; não permite estimar recall ou especificidade nacional."
+  },
+  "by_class": [
+    {
+      "class": "ubs",
+      "n": 20,
+      "supported": 20,
+      "incorrect": 0,
+      "uncertain": 0,
+      "sample_supported_fraction": 1,
+      "distinct_exact_titles": 4
+    },
+    {
+      "class": "upa",
+      "n": 20,
+      "supported": 20,
+      "incorrect": 0,
+      "uncertain": 0,
+      "sample_supported_fraction": 1,
+      "distinct_exact_titles": 2
+    },
+    {
+      "class": "caps",
+      "n": 20,
+      "supported": 20,
+      "incorrect": 0,
+      "uncertain": 0,
+      "sample_supported_fraction": 1,
+      "distinct_exact_titles": 1
+    },
+    {
+      "class": "creche",
+      "n": 20,
+      "supported": 20,
+      "incorrect": 0,
+      "uncertain": 0,
+      "sample_supported_fraction": 1,
+      "distinct_exact_titles": 20
+    },
+    {
+      "class": "restaurante",
+      "n": 20,
+      "supported": 20,
+      "incorrect": 0,
+      "uncertain": 0,
+      "sample_supported_fraction": 1,
+      "distinct_exact_titles": 20
+    },
+    {
+      "class": "biblioteca",
+      "n": 20,
+      "supported": 20,
+      "incorrect": 0,
+      "uncertain": 0,
+      "sample_supported_fraction": 1,
+      "distinct_exact_titles": 20
+    }
+  ],
+  "recommendation": "As seis regras congeladas podem ser usadas como indicação derivada explicitamente rotulada e rastreável, preservando taxonomia oficial. Manter abstenção e alertas; não ampliar sintaxe com base neste holdout sem nova versão e nova avaliação.",
+  "cases": [
+    {
+      "id": "142726.25-07",
+      "title": "AMPLIAÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "AMPLIAÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "0000a05da23abbdab6b191db88ad48e0664d1ce5b3ed41ee6a4415a4a82d0a0e",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "AMPLIACAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 1,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "56033.31-87",
+      "title": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "00042a8c3c80092d6bf4d41d6d978259e523e2d15b986c56670cf06931eb82f8",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Saúde",
+          "id_tipo": 39,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 2,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "151175.42-59",
+      "title": "IMPLANTACAO UBS",
+      "description": "IMPLANTACAO UBS",
+      "hash": "0006bc3484dd150ef7452ced86ef0a8e0b2f79dc47994ad08e5c1b343a9073bc",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UBS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 3,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "49542.31-06",
+      "title": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "000b9253857393d274e7a39005dce4c0cc01fc1eb2ef92ea56ddd1dedca8d306",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Saúde",
+          "id_tipo": 39,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 4,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "143458.43-65",
+      "title": "AMPLIAÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "AMPLIAÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "0018aed42653af715e089a4a6d974cd84707cb0d0c76011d3d3f6692a196a3f7",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "AMPLIACAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 5,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "145878.35-96",
+      "title": "REFORMA DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "REFORMA DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "001ffd1b4411e4b87b70455f521cc09ac784e9c902e3f6dbe48204de5b262d7c",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 6,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "49085.13-41",
+      "title": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "0020187acabc58c490d2c66f342807925534f8a05e8f76809dd71829797f1ab2",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Saúde",
+          "id_tipo": 39,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 7,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "155450.23-58",
+      "title": "IMPLANTACAO UBS",
+      "description": "IMPLANTACAO UBS",
+      "hash": "002328be0fd5eee80bc7e879abc24cb99f755f7aac961f38b9b65abebfaa4b06",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UBS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 8,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "161417.43-16",
+      "title": "IMPLANTACAO UBS",
+      "description": "IMPLANTACAO UBS",
+      "hash": "0024f829b08fa688a1af65a7fc3a1588ac9cd62ec94b3f23407b931239facece",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UBS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 9,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "48533.23-40",
+      "title": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "00262d47b50f9ea422e9a099893d535f60a850df5a022c39ac67052f9eab8a67",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Saúde",
+          "id_tipo": 39,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 10,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "47109.25-83",
+      "title": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "002664834037e392768f9dfedf14612f73d55f86216ac0a9355d60ac6ad3ecad",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Saúde",
+          "id_tipo": 39,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 11,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "49433.29-78",
+      "title": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "002709760ef9e78947fb21df398519d10eef351ecc28727923ec72654c189b13",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Saúde",
+          "id_tipo": 39,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 12,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "143005.50-51",
+      "title": "AMPLIAÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "AMPLIAÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "0034120c6c1ffd3bbdb949825f44ff911cb48ec80d3b1d353afc6cd624bbf183",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "AMPLIACAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 13,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "155595.52-48",
+      "title": "IMPLANTACAO UBS",
+      "description": "IMPLANTACAO UBS",
+      "hash": "003f2d8be80466faf91b7a51c765178eeabf0196b4a65fb91d54a1ce0c7f1c8b",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UBS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 14,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "157115.31-01",
+      "title": "IMPLANTACAO UBS",
+      "description": "IMPLANTACAO UBS",
+      "hash": "0043b4c159971818ee87f78b2748fc3fe4b0219d62440298e8770e8dbdd79b1f",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UBS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 15,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "156638.21-54",
+      "title": "IMPLANTACAO UBS",
+      "description": "IMPLANTACAO UBS",
+      "hash": "0043dfbf7d7db0eed24766758565f75170743820c89bbc57424d9d167bf94155",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UBS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 16,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "156442.21-03",
+      "title": "IMPLANTACAO UBS",
+      "description": "IMPLANTACAO UBS",
+      "hash": "0045788e114a4286803c661168d109603fa619a063d2941b7f68c7d7c3dba171",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UBS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 17,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "49797.42-20",
+      "title": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "CONSTRUÇÃO DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "004666b667ab58349ee5c3e29b443f14ec8c172d7a357dab59b67d177557eac4",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Saúde",
+          "id_tipo": 39,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 18,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "63284.33-18",
+      "title": "REFORMA DE UNIDADE BÁSICA DE SAÚDE",
+      "description": "REFORMA DE UNIDADE BÁSICA DE SAÚDE",
+      "hash": "00469afa11ee1c64e6783cae7d8d4930fe3d732ff689d13fcdce431a29eddaa5",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DE UNIDADE BASICA DE SAUDE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 19,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "157133.31-13",
+      "title": "IMPLANTACAO UBS",
+      "description": "IMPLANTACAO UBS",
+      "hash": "0047973222d68113f646fd334d7860072991309e4a9d819c052dc2d11b680d08",
+      "labels": [
+        {
+          "id": "ubs",
+          "label": "Unidade básica de saúde",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-ubs",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UBS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UBS",
+          "id_subtipo": 10
+        }
+      ],
+      "stratum": "ubs",
+      "index": 20,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "146818.29-06",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "00b599577dfe708662d6261cc0669f6c7880e3a44b8bd5bfbdd3a102520bcbe6",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 21,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "160013.41-50",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "013a9eaab7e5801a87b5a9791b4e88b09c9b73ed879aac4de66ce1f546cc5080",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 22,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "152195.29-56",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "01a28ea84b071a9c2daff591ba2b3e1deabbcd9a91bd3c501b457e3997dfb395",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 23,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "155564.32-64",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "03014bd7da99388a43dd3ba21d421678ff958402d0bd28142af631ba7c8b9648",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 24,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "155223.23-00",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "03215aaa01ca8f42f6f558ea13cbe1e48973248992bc0132f766c5761d291874",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 25,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "150422.35-00",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "03c9a62ddb8d7cd98bf936bb075b88c6f0484007a1e13f262c656445fe655ef9",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 26,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "151581.35-29",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "03ec8aa9c088f23a695e4d0649d0683d94a8510a32183f254ce7b1469baa93ee",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 27,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "47049.31-61",
+      "title": "CONSTRUÇÃO DE UNIDADE DE PRONTO ATENDIMENTO - PORTE II",
+      "description": "CONSTRUÇÃO DE UNIDADE DE PRONTO ATENDIMENTO - PORTE II",
+      "hash": "04b888cddcfc2b555c1ddc7aab5bf5aebee07cfa6c9cb940b11f6b6b414a555e",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE UNIDADE DE PRONTO ATENDIMENTO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Saúde",
+          "id_tipo": 39,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 28,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "148732.41-85",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "04e281f0d94a629e905bdb09f8fe60f16523ae16516bf0fe46a5a4bd137a64d4",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 29,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "150267.33-71",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "05137eab693303d0ca9f52c323f906c791a06af88171f2702185a43970f6f3f7",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 30,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "148339.31-00",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "0525cb7572b7d0caadfab6e6fc64a50d37ece450a54b2662340f280a514c7a31",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 31,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "146419.16-87",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "055a59d5c7f0893647dbd32e2179756d5c34d26318e72d5203d679ee53c0a12b",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 32,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "149169.33-70",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "0592663343e4ad0c0e7da4373f709136882b23e697bd3e55dad38213f9feebbf",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 33,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "150525.35-04",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "05926adb88595af598a748d5d5b6d347a7d960a6566b17616a223fe88d6ca7dd",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 34,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "149051.25-05",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "059724f2a17e45a54ad71c54bbdaf74ac4296fd5ec974978627a0ada3cda5468",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 35,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "150472.11-09",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "069d974ab5cb6484324638b5ae8d0f5c8e033f9dd6bf2171df11e3bc1c0c1406",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 36,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "149187.33-91",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "06a164a3b4a5016b629c463f04c158a4865c7e0fb16ab8090457bb7115c3023a",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 37,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "149845.41-03",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "06e099f088c7597d8dab5a84939489f22d00adc98e662c5ccd2f783e6d5c9aac",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 38,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "163149.35-43",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "06f9e3edcd77a4e0d882ddd60aaf20a7f6a9265643b17e17ae4c8bb0ffc837f9",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 39,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "150534.35-15",
+      "title": "IMPLANTACAO UPA",
+      "description": "IMPLANTACAO UPA",
+      "hash": "084c0376759bfdbfda91e00828d3848803132eef8bfeb7e61e58016e6d055b0c",
+      "labels": [
+        {
+          "id": "upa",
+          "label": "Unidade de pronto atendimento",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-upa",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO UPA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "UPA",
+          "id_subtipo": 11
+        }
+      ],
+      "stratum": "upa",
+      "index": 40,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "101406.15-73",
+      "title": "CONSTRUÇÃO DO REFEITÓRIO ESTUDANTIL DO IFPA CAMPUS ALTAMIRA",
+      "description": "A solução consiste na contração de empresa de engenharia com capacidade para realizar a OBRA DE CONSTRUÇÃO DO REFEITÓRIO ESTUDANTIL DO IFPA CAMPUS ALTAMIRA, conforme condições e especificações constantes no projeto básico.A quantidade a ser contratada é uma OBRA DE CONSTRUÇÃO DO REFEITÓRIO ESTUDANTIL DO IFPA CAMPUS ALTAMIRA, totalizando aproximadamente 413,20m² com base no projeto arquitetônico. Além disso, abrange também um abrigo de gás externo de aproximadamente 3,15m².",
+      "hash": "010c0d14e6969c949fc36c5db2551d6d07ff6bb2dce391a80c5c675afd34dc72",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DO REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 41,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "45979.31-49",
+      "title": "Ampliação do Restaurante Universitário do Campus Sete Lagoas",
+      "description": "Execução das obras de ampliação das áreas de refeições e higienização de bandejas, pratos e talheres do Restaurante Universitário do Campus Sete Lagoas da UFSJ.O restaurante do  Campus Centro Oeste (CCO-Divinópolis), enfrenta dificuldades na capacidade de atendimento dos alunos e comunidade acadêmica nos horários de pico para fazerem suas refeições. O número de assentos gira em torno de 150 lugares de acordo com a opção do mobiliário e do lay out das mesas e cadeiras. As intervenções pretendidas visam à criação aproximada de mais 140 assentos na área de refeições, de forma a diminuir o tempo de espera após a aquisição do tícket de entrada ou outro mecanismo de controle de acesso. Além do mais, está sendo criada uma nova área especifica para higienização de bandejas ,pratos e talheres, em acordo com as exigências da vigilância sanitária. O objeto da licitação tem a natureza de reforma e ampliação, caracterizada como obra de engenharia.",
+      "hash": "01fc439243135c2f0243d468370165690c2b6c07c04d037ce0f6a00dc61bd110",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "AMPLIACAO DO RESTAURANTE UNIVERSITARIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 42,
+      "decision": "supported",
+      "reason": "Título e primeira frase indicam Sete Lagoas, mas o restante cita CCO-Divinópolis. Restaurante é sustentado; localização exige alerta separado.",
+      "source_conflict": true
+    },
+    {
+      "id": "89540.27-35",
+      "title": "Reforma do Refeitório do Campus Piranhas",
+      "description": "Trata-se da adequação da cantina existente em um refeitório que atenda as normas da vigilância sanitária buscando melhorar a qualidade as refeições disponíveis e com isso estimular a permanência dos discentes no Campus Piranhas. O novo refeitório será totalmente climatizado e possui uma área total de 356,93 m² com os seguintes ambientes e características: Recepção de alimentos 6,40m²; Despensa 6,75m²;  DML 2,89m²; Sala do fiscal - 3,50m²; Sobremesa - 4,52m²; Pré preparo de carnes / pescados 3,59m²; Pré preparo de legumes 3,00m²; Copa limpa 3,96m²; Copa suja 6,50m²; Cozinha 17,00m²; Banheiros Masculino 21,99m²; Banheiro Feminino 22,27m²; Banheiro Masculino administrativo 3,38m²; Banheiro Feminino administrativo 3,12m²; Refeitório - 220,09m²; Lixeira 3,15m². Além de áreas de paisagismos e circulação,  localizado Avenida Sergipe, s/n - Bairro Xingó - Piranhas/AL.",
+      "hash": "04b24e177df539a54704cdc2a5ffd09363a1f6b68661e08ef2f5697ea4610b1d",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DO REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 43,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "59636.32-67",
+      "title": "CONSTRUÇÃO RESTAURANTE ESTUDANTIL CAMPUS COLATINA",
+      "description": "Contratação de empresa especializada na elaboração do Projeto Executivo, bem como a execução das obras do Refeitório Padronizado com cantina acoplada - Tipo 1, detalhada no Anexo I – Projeto Básico – Parte 01 (PROJETOS DE ENGENHARIA E ARQUITETURA) para o estado do Espírito Santo.",
+      "hash": "060497010cd8f8e3501d79858cb3d9216da506087a756fbca1c4097a8d3bd8ac",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO RESTAURANTE ESTUDANTIL",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 44,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "3595.43-18",
+      "title": "Reforma do Refeitório e Adequação da rede gás laboratórios",
+      "description": "AMPLIAÇÃO E ADEQUAÇÃO DO REFEITÓRIO PARA ADAPTAR OS ESPAÇOS EXISTENTES ÀS NECESSIDADES ATUAIS DE UTILIZAÇÃO DO MESMO. SERÃO FEITOS AJUSTES PARA ATENDIMENTO ÀS NORMAS DE VIGILÂNCIA SANITÁRIA, AJUSTES DOS ESPAÇOS DEVIDO À AQUISIÇÃO DE EQUIPAMENTOS, AMPLIAÇÃO DA ÁREA DE ARMAZENAMENTO E CRIAÇÃO DE NOVOS ESPAÇOS DE ESTAR PARA ALUNOS. INSTALAÇÕES ELÉTRICAS: SUBSTITUIÇÃO DE LÂMPADAS FLUORESCENTES POR LED; SUBSTITUIÇÃO DE LUMINÁRIAS NA ÁREA DE MANIPULAÇÃO DE ALIMENTOS POR LUMINÁRIAS COM PROTEÇÃO CONTRA EXPLOSÃO; CRIAÇÃO DE PONTOS DE ENERGIA PARA INSTALAÇÃO DE NOVOS EQUIPAMENTOS E REVISÃO DAS INSTALAÇÕES EM GERAL. INSTALAÇÕES HIDROSSANITÁRIAS: EXECUÇÃO DE NOVO CONJUNTO FOSSA, FILTRO E SUMIDOURO; INSTALAÇÃO DE NOVOS PONTOS DE ASSEPSIA; ADEQUAÇÃO DE PONTOS EXISTENTES. INSTALAÇÕES DE GLP: INSTALAÇÃO DE NOVOS PONTOS E REVISÃO DAS INSTALAÇÕES ATUAIS. ESTRUTURAS: RECOMPOSIÇÃO DE CONCRETO NA ÁREA COM FISSURAS NAS VIGAS DO REFEITÓRIO; REFORÇO ESTRUTURAL.",
+      "hash": "078d449e26720d2bbfac1c737b5d9de159b528c474246b8cb8427ce75e63f06b",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DO REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 45,
+      "decision": "supported",
+      "reason": "Refeitório é objeto direto, mas há também rede de gás de laboratórios; não apresentar o rótulo como escopo exclusivo.",
+      "source_conflict": false
+    },
+    {
+      "id": "20799.13-10",
+      "title": "Reforma do Refeitório do Quarto Centro Integrado de Defesa Aérea e Controle de Tráfego Aéreo – CINDACTA IV. APLICAÇÃO: CINDACTA IV - REFEITÓRIO. CONCORRÊNCIA-0002/GAP-MN/2022. Contrato nº 013/GAPMN-CI",
+      "description": "Reforma do Refeitório do Quarto Centro Integrado de Defesa Aérea e Controle de Tráfego Aéreo – CINDACTA IV. APLICAÇÃO: CINDACTA IV - REFEITÓRIO. CONCORRÊNCIA-0002/GAP-MN/2022. Contrato nº 013/GAPMN-CINDACTAIV",
+      "hash": "081a76ea94eb0581611c0b60617af11078928bf8a5e3df8512adfcc66ecb2185",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DO REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Militar",
+          "id_eixo": 2,
+          "tipo": "Defesa Nacional",
+          "id_tipo": 14,
+          "subtipo": "Torre de Controle",
+          "id_subtipo": 73
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 46,
+      "decision": "supported",
+      "reason": "Refeitório militar, não universitário. Rótulo amplo Restaurante/refeitório é adequado.",
+      "source_conflict": false
+    },
+    {
+      "id": "21663.26-60",
+      "title": "CONSTRUÇÃO DO RESTAURANTE UNIVERSITÁRIO DA UNIDADE ACADÊMICA DE SERRA TALHADA (UAST)",
+      "description": "Objeto: Contratação de empresa, por meio do Regime Diferenciado de Contratações Públicas (RDC), para construção do Restaurante Universitário na Unidade Acadêmica de Serra Talhada (UAST) da Universidade Federal Rural de Pernambuco (UFRPE).",
+      "hash": "09b9b716fdeac970cb073f93bb71c4979d3f44093fe73153486e42dc7ca83bf6",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DO RESTAURANTE UNIVERSITARIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 47,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "53044.41-09",
+      "title": "Ampliação do restaurante universitário do Câmpus Santa Cruz e reforma do restaurante universitário do Câmpus Cedeteg, da UNICENTRO",
+      "description": "Ampliação do restaurante universitário do Câmpus Santa Cruz e reforma do restaurante universitário do Câmpus Cedeteg, da UNICENTRO",
+      "hash": "09cc871c9ce3d8cabf25dac2e5551511d57e67b14d8d94dcce3a9faddaa3552d",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "AMPLIACAO DO RESTAURANTE UNIVERSITARIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 48,
+      "decision": "supported",
+      "reason": "Dois restaurantes/campi no escopo. Rótulo descreve tipo, não uma localização única.",
+      "source_conflict": false
+    },
+    {
+      "id": "45971.31-08",
+      "title": "Ampliação do Restaurante Universitário Campus Centro Oeste",
+      "description": "Execução das obras de ampliação das áreas de refeições e higienização de bandejas, pratos e talheres do Restaurante Universitário do Campus Centro Oeste da UFSJ.O restaurante do  Campus Centro Oeste (CCO-Divinópolis), enfrenta dificuldades na capacidade de atendimento dos alunos e comunidade acadêmica nos horários de pico para fazerem suas refeições. O número de assentos gira em torno de 150 lugares de acordo com a opção do mobiliário e do lay out das mesas e cadeiras. As intervenções pretendidas visam à criação aproximada de mais 140 assentos na área de refeições, de forma a diminuir o tempo de espera após a aquisição do tícket de entrada ou outro mecanismo de controle de acesso. Além do mais, está sendo criada uma nova área especifica para higienização de bandejas ,pratos e talheres, em acordo com as exigências da vigilância sanitária. O objeto da licitação tem a natureza de reforma e ampliação, caracterizada como obra de engenharia.",
+      "hash": "0b9dcc485f3043cf549d79ec23988880faaa7d0f20e39e12bd0e12ce91ee37e8",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "AMPLIACAO DO RESTAURANTE UNIVERSITARIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 49,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "6141.32-40",
+      "title": "Construção do refeitório dos alunos",
+      "description": "A obra em questão é de suma importância para o campus, trazendo um ambiente adequado para os alunos que necessitam de realizar suas alimentações no campus e não tem condições de almoçar no restaurante do campus.",
+      "hash": "0be3b8c8a493f932c47290f193358744afd238ca214d5e46010a4ad2758b0700",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DO REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 50,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "46187.29-48",
+      "title": "CONSTRUÇÃO DO REFEITÓRIO DO CAMPUS  GOVERNADOR MANGABEIRA",
+      "description": "Execução da obra de construção do Refeitório do Instituto Federal de Educação, Ciência e Tecnologia Baiano - Campus Governador Mangabeira.",
+      "hash": "0c7cb0e7288f33bc6b4c75ba540e3f4e5afb90a59a56cbf36788819e35618d4d",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DO REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 51,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "45007.51-22",
+      "title": "CONSTRUÇÃO DE RESTAURANTE ESTUDANTIL - IFMT CAMPUS RONDONÓPOLIS",
+      "description": "Contratação de empresa especializada para execução da obra de edificação do Restaurante Estudantil do IFMT - Campus Rondonópolis.ÁREA CONSTRUÍDA: 562,12m2O projeto tem por objeto a edificação que sediará o refeitório estudantil do IFMT – Campus: Rondonópolis, tal edificação terá uso prioritariamente para fins depreparado de refeições e serviços alimentícios. características: possuirá área destinada a armazenamento/estoque/preparo de alimentos em seu interior e uma área destinada à permanência dos alunos durante o consumo das refeições. Seu uso será sazonal e sua população de projeto será majoritariamente advinda dos blocos destinados às salas de aula, presentes nas outras edificações.A execução do projeto conta com Acessibilidade, Climatização, SPDA e SCIP.",
+      "hash": "0fc5e9db3d7bb5d3c8a45dd2a3385d08c08e3cda534f16ca07b72a88a9dacd7d",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE RESTAURANTE ESTUDANTIL",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 52,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "88811.43-88",
+      "title": "Reforma do Restaurante Universitário do Campus Alegrete",
+      "description": "Trata-se de obra de reforma de uma edificação existente no Campus que originalmente foi projetada para uso como cantina eque, posteriormente,  passou a ser utilizada como restaurante, ocasionando problemas de dimensionamento de suasinstalações prediais, além da necessidade de reparos e manutenções corretivas ocasionadas por desgastes relacionados aotempo e ao uso.",
+      "hash": "0feeb978c3a06267f1c20903dea1f5db50c529b7b71520809246e3f53490d5a8",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DO RESTAURANTE UNIVERSITARIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 53,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "46657.33-45",
+      "title": "Construção de Restaurante Estudantil Campus Pinheiral IFRJ",
+      "description": "Construção de Restaurante Estudantil no Campus Pinheiral do IFRJ.",
+      "hash": "11af95d1e4ae580ce101538cde5a99c8d0826be74506e142995bccaec6c49179",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE RESTAURANTE ESTUDANTIL",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 54,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "98335.26-70",
+      "title": "Reforma do Refeitório Estudantil do Campus Caruaru",
+      "description": "Reforma do Refeitório Estudantil do Campus Caruaru",
+      "hash": "161639207f922bf110f280d24ac884ea12de659490ceda7a3cccff2f63a365e6",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DO REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 55,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "46402.31-31",
+      "title": "CONSTRUÇÃO DO REFEITÓRIO CACV",
+      "description": "CONSTRUÇÃO DO REFEITÓRIO CAMPUS AVANÇADO CAMPINA VERDE",
+      "hash": "1664ff6526a052c507da908aad6b39ba37dd7bdb9182a263bf7946ce7d838726",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DO REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 56,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "59430.32-92",
+      "title": "CONSTRUÇÃO RESTAURANTE ESTUDANTIL CAMPUS GUARAPARI",
+      "description": "Contratação de empresa especializada na elaboração do Projeto Executivo, bem como a execução das obras do Refeitório Padronizado com cantina acoplada - Tipo 1,detalhada no Anexo I – Projeto Básico – Parte 01 (PROJETOS DE ENGENHARIA E ARQUITETURA) Para o estado do Espírito Santo.",
+      "hash": "17e63ccf4893b23fdfab5e4bb25e517a1ff375fae28eec3df200da947a18db69",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO RESTAURANTE ESTUDANTIL",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 57,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "129564.24-22",
+      "title": "Construção do Restaurante Estudantil do Campus Jucurutu do IFRN",
+      "description": "Construção do Restaurante Estudantil do Campus Jucurutu do IFRN",
+      "hash": "181a38cc06121946645ec37eef0eb17ae54c390404a51ea856c391e364001154",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DO RESTAURANTE ESTUDANTIL",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 58,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "60247.21-66",
+      "title": "CONSTRUÇÃO DE REFEITÓRIO - IF PEDREIRAS",
+      "description": "A metodologia construtiva consiste em que os painéis de PVC são acoplados entre sipor meio de encaixes nas laterais. As paredes são ancoradas à fundação, possuemarmaduras verticais nos encontros entre paredes e nas laterais dos vãos de portas ejanelas, armaduras horizontais nas vergas, contravergas e no nível de respaldo daparede, como uma cinta de amarração.O concreto comum empregado é auto-adensável, para possibilitar o preenchimentodas fôrmas de PVC sem necessidade de vibração mecânica.",
+      "hash": "19b2d0c054f93876e96b2026aac0fa43abed6092ec4d1737a62958719b406ad2",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 59,
+      "decision": "supported",
+      "reason": "Título nomeia refeitório; descrição construtiva genérica não contradiz o título.",
+      "source_conflict": false
+    },
+    {
+      "id": "71415.27-04",
+      "title": "Construção de refeitório para o Campus Palmeira do Índios",
+      "description": "O refeitório contará com os seguintes ambientes:Salão para 211 pessoas (área = 307,45 m²);WC feminino (área = 2,40 m²);WC feminino PNE (área = 3,20 m²);WC masculino (área = 2,40 m²);WC masculino PNE (área = 3,20 m²);Distribuição (área = 35,24 m²);Lavagem (área = 22,25 m²);Coordenação (área = 19,90 m²);Depósito de utensílios de cozinha (área = 9,25 m²);Câmara de lixo refrigerada (área = 4,11 m²);Acesso à coberta (área = 2,03 m²);Vestiário/banheiro feminino (área = 18,17 m²);Vestiário/banheiro masculino (área = 18,17 m²);Cocção/preparo (área = 54,23 m²);Pré-preparo de carnes (área = 8,64 m²);Pré-preparo de cereais (área = 6,84 m²);Pré-preparo de verduras e legumes (área = 8,97 m²);Área para câmaras frigoríficas (área = 17,26 m²);Despensa (área = 20,11 m²);Depósito de caixas (área = 3,16 m²);Depósito de material de limpeza – DML (área = 3,60 m²);Pesagem/higienização (área = 16,49 m²);Gás (área = 2,97 m²);Lixeira (área = 8,14 m²);Casa de bomba (área = 5,95 m²).",
+      "hash": "19efb6b2f8e80793198bd9389896304e178b3a075619a0081db05ed90d34f919",
+      "labels": [
+        {
+          "id": "restaurante",
+          "label": "Restaurante / refeitório",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-restaurante",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE REFEITORIO",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "restaurante",
+      "index": 60,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "38918.33-35",
+      "title": "Construção de Creche e Escola de Educação Infantil, Cimento Paraíso, Italva/RJ  FNDE  Creche Tipo 2.",
+      "description": "Construção de Creche e Escola de Educação Infantil, Cimento Paraíso, Italva/RJ – FNDE – Creche Tipo 2.",
+      "hash": "001ec5a71289ed8188c85052bd408bfab8e6d9238349240d7b6aa9fcec257a9e",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 61,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "36320.29-36",
+      "title": "Construção de Creche e Escola de Educação Infantil, Márjorie Parque, Macarani/BA  FNDE  Creche Tipo 2.",
+      "description": "Construção de Creche e Escola de Educação Infantil, Márjorie Parque, Macarani/BA – FNDE – Creche Tipo 2.",
+      "hash": "003874a50e495dcb476ba74669d2866991641d888b849ed75271a2c5f4b7e0b8",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 62,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "40673.24-59",
+      "title": "Construção de Creche e Escola de Educação Infantil, no Município de São Jose de Mipibu - RN- FNDE - Creche Tipo 2",
+      "description": "Construção de Creche e Escola de Educação Infantil, no Município de São Jose de Mipibu - RN- FNDE - Creche Tipo 2",
+      "hash": "0047b4fe0f57b639b813e653f2d0cddabc22f4da1731f75eb732b58d880a2f1f",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 63,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "37975.35-40",
+      "title": "Construção de Creche e Escola de Educação Infantil, no Bairro Ourinhos Constante, Ourinhos-SP  FNDE  Creche Tipo 1",
+      "description": "Construção de Creche e Escola de Educação Infantil, no Bairro Ourinhos Constante, Ourinhos-SP – FNDE – Creche Tipo 1.",
+      "hash": "0050dec654c1ad59b52eb8c50f441fa03092be11fc10a290810c1b79b54f3544",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 64,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "44166.43-72",
+      "title": "Construção Creche Pré-escola",
+      "description": "Construção de Creche pré-escola",
+      "hash": "0061498ca5bdc60091b598462b848046307a8a9476508a52f0752052313cfc14",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 65,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "132650.29-61",
+      "title": "Construção de Creche",
+      "description": "Construção de Creche Tipo de Obra",
+      "hash": "007e2081055982e99e8926fa5e8f4467d332b27d6aace4f701ad25e90c319362",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "creche",
+      "index": 66,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "35932.51-06",
+      "title": "Construção de Creche e Escola de Educação Infantil - FNDE - Creche Tipo 2",
+      "description": "Construção de Creche e Escola de Educação Infantil, PEDRO HIDEO MYAZIMA, Paranaíta-MT - FNDE - Creche Tipo 2",
+      "hash": "00aa7f75fb4391d5030d71ce778b6e2c5e0b6e887bdb60596901e5ed07cf0402",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 67,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "38891.32-56",
+      "title": "Construção de Creche e Escola de Educação Infantil, Centro Municipal de Educação Infantil CEIM ILHA ENCANTADA, no bairro Guriri - lado sul, município de São Mateus/ES - FNDE - Creche Tipo 1",
+      "description": "Construção de Creche e Escola de Educação Infantil, Centro Municipal de Educação Infantil CEIM ILHA ENCANTADA, no bairro Guriri - lado sul, município de São Mateus/ES - FNDE - Creche Tipo 1",
+      "hash": "0106558288fc7422e9f1df5d406c942d42a96b47368e845f9e9cca0913350f16",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 68,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "38608.22-73",
+      "title": "Construção de Creche e Escola de Educação Infantil",
+      "description": "Construção de Creche e Escola de Educação Infantil, na Rua Monte Belo - Bairro Santa Luzia, no Município de São Raimundo Nonato/PI – FNDE – Creche Tipo 1.",
+      "hash": "011ab939d8ec31488ccfddc0a5c28a865832778009d8479bcdcba293cc241331",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 69,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "38045.17-61",
+      "title": "Construção de Creche Tipo 1 padrão FNDE em Praia Norte -TO",
+      "description": "Construção de Creche Tipo 1 padrão FNDE em Praia Norte -TO",
+      "hash": "013f4b8bbe9bb11eda825cda9d59e5f23699212d55451f41d988f42482893dfe",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 70,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "39998.32-98",
+      "title": "CONSTRUÇÃO DE CRECHÊ - CENTRO\t\t\t",
+      "description": "Construção de Creche-Projeto Próprio, distrito de Quilômetro Vinte – Meio Rural, Boa Esperança/ES",
+      "hash": "0233a1c74f5713f6969b8818fe729fe259066e5f6817ce1710f67ad98b23c5df",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 71,
+      "decision": "supported",
+      "reason": "Creche sustentada; título diz Centro e descrição aponta distrito rural. Não derivar localização destes textos sem revisão.",
+      "source_conflict": true
+    },
+    {
+      "id": "51071.28-24",
+      "title": "Construção de Creche e Escola de Educação Infantil, Tobias Barreto/SE - FNDE - Creche Tipo 1",
+      "description": "Construção de Creche e Escola de Educação Infantil, Tobias Barreto/SE - FNDE - Creche Tipo 1",
+      "hash": "0237cda7a7d2fa1807c14f7b605660fa5ceb7b3ef8f5e66c5a9efd28bf76cb12",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 72,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "38207.28-41",
+      "title": "Construção de Creche/Escola de Educação Infantil",
+      "description": "Construção de Creche em Macambira/SE – FNDE – Creche Tipo 2",
+      "hash": "024a777fbef94d0b8291e5c07c5ef713fef781fb653fc45f6acfd6988d1d7dd6",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 73,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "36421.31-10",
+      "title": "Construção de Creche e Escola de Educação Infantil, no Bairro São Jorge no Município de Verdelândia-MG FNDE  Creche Tipo 2.",
+      "description": "Construção de Creche e Escola de Educação Infantil, no Bairro São Jorge no Município de Verdelândia-MG– FNDE – Creche Tipo 2.",
+      "hash": "02873826afc545b66a3a6e364b2878ed78446c490a0ef55d9d167605d7040b4a",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 74,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "90055.29-30",
+      "title": "Construção de Creche e Escola de Educação Infantil no Municipio de Brejões/BA  FNDE  Creche Tipo 2",
+      "description": "Construção de Creche e Escola de Educação Infantil no Município de Brejões/BA – FNDE – Creche Tipo 2",
+      "hash": "029b92f7fed7f7182f9728087ecb0d5bcb751834219d63ff7da48e2675ef5f29",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 75,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "107922.43-06",
+      "title": "\tConstrução de Creche Pré-escola - Tipo 2 - CRECHE SONHO DE CRIANÇA em São Paulo das Missões/RS.",
+      "description": "Construção de Creche Pré-escola - Tipo 2 - CRECHE SONHO DE CRIANÇA em São Paulo das Missões/RS.",
+      "hash": "029fc39f58991c13d7481b9b7cdf6baf75f9cf676d9d020e5ebff8ddcea24a03",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 76,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "90800.29-28",
+      "title": "\tConstrução de Creche e Escola de Educação Infantil no bairro Juvêncio Leal, Gandu, Bahia, modelo FNDE, Creche Tipo 1.",
+      "description": "Construção de Creche e Pré-Escolas de Educação Infantil Tipo 2, no Bairro Teotônio Calheira, Gandu, Bahia, modelo FNDE.",
+      "hash": "02a4c89f721cab4e67e3138b792cafe2fa978eacc9665b307604434450829820",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 77,
+      "decision": "supported",
+      "reason": "Creche sustentada, mas título cita bairro Juvêncio Leal/Tipo1 e descrição Teotônio Calheira/Tipo2. Preservar divergência de local e modelo.",
+      "source_conflict": true
+    },
+    {
+      "id": "36145.52-70",
+      "title": "Construção de Creche/Escola de Educação Infantil em Vicentinópolis-GO - FNDE - Creche Tipo 2",
+      "description": "Construção de Creche/Escola de Educação Infantil em Vicentinópolis-GO - FNDE - Creche Tipo 2.",
+      "hash": "02f468f6c68ed64847ecc1b4fb9e24d986877793d52457625c88b2e8c2516486",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 78,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "39356.26-90",
+      "title": "Construção de Creche e Escola de Educação Infantil, na Av. Cristo Rei, no Município de INAJÁ - PE  FNDE  Creche Tipo 2.",
+      "description": "Construção de Creche e Escola de Educação Infantil, na Av. Cristo Rei, no Município de INAJÁ - PE – FNDE – Creche Tipo 2.",
+      "hash": "0312ce7ff7042704517c12843041920c4284518166d319799a7f29797257f2e0",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 79,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "38232.51-46",
+      "title": "\tConstrução de Creche e Escola de Educação Infantil no Bairro Parque das Nações, Brasnorte-MT  FNDE  Creche Tipo 1.",
+      "description": "Construção de Creche e Escola de Educação Infantil no Bairro Parque das Nações, Brasnorte-MT – FNDE – Creche Tipo 1.",
+      "hash": "034482ca256bc50b21e237c2e3d20bf0d42090ca53ae5a4f880ed054c64c2ce7",
+      "labels": [
+        {
+          "id": "creche",
+          "label": "Creche / educação infantil",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-creche",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE CRECHE",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "creche",
+      "index": 80,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "46183.29-22",
+      "title": "CONSTRUÇÃO DA BIBLIOTECA DO CAMPUS  VALENÇA",
+      "description": "Execução da obra de construção da Biblioteca do Instituto Federal de Educação, Ciência e Tecnologia Baiano - Campus Valença.",
+      "hash": "04efaf5b14947cc4c6bf4bec0c12fe7aacd6e23716361b3fc8f6be568d2091aa",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 81,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "51429.35-73",
+      "title": "Construção de Biblioteca - Campus Itaquaquecetuba",
+      "description": "Serviços de engenharia para Obra de Construção de Biblioteca no Campus Itaquaquecetuba - IFSP",
+      "hash": "055497e1177eb93ba6aaf75d50b435aad44b7096b8013da5d8aa85bd30f2b024",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 82,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "48291.22-61",
+      "title": "CONSTRUÇÃO DA BIBLIOTECA DO CAMPUS DE PIO IX",
+      "description": "CONSTRUÇÃO DA BIBLIOTECA DO CAMPUS DE PIO IX",
+      "hash": "074feff916e9a4ac910328ada210db529b5197859caa23d97c47ecf85dfc374c",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 83,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "5456.32-91",
+      "title": "Reforma da Biblioteca Setorial Norte do Campus de São MAteus/UFES",
+      "description": "O objeto da presente licitação é a escolha da proposta mais vantajosa para a contratação de empresa para execução da obra de reforma da Biblioteca Setorial Norte do campusSão Mateus/UFES, conforme condições, quantidades e exigências estabelecidas neste Edital e seus anexos.",
+      "hash": "07fe4227c7da1064ed189701a509ea651a9569ef0c8ec506e4a0dfff1709858f",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Administrativo",
+          "id_tipo": 5,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 84,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "48066.29-57",
+      "title": "Ampliação da Biblioteca Central Julieta Carteado na UEFS",
+      "description": "Ampliação da Biblioteca Central Julieta Carteado na Universidade Estadual de Feira de Santana (UEFS) localizada no Campus sede no município de Feira de Santana - Ba.",
+      "hash": "09ecfb89746bf023ef205756e803dfdce69f7a44dd94f75f93538c85dadce57c",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "AMPLIACAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 85,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "90256.31-92",
+      "title": "Reforma da biblioteca",
+      "description": "Reforma da biblioteca",
+      "hash": "0a59026a67309857a18b261bfac5960be3e063243b1546a45ec220cea863e670",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Obras em Imóveis de Uso Público",
+          "id_subtipo": 59
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 86,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "51437.35-28",
+      "title": "Construção da Biblioteca - Campus São Carlos",
+      "description": "Serviços de engenharia para obra de Construção de Biblioteca no Campus São Carlos do Instituto Federal de São Paulo",
+      "hash": "0c5ad66a18ea9b00eb4f62992545fa22dce6f12f2f66bbade5f2d97dfe25e5e0",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 87,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "86272.52-21",
+      "title": "Construção da Biblioteca Central no campus de Mineiros - FIMES",
+      "description": "Construção da Biblioteca Central no campus de Mineiros - FIMES Construção",
+      "hash": "1252cb7f27bcd4c14b626f0f6c9bdbcc8549a2d40c0bc7d60c3d29b685a28cd3",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 88,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "21078.52-58",
+      "title": "Reforma da Biblioteca e acessibilidade do IFG Campus Inhumas",
+      "description": "Reforma da Biblioteca e acessibilidade do IFG Campus Inhumas",
+      "hash": "1413ce559da78cfd118f4bac7e6bbc9c43662eee8aaa0d23423a29f394e597b7",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 89,
+      "decision": "supported",
+      "reason": "Biblioteca e acessibilidade são ambos parte do escopo; biblioteca não é o único serviço.",
+      "source_conflict": false
+    },
+    {
+      "id": "136274.24-51",
+      "title": "Reforma da Biblioteca Débora Machado no IFRN - Campus Natal - Centro Histórico",
+      "description": "Reforma, modernização e adequação da Biblioteca Débora Machado no IFRN, Campus Natal - Centro Histórico",
+      "hash": "1aa3b4e33a630154ea01b337463ee1cd34ce8279eea7021c2823e6cbef3235da",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 90,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "110695.25-95",
+      "title": "Construção da biblioteca do campus Santa Luzia",
+      "description": "Construção da biblioteca do campus Santa Luzia com área 552,27 m2",
+      "hash": "1e0c8dffb2cf39845387099676b821d29a0dda7883bf7bf87e11d24763a98dc6",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 91,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "60337.35-60",
+      "title": "Reforma da Biblioteca da Escola de Engenharia de Lorena-USP",
+      "description": "Reformular os ambientes da Biblioteca, reorganizar os usos de seus espaços, equacionar problemas de funcionalidade e agregar segurança no uso do edifício, eliminando inadequações de segurança contra incêndio e, também, aqueles relativos a acessibilidade",
+      "hash": "1ea2d45f843538e07f42e785e4f2044cf38f087b53eafbc2b47b1f9fca0b8e2d",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 92,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "46185.29-35",
+      "title": "CONSTRUÇÃO DA BIBLIOTECA DO CAMPUS  TEIXEIRA DE FREITAS",
+      "description": "Execução da obra de construção da Biblioteca do Instituto Federal de Educação, Ciência e Tecnologia Baiano - Campus Teixeira de Freitas.",
+      "hash": "24da1c61d473cca39514f3095e0d787974cdbb756a7fa8967c9db405179897d1",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 93,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "46399.31-13",
+      "title": "CONSTRUÇÃO BIBLIOTECA",
+      "description": "CONSTRUÇÃO DE BIBLIOTECA",
+      "hash": "25d67a51374904fa03d73cff46339a0399ae2b14662da24f0b778c5127e68fab",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 94,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "44379.35-79",
+      "title": "Construção de Biblioteca da Informação para o campus Pirituba",
+      "description": "Contratação de empresa de engenharia para obra de Construção de Biblioteca da Informação do Campus Pirituba, conforme condições e exigências estabelecidas neste instrumento e seus anexos;",
+      "hash": "27803f943d86f47b7a80d47cbf5bb1ed4391c51ad1bdc73c148ea659ca03f5d8",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DE BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 95,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "26895.33-58",
+      "title": "Reforma da Biblioteca do CEFET/RJ – UnED Petrópolis.",
+      "description": "Reforma, recuperação e ampliação da Biblioteca localizada no Campus Petrópolis do CEFET-RJ. A edificação,  tombada pelo Instituto do Patrimônio Histórico e Artístico Nacional – IPHAN, foi inundada com a enchente decorrente das intensas chuvas ocorridas em fevereiro de 2022, que atingiu a biblioteca, destruindo seu acervo e deteriorando suas instalações. A obra contempla a ampliação da área da biblioteca através da construção de um mezanino metálico, a instalação de uma plataforma elevatória para tornar o espaço acessível, além de prever soluções acústica e de contenção para eventuais enchentes.",
+      "hash": "2b79f6d78a8fc83d27eb0a8c4a1d47c2da999b0155b3eb9093f6d08db4a724d4",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 96,
+      "decision": "supported",
+      "reason": "Reforma/recuperação/ampliação de biblioteca, incluindo mezanino e acessibilidade; classificação não prova entrega.",
+      "source_conflict": false
+    },
+    {
+      "id": "3320.43-26",
+      "title": "Reforma da Biblioteca no Campus Uruguaiana",
+      "description": "Reforma da Biblioteca no Campus Uruguaiana",
+      "hash": "2ec6a4c68e9c23007a784fe6ffe1c59bb087596525844b29cf386b8febcfa962",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "REFORMA DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 97,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "91097.17-67",
+      "title": "Ampliação da biblioteca do campus Araguatins",
+      "description": "Ampliação da biblioteca do campus Araguatins",
+      "hash": "31b826ab73502f50f816229733fc32a2d5c8ba1d2566181198604e65d1eedbea",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "AMPLIACAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 98,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "46181.29-10",
+      "title": "CONSTRUÇÃO DA BIBLIOTECA DO CAMPUS GOVERNADOR MANGABEIRA",
+      "description": "Execução da obra de construção da Biblioteca do Instituto Federal de Educação, Ciência e Tecnologia Baiano - Campus Governador Mangabeira.",
+      "hash": "32569f6bae927f3e1da58039646db3afb547c6d008573d281dc7723bc6e1af82",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "CONSTRUCAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 99,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "93880.43-57",
+      "title": "Ampliação da Biblioteca",
+      "description": "Ampliação do Prédio da Biblioteca do IFFar Campus São Vicente do Sul",
+      "hash": "36849bc48928a88d4cef511ecc5e27965b4c9d88386028f7cb3d41f194591700",
+      "labels": [
+        {
+          "id": "biblioteca",
+          "label": "Biblioteca",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-biblioteca",
+          "source_field": "desc_nome",
+          "evidence": "AMPLIACAO DA BIBLIOTECA",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "biblioteca",
+      "index": 100,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "163164.35-29",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "031ee11e10d5ce6b9defe93844c3d92296c09a1d32b0dbedafe3044d67c73bc0",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 101,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "160103.41-60",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "04c0d60d635601a2fe882eff2facd9e34d343c05ebac0e2a2ee2629e41264162",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 102,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "153367.27-23",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "0646bcedb6af45e60521d4053918c1d042a07521860d13d333860b251f4c8089",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 103,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "163162.35-38",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "06f2e098ed0e26e406247485080179ebedfc27f5e6ea7a88a3a060065e2e956e",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 104,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "155188.23-99",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "070786402eaec60bc32cad9fb5ff6ead16163bcb5053ef176796fd9fc9e0bc74",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 105,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "157928.51-71",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "075956d38af5d3bfd42a455da62c24a0d2be29b8941da59a5b56cfbe77cc2742",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 106,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "162691.35-00",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "075b7e68959c0b3bc9f0671bdc91cac63526b4994a47adfebd370e7e31969e7f",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 107,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "163161.35-92",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "08f19a1e26244eb54c5730ef0542a89fddf0f6b9ac6b784dd96da88100a7b960",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 108,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "162200.35-08",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "0adde0aeaed352a2a7ce14648fcd408bc917af64ae62aea06967d2da3809875f",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 109,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "155599.52-20",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "0c3ecc1ec6d5b45a91eaa3137e9642d80436e9d86c774915e7c3b009dd5f7a3d",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 110,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "156235.21-69",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "0c7b37b28ffa85d01e4b296dc5fffa483f81eae3e1f4dc5951ecc6378dc225d0",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 111,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "162383.35-42",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "198f082e06b54103d766228514901099cd729b52eb622739f4c3d1bc35ec3b2b",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 112,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "155031.23-31",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "1a1765925f51a6646da8c37c763f11f34e1204400dd9ff7a654ad5c9bb17e75f",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 113,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "158881.25-93",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "1adf85a77c76320aae27f3ac82adf23c4df303e09ffd7d6fa6bb2f3ea04d1729",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 114,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "161168.43-41",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "1b1790813a8e756cd17698a0a99aa4e6cb891ad0128a63578215b4c65a232712",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 115,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "157329.31-64",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "1bc96b917d106d8a5e51ff10bcb149d0b476e2fe3acecb499b892d059433590b",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 116,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "163157.35-09",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "1e02bfa950b03068ef8b12eeb7674b7e04dec33f5dd5c90024d7b70d1b62afa5",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 117,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "154991.23-67",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "1e3c284135eff87ac62b3c578c05049f613c4d07ee04b1c17bdb470267a82619",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 118,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "156032.21-08",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "20e74cce9825b7610c0e776ba3d84f9c4f9180fcec337b55c1991b1b8378a78e",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 119,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "154239.29-13",
+      "title": "IMPLANTACAO CAPS",
+      "description": "IMPLANTACAO CAPS",
+      "hash": "211a0e3390ffad76698608fa97650fc32e518fb0a0963e24f7deee2ce6124e4c",
+      "labels": [
+        {
+          "id": "caps",
+          "label": "Centro de atenção psicossocial",
+          "rule_version": "direct-object-prototype-0.2",
+          "rule_id": "direct-caps",
+          "source_field": "desc_nome",
+          "evidence": "IMPLANTACAO CAPS",
+          "status": "derived_explicit",
+          "caveat": "Objeto da intervenção; não comprova execução, entrega ou funcionamento."
+        }
+      ],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Saúde",
+          "id_tipo": 4,
+          "subtipo": "CAPS",
+          "id_subtipo": 78
+        }
+      ],
+      "stratum": "caps",
+      "index": 120,
+      "decision": "supported",
+      "reason": "Título declara diretamente intervenção no equipamento; descrição compatível ou repetição do título. Não implica entrega/funcionamento.",
+      "source_conflict": false
+    },
+    {
+      "id": "90100.52-05",
+      "title": "CONSTRUÇÃO E INSTALAÇÕES DO REFEITÓRIO DO CAMPUS URUAÇU",
+      "description": "CONSTRUÇÃO E INSTALAÇÕES DO REFEITÓRIO DO CAMPUS URUAÇU",
+      "hash": "034b4ed59af4c350d32370680677bf0a50a79e7d92729fefe89bfb1b40944d82",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 121,
+      "decision": "missed_supported",
+      "reason": "Refeitório é objeto explícito, mas coordenação CONSTRUÇÃO E INSTALAÇÕES impede o prefixo restrito.",
+      "source_conflict": false
+    },
+    {
+      "id": "88730.12-07",
+      "title": "CRECHE RUA 32 - Rio Branco - AC",
+      "description": "CRECHE RUA 32 - Rio Branco - AC MI - Escola de Educação Infantil Tipo B",
+      "hash": "0493e5007810fd8bb7720a48da06d0c218f944cedd9ab1415146c54693798959",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 122,
+      "decision": "missed_supported",
+      "reason": "Creche explicitamente nomeada; Rua32 é endereço. Título não começa com ação e não é só o nome da classe.",
+      "source_conflict": false
+    },
+    {
+      "id": "82316.29-20",
+      "title": "LOTEAMENTO RUA DA CAPELA-SEDE CRECHE TIPO B - Ribeira do Amparo - BA",
+      "description": "LOTEAMENTO RUA DA CAPELA-SEDE CRECHE TIPO B - Ribeira do Amparo - BA MI - Escola de Educação Infantil Tipo B",
+      "hash": "073f610b78a5b5c06ccce2ee9911fbc1ba581c2bbafb85fac27bb39b9cfabb8b",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 123,
+      "decision": "missed_supported",
+      "reason": "Descrição confirma Escola de Educação Infantil TipoB; prefixo locativo impede a regra.",
+      "source_conflict": false
+    },
+    {
+      "id": "135775.35-03",
+      "title": "Elaboração de Projetos Executivos Completos para os Edifícios de Acesso, Biblioteca/Auditório e de Laboratórios, Campus Diadema.",
+      "description": "Elaboração de Projetos Executivos Completos de Arquitetura e Engenharia para os Edifícios de Acesso, de Laboratórios e de Biblioteca/Auditório para Unidade José Alencar, Campus Diadema da Unifesp.",
+      "hash": "07d6b209d7bb81aaf044f277ddd5f95ebe319a8a552e808f4acd5427f4f97c92",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Administrativo",
+          "id_tipo": 5,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Administrativo",
+          "id_tipo": 5,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 124,
+      "decision": "uncertain",
+      "reason": "Elaboração de projetos de vários edifícios; biblioteca é escopo do projeto, não execução física demonstrada. Abstenção prudente.",
+      "source_conflict": false
+    },
+    {
+      "id": "71082.29-62",
+      "title": "Creche da rua da AABB",
+      "description": "Creche da rua da AABB Escola de Educação Infantil Tipo B",
+      "hash": "0a632eec2151e1e4dfc4a2488b5c896dae4c39b25145d691dd309770399f2272",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 125,
+      "decision": "missed_supported",
+      "reason": "Creche identificada pelo endereço, com descrição de educação infantil.",
+      "source_conflict": false
+    },
+    {
+      "id": "9772.35-22",
+      "title": "SERVIÇO DE ADEQUAÇÃO NAS INFILTRAÇÕES NO 1º SUBSOLO, ENTRADA E BIBLIOTECA NO BLOCO A DO IPEN",
+      "description": "SERVIÇO DE ADEQUAÇÃO NAS INFILTRAÇÕES NO 1º SUBSOLO, ENTRADA E BIBLIOTECA NO BLOCO A DO IPEN",
+      "hash": "0b5b7fbe423fd7eebec142671145f925a6c91bab89a31ed202ff150fde333786",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Administrativo",
+          "id_tipo": 5,
+          "subtipo": "Obras em Imóveis de Uso Público",
+          "id_subtipo": 59
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 126,
+      "decision": "missed_supported",
+      "reason": "Adequação de infiltrações na biblioteca faz parte do escopo; termo de intervenção não coberto.",
+      "source_conflict": false
+    },
+    {
+      "id": "29772.35-02",
+      "title": "Reforma da Cobertura da Biblioteca (B-So) do Campus Sorocaba",
+      "description": "Execução, com fornecimento de material, equipamento e mão de obra, de Reforma da Cobertura da Biblioteca (B-So) da UFSCar Campus Sorocaba.",
+      "hash": "0e8c6904eba89b596038022f43dbc3ece984cb6456e49ec5a3179609d33938b7",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Obras em Imóveis de Uso Público",
+          "id_subtipo": 59
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Cultura",
+          "id_tipo": 7,
+          "subtipo": "Obras em Imóveis de Uso Público",
+          "id_subtipo": 59
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Cultura",
+          "id_tipo": 7,
+          "subtipo": "Preservação do Patrimônio",
+          "id_subtipo": 90
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 127,
+      "decision": "missed_supported",
+      "reason": "Reforma de cobertura da própria biblioteca é objeto válido, mas o protótipo rejeita partes da edificação.",
+      "source_conflict": false
+    },
+    {
+      "id": "132334.21-20",
+      "title": "Creche - Rua Santa Maria",
+      "description": "Creche - Rua Santa Maria Tipo de Obra",
+      "hash": "0fab4df00dbb5271d1a22aa0714123258b01725e6aaf187674a081c702bc612c",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 128,
+      "decision": "missed_supported",
+      "reason": "Creche é objeto nomeado; Rua Santa Maria é localização.",
+      "source_conflict": false
+    },
+    {
+      "id": "87097.21-90",
+      "title": "CRECHE DA VILA NOVA - Zé Doca - MA",
+      "description": "CRECHE DA VILA NOVA - Zé Doca - MA Tipo de Obra",
+      "hash": "105ecbd394702d3911fba2c5c53b39673a9931867b4a6997a2e0d73ecb9ce230",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 129,
+      "decision": "missed_supported",
+      "reason": "Creche da Vila Nova é objeto nomeado; Zé Doca é município, não doca.",
+      "source_conflict": false
+    },
+    {
+      "id": "111034.35-40",
+      "title": "Substituição do Piso do Restaurante Universitário",
+      "description": "Contratação de empresa para realização dos serviços de adequação interna do restaurante universitário do câmpus da Unesp de Bauru/SP",
+      "hash": "10fe89a104a541a83991243da2796a57e79c8ccc30502c5b279ca3921b93c494",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Administrativo",
+          "id_tipo": 5,
+          "subtipo": "Obras em Imóveis de Uso Público",
+          "id_subtipo": 59
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 130,
+      "decision": "missed_supported",
+      "reason": "Substituição de piso do próprio restaurante, confirmada como adequação interna.",
+      "source_conflict": false
+    },
+    {
+      "id": "113300.35-38",
+      "title": "Reforma da entrada da biblioteca e da sala de concursos, para instalação da obra de arte do artista plástico Enio Squeff",
+      "description": "A Escola de Artes, Ciências e Humanidades da Universidade de São Paulo (EACH/USP) recebeu, em 2019, a doação da obra de arte intitulada “De Saulo de Tarso a São Paulo”, de autoria do artista Ênio Squeff, com área total de 118 m², configurando-se como o maior mural da Universidade de São Paulo. A obra foi concebida como homenagem à cidade de São Paulo e possui relevância cultural, histórica e artística para a comunidade universitária e para a sociedade.Em razão de limitações físicas no momento da doação, o mural permaneceu armazenado em depósito, sob condições adequadas de conservação. Contudo, o período de armazenamento ocasionou avarias e desgastes naturais em parte das placas que compõem o painel, demandando processo técnico de restauração e, em alguns casos, de repintura, a fim de garantir a integridade da obra.Com a reforma do espaço físico destinado à instalação do mural no campus da USP Leste e no contexto das comemorações dos 20 anos da unidade, torna-se imprescindível viabilizar a restauração da obra e sua adequada instalação, de modo a assegurar:-Preservação do patrimônio artístico e cultural da Universidade de São Paulo;-Valorização da memória institucional da EACH/USP em seu aniversário de 20 anos, reforçando o vínculo com a cidade deSão Paulo;-Atendimento às condições técnicas de conservação da obra, evitando perda irreversível de um bem cultural de reconhecidovalor;-Promoção da função social da arte dentro do espaço universitário, possibilitando a fruição cultural pela comunidadeacadêmica e pelo público em geral.",
+      "hash": "14f77a8bd7cd048e3b5b08a1b11c63e79cced5f27d5a536e66443ff46b50f339",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Cultura",
+          "id_tipo": 7,
+          "subtipo": "Obras em Imóveis de Uso Público",
+          "id_subtipo": 59
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Administrativo",
+          "id_tipo": 5,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Cultura",
+          "id_tipo": 7,
+          "subtipo": "Preservação do Patrimônio",
+          "id_subtipo": 90
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Administrativo",
+          "id_tipo": 5,
+          "subtipo": "Obras em Imóveis de Uso Público",
+          "id_subtipo": 59
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Administrativo",
+          "id_tipo": 5,
+          "subtipo": "Preservação do Patrimônio",
+          "id_subtipo": 90
+        },
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Obras em Imóveis de Uso Público",
+          "id_subtipo": 59
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 131,
+      "decision": "uncertain",
+      "reason": "Título cita entrada da biblioteca e sala de concursos; descrição centra-se em restauração/instalação de mural artístico. Não é objeto de biblioteca inequívoco.",
+      "source_conflict": false
+    },
+    {
+      "id": "101166.43-66",
+      "title": "CONSTRUÇÃO DO BLOCO BIBLIOTECA E PASSARELA COBERTA",
+      "description": "Trata-se da construção de um Bloco Biblioteca com área de 787,55m², com salão, sala de estudos com 36 lugares, sala de informática com 43 lugares, sala de coordenação,  sanitários masculinos, femininos e para PNE. Temos, ainda, a construção da Passarela Coberta, com 267,65m², para interligação deste bloco com o Bloco Administrativo.",
+      "hash": "167072cbb8fe373f1bf47745c52642e079d328e8fff324aa30b6a8e1e8cc28a2",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 132,
+      "decision": "missed_supported",
+      "reason": "Descrição confirma bloco biblioteca, além da passarela; palavra BLOCO impede o prefixo direto.",
+      "source_conflict": false
+    },
+    {
+      "id": "71523.27-27",
+      "title": "Creche Rua Pedro Cavalcante",
+      "description": "Creche Rua Pedro Cavalcante Tipo de Obra",
+      "hash": "17c682f0dc9e9c371e1aad9338bb3e99f8b3ebbb54e4920fd86430613eca3905",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 133,
+      "decision": "missed_supported",
+      "reason": "Creche nomeada pela rua; sem verbo, permanece fora da regra.",
+      "source_conflict": false
+    },
+    {
+      "id": "135616.25-29",
+      "title": "Adequação de combate à Incêndio da Biblioteca Central",
+      "description": "A Solução como um todo baseia-se na adequação do prédio às normas de combate a incêndio e deacessibilidade, sendo necessária a substituição de todo o forro por um adequado e a instalação denovas luminárias de emergência e alarmes.A área de intervenção onde será realizada a reforma, figura 1, situa-se na Av. Pau Brasil no Campus Ida Universidade Federal da Paraíba (UFPB), João Pessoa, PB.O projeto prevê a reforma dos ambientes internos com uma área total de 8.380,81 m². A maior parte daárea é dedicada ao acervo para consulta pública, sendo formada por ambientes com grandes vãosintercalados por pilares de concreto, possui três pavimentos (térreo + dois) construído em concretoaparente com fechamento externo, em sua maior parte, em painéis de vidro.Os ambientes possuem teto em concreto aparente ou forro metálico por onde passam as tubulaçõeselétricas e da central de ar condicionado.Para a adequação às normas de acessibilidade será necessário a instalação de guarda-corpos, corrimãos, pisostáteis, e rampas;A reforma contempla a área externa com a instalação de novos reservatórios superiores e inferiores adequados àsnecessidades do sistema de combate a incêndio, além disso, será instalado o sistema de SPDA;A instalação elétrica precisa ser totalmente substituída, uma vez que a instalação e os quadros de distribuiçãonecessitam ser adequados às cargas atuais existentes;Deverão ser demolidas algumas alvenarias, forro, piso, alem das referidas instalações elétricas conforme projetosarquitetônicos e complementares;Os banheiros também serão reformados para atender as normas de acessibilidade;Para melhorar atendimento a Comunidade Universitária será realizada a adequação de layout do 1 e 2 pavimentos,com a criação de salas de estudo coletivo;",
+      "hash": "17e67bc4f90e4fe59e389740cc849b5eba9e61e0c22c77fe18d608402ebe1672",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 134,
+      "decision": "missed_supported",
+      "reason": "Reforma extensa do próprio prédio da biblioteca e combate a incêndio; ADEQUAÇÃO não coberto.",
+      "source_conflict": false
+    },
+    {
+      "id": "36007.52-56",
+      "title": "Rua VJ-04, APM 02  Creche Municipal, Setor Volta da Jurema",
+      "description": "Constru��o de Creche/Escola de Educa��o Infantil em S�o Luiz Do Norte-GO - FNDE - Creche Tipo 1",
+      "hash": "1e8d6aff09c378004c55f1ecdc57494eef1ae364290670e518841dafd8e3c1d9",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 135,
+      "decision": "missed_supported",
+      "reason": "Descrição confirma construção de creche apesar de codificação corrompida; título começa pelo endereço.",
+      "source_conflict": false
+    },
+    {
+      "id": "138482.21-07",
+      "title": "Creche - Rua São Francisco",
+      "description": "Creche - Rua São Francisco Tipo de Obra",
+      "hash": "223749b598eeebd51275c3f32fb211fb202c998a39666a64b7115c465e9d5f13",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 136,
+      "decision": "missed_supported",
+      "reason": "Creche nomeada pela rua; sem verbo, permanece fora da regra.",
+      "source_conflict": false
+    },
+    {
+      "id": "24808.43-29",
+      "title": "Adequação travessia de rua entre a Biblioteca Central e o Restaurante universitário",
+      "description": "Travessia de rua em concreto usinado.",
+      "hash": "2294554f0c5d3823d4e9d1c25cdf4260b581f3084fb0b9abfd3d6ce9dcd5ab05",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Instituições Federais de Ensino Superior",
+          "id_subtipo": 46
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 137,
+      "decision": "correct_rejection",
+      "reason": "Objeto é travessia de rua entre biblioteca e restaurante, não esses equipamentos.",
+      "source_conflict": false
+    },
+    {
+      "id": "72417.17-40",
+      "title": "Proinfancia Creche Tipo C - Rua da Creche",
+      "description": "Proinfancia Creche Tipo C - Rua da Creche Tipo de Obra",
+      "hash": "25fd092336310925f6ee970ae2801a9ca53158ea3ac9ce02c0756b5a55cba78e",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Econômico",
+          "id_eixo": 3,
+          "tipo": "Infraestrutura Hídrica, Portos, Hidrovia",
+          "id_tipo": 22,
+          "subtipo": "Dragagem, Derrocamento e Associações",
+          "id_subtipo": 36
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 138,
+      "decision": "missed_supported",
+      "reason": "Creche Proinfância TipoC nomeada, mas prefixo não coberto.",
+      "source_conflict": false
+    },
+    {
+      "id": "105103.43-94",
+      "title": "Construção de Passarela dos Prédios Acadêmicos 1 e 2 ao Restaurante Universitário do Campus I São Borja",
+      "description": "A construção da passarela/abrigo coberto visa garantir condições adequadas de deslocamento seguro e protegido para os estudantes, servidores e visitantes da Universidade Federal do Pampa – Campus São Borja. A intervenção proposta também contribui com a acessibilidade e a mobilidade urbana dentro do campus, promovendo inclusão e melhores condições para pessoas com deficiência ou mobilidade reduzida.",
+      "hash": "2cfe88ec883bb778ddd25e63891c12970e04962933a70967410b787197664938",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Social",
+          "id_eixo": 4,
+          "tipo": "Educação",
+          "id_tipo": 46,
+          "subtipo": "Educação",
+          "id_subtipo": 84
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 139,
+      "decision": "correct_rejection",
+      "reason": "Objeto é passarela aos prédios/restaurante. Restaurante é destino, não objeto da obra.",
+      "source_conflict": false
+    },
+    {
+      "id": "115783.16-65",
+      "title": "Construção de um ambiente adequado para funcionamento do restaurante Universitário da UEAP",
+      "description": "Construção de um ambiente adequado para funcionamento do restaurante Universitário da UEAP",
+      "hash": "3258907cd377b271d26c13200e91172db4bf8de8df2da4f483b0ebf09a8bcee6",
+      "labels": [],
+      "official": [
+        {
+          "eixo": "Administrativo",
+          "id_eixo": 1,
+          "tipo": "Educação",
+          "id_tipo": 8,
+          "subtipo": "Obras em Imóveis de Uso Público",
+          "id_subtipo": 59
+        }
+      ],
+      "stratum": "hard_negative",
+      "index": 140,
+      "decision": "missed_supported",
+      "reason": "Descrição e título indicam ambiente para restaurante; frase intermediária bloqueia regra conservadora.",
+      "source_conflict": false
+    }
+  ]
+}

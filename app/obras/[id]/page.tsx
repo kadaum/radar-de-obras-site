@@ -8,6 +8,7 @@ import {WorkClassification} from '@/components/work-classification';
 import {NationalProjectContext} from '@/components/national-context';
 import {OfficialWorkRecords} from '@/components/official-work-records';
 import {WorkLocation} from '@/components/work-overview';
+import {DerivedWorkType} from '@/components/derived-work-type';
 import {indexableNationalWork} from '@/lib/national-eligibility.mjs';
 
 type Props={params:Promise<{id:string}>};
@@ -30,6 +31,7 @@ export default async function NationalWorkPage({params}:Props){
     <div><dt>Início previsto</dt><dd>{formatDate(work.start)}</dd></div><div><dt>Término previsto</dt><dd>{formatDate(work.end)}</dd></div>
    </dl><p className="context-note">Investimento previsto não é pagamento. Previsões vencidas não comprovam atraso. O endereço pode ser uma referência administrativa.</p></section>
    <NationalProjectContext context={work.context}/>
+   <DerivedWorkType title={work.name}/>
    <WorkLocation work={work} showNearby={false}/>
    <OfficialWorkRecords id={id}/>
    <div className="work-heading-actions"><Link prefetch={false} href={`/radar.html?obra=${encodeURIComponent(id)}`}>Ver no mapa e consultar detalhes atualizados</Link><Link prefetch={false} href="/radar.html?view=list">Voltar à lista de obras</Link></div>
