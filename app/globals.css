@@ -273,6 +273,13 @@ body {
 .work-page { --primary:#175a43; --primary-foreground:#fff; --muted:#e3ece5; }
 .work-page [id] { scroll-margin-top:80px; }
 .work-heading { position:relative; margin-bottom:22px; }
+.work-classification { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:12px 0; }
+.classification-chip { display:inline-flex; align-items:center; gap:7px; padding:7px 11px; border:1px solid #b7ccc0; border-radius:20px; color:#175a43; background:#f0f6f2; font-size:14px; text-decoration:none; max-width:100%; }
+.classification-chip svg { flex-shrink:0; }
+.classification-chip span { overflow-wrap:anywhere; }
+.classification-origin { font-size:13px; color:#52665a; }
+.work-page details>summary { min-height:44px; padding:10px 0; cursor:pointer; }
+.work-page summary:focus-visible,.classification-chip:focus-visible { outline:3px solid #175a43; outline-offset:4px; }
 .work-page .work-heading h1 { font-size:clamp(1.85rem,3.3vw,2.8rem); max-width:950px; margin-bottom:12px; letter-spacing:-.04em; }
 .work-heading>p { margin:0; color:#52665a; max-width:850px; font-size:16px; }
 .work-heading-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }

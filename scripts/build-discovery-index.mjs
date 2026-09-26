@@ -11,13 +11,15 @@ const slugs={
   '30125.26-63':'prevencao-incendio-hospital-clinicas-pe','41201.26-60':'residenciais-aeronautica-recife',
 };
 const editorialLastmod='2026-09-24'; // Bump only after a material editorial change.
+const workEditorialLastmod='2026-09-25'; // Fichas: classification, contractor identity and progressive disclosure.
 const cityLastmod=snapshot.source.investmentCollectedAt.slice(0,10);
 const urls=[['/',editorialLastmod],['/cidades',editorialLastmod],['/obras',editorialLastmod],['/metodologia',editorialLastmod],['/guia-de-interpretacao',editorialLastmod],['/dados',editorialLastmod],['/levantamento',editorialLastmod]];
 for(const city of snapshot.cities){
   urls.push([`/cidades/${city.uf.toLowerCase()}/${city.slug}`,cityLastmod]);
-  for(const id of city.ids) urls.push([`/obras/${encodeURIComponent(id)}/${slugs[id]}`,details[id].checkedAt.slice(0,10)]);
+  for(const id of city.ids) urls.push([`/obras/${encodeURIComponent(id)}/${slugs[id]}`,[details[id].checkedAt.slice(0,10),workEditorialLastmod].sort((a,b)=>a.localeCompare(b)).at(-1)]);
 }
 const xml=`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([path,lastmod])=>`  <url><loc>${origin}${path}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n')}\n</urlset>\n`;
 fs.writeFileSync('public/sitemap.xml',xml);
 fs.writeFileSync('public/llms.txt',`# Radar de Obras\n\nLeitura independente de registros da API pública Obrasgov. A cobertura descreve o cadastro consultado, não todas as obras do Brasil. Valores são investimentos previstos; situação e datas são informadas pela fonte.\n\n- [Cidades](${origin}/cidades): cinco recortes piloto.\n- [Fichas de obras](${origin}/obras): dez projetos com ID e fonte oficial.\n- [Metodologia](${origin}/metodologia): coleta, cobertura, validação e limites.\n- [Guia de interpretação](${origin}/guia-de-interpretacao): como ler situação, previsão, valor e localização.\n- [Dados e downloads](${origin}/dados): CSV e JSON das dez fichas, com dicionário.\n- [Levantamento](${origin}/levantamento): comparação reproduzível dos cinco recortes.\n- [Sitemap](${origin}/sitemap.xml).\n\nFonte oficial: https://www.gov.br/obrasgov/pt-br/ferramentas-de-gestao-e-transparencia/api-de-dados-abertos-obrasgov-br_novo\n`);
 console.log(`Wrote ${urls.length} canonical URLs`);
+

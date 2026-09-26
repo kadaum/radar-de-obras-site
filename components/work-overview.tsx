@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { MapPin, ArrowUpRight, CalendarDays, Camera, FileText } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import enrichment from '@/lib/work-enrichment.json';
-import { data, formatDate, formatMoney, getWork, mapLink, workPath, type Work } from '@/lib/organic';
+import { data, formatDate, formatMoney, mapLink, workPath, type Work } from '@/lib/organic';
 
 export function WorkOverview({ work }: { work: Work }) {
   const item = enrichment.projects[work.id as keyof typeof enrichment.projects];
@@ -27,9 +27,9 @@ function distance(a: number[], b: number[]) {
   return 6371 * 2 * Math.atan2(Math.sqrt(x),Math.sqrt(Math.max(0,1-x)));
 }
 
-export function WorkLocation({ work }: { work: Work }) {
+export function WorkLocation({ work, showNearby = true }: { work: Work; showNearby?: boolean }) {
   const point = work.point;
-  const nearby = point ? data.cities.flatMap<Work>(city=>city.rows).filter(row=>row.id!==work.id && row.point).map(row=>({row,km:distance(point,row.point!)})).filter(x=>x.km<=5).sort((a,b)=>a.km-b.km).slice(0,3) : [];
+  const nearby = point && showNearby ? data.cities.flatMap<Work>(city=>city.rows).filter(row=>row.id!==work.id && row.point).map(row=>({row,km:distance(point,row.point!)})).filter(x=>x.km<=5).sort((a,b)=>a.km-b.km).slice(0,3) : [];
   const zoom=15;
   const tileX=point ? (point[0]+180)/360*2**zoom : 0;
   const latitude=point ? Math.max(-85,Math.min(85,point[1]))*Math.PI/180 : 0;
@@ -41,7 +41,7 @@ export function WorkLocation({ work }: { work: Work }) {
     {point && <div className="mini-map"><Link href={mapLink(work)} aria-label={`Abrir mapa interativo de ${work.name}`} className="mini-map-surface">{tiles.map(tile=><Image unoptimized key={`${tile.x}-${tile.y}`} src={`https://tile.openstreetmap.org/${zoom}/${tile.x}/${tile.y}.png`} alt="" width={256} height={256} loading="lazy" referrerPolicy="strict-origin-when-cross-origin" style={{position:'absolute',maxWidth:'none',left:`calc(50% + ${(tile.x-tileX)*256}px)`,top:`calc(50% + ${(tile.y-tileY)*256}px)`}} />)}<MapPin className="mini-map-pin" size={36} aria-hidden="true" /><span className="mini-map-hint">Abrir mapa interativo ↗</span></Link><a className="map-attribution" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a></div>}
     <p className="source-caption">Ponto de referência do cadastro; pode ser aproximado ou administrativo.</p>
     <Link className="location-action" href={mapLink(work)}>Explorar esta região no mapa <ArrowUpRight size={17} aria-hidden="true" /></Link>
-    {nearby.length>0 && <div className="nearby-works"><h3>Registros próximos</h3><p>Distância em linha reta entre os pontos cadastrados, até 5 km.</p><ul>{nearby.map(({row,km})=><li key={row.id}><Link href={getWork(row.id)?workPath(row.id):mapLink(row)}>{row.name}</Link><span>{km<.1?'Menos de 100 m':`${km.toLocaleString('pt-BR',{maximumFractionDigits:1})} km`} · {row.status || 'Situação não informada'}</span></li>)}</ul></div>}
+    {nearby.length>0 && <div className="nearby-works"><h3>Registros próximos</h3><p>Distância em linha reta entre os pontos cadastrados, até 5 km.</p><ul>{nearby.map(({row,km})=><li key={row.id}><Link href={workPath(row.id)}>{row.name}</Link><span>{km<.1?'Menos de 100 m':`${km.toLocaleString('pt-BR',{maximumFractionDigits:1})} km`} · {row.status || 'Situação não informada'}</span></li>)}</ul></div>}
   </aside>;
 }
 
@@ -56,5 +56,6 @@ export function WorkPublicContext({ id }: { id: string }) {
   if(id==='45892.29-61') return <section id="documentos" className="public-context"><h2>Documentos públicos</h2><a className="document-link" href="https://www.ufba.br/licitacoes/concorrencia-eletronica-900052024" target="_blank" rel="noopener noreferrer"><FileText size={20} aria-hidden="true" /><span>Licitação da segunda etapa da Escola de Música<small>UFBA · Concorrência 90005/2024</small></span><ArrowUpRight size={17} aria-hidden="true" /></a><p className="source-caption">Contexto institucional associado pelo objeto e número de licitação; a página não cita o ID Obrasgov. Não localizamos foto vinculada com segurança a esta etapa.</p></section>;
   return <section id="documentos" className="public-context"><h2>Fotos e documentos</h2><p>Não há foto verificada vinculada a esta ficha. Os contratos disponíveis aparecem abaixo. Conhece uma publicação pública sobre este projeto? <a href="#colaborar">Envie o link para análise</a>.</p></section>;
 }
+
 
 

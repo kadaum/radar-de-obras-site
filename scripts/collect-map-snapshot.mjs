@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
 import { geographyCheck } from './source/geography.js';
+import { buildProjectContext } from './source/project-context.mjs';
 
 const API='https://api-publica.obrasgov.gestao.gov.br/obras';
 const root=process.cwd();
@@ -92,7 +93,9 @@ try{
   if(count!==totals['projeto-investimento'])throw new Error('Export total mismatch');
   const collectedAt=new Date().toISOString();
   const manifest={meta:{collectedAt,sourceLoad:loadAfter,sourceTotal:count,scope:`Coleta validada dos endpoints projeto-investimento e geometria do Obrasgov: ${count.toLocaleString('pt-BR')} cadastros. Não representa todas as obras existentes no Brasil.`,full:true,endpointTotals:totals,investmentCollectedAt:collectedAt,investmentSourceLoad:loadAfter,investmentCoverage:{projects:count,withValue,withoutValue:count-withValue,missingFromSource:0}},files,total:count};
-  fs.writeFileSync(path.join(dataDir,'projects-manifest.json'),JSON.stringify(manifest));
+    fs.writeFileSync(path.join(dataDir,'projects-manifest.json'),JSON.stringify(manifest));
+    const context=buildProjectContext(db,dataDir,loadAfter);
+    if(context.total!==count)throw new Error('Context total mismatch');
   const report={status:'validated',candidate,dataDir,loadBefore,loadAfter,totals,count,withValue,withPoint,orphan,integrity,files:files.length,collectedAt};
   fs.writeFileSync(path.join(candidate,'validation.json'),JSON.stringify(report,null,2));
   console.log(JSON.stringify({event:'candidate-ready',...report}));

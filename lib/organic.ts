@@ -38,7 +38,7 @@ export const detailData = details as Record<string, {
   rawOrganization: string | null; checkedAt: string; sourceUrl: string; snapshotDifference?: boolean;
 }>;
 export function cityPath(city: City) { return `/cidades/${city.uf.toLowerCase()}/${city.slug}`; }
-export function workPath(id: string) { return `/obras/${encodeURIComponent(id)}/${workSlugs[id]}`; }
+export function workPath(id: string) { return `/obras/${encodeURIComponent(id)}${workSlugs[id]?`/${workSlugs[id]}`:''}`; }
 export function getCity(uf: string, slug: string) { return data.cities.find(c => c.uf.toLowerCase() === uf && c.slug === slug); }
 export function getWork(id: string) {
   for (const city of data.cities) {

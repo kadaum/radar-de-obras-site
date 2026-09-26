@@ -46,7 +46,7 @@ await Promise.all(Array.from({ length: 4 }, async () => {
     } catch (error) { failures.push({ path, issue: String(error) }); }
   }
 }));
-for (const path of ['/radar.html', '/sitemap.xml', '/robots.txt', '/llms.txt', '/dados/piloto-obras.csv', '/dados/piloto-obras.json', '/favicon.svg', '/favicon.ico', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png', '/manifest.webmanifest', '/og-radar.png']) {
+for (const path of ['/radar.html', '/sitemap.xml', '/sitemap-index.xml', '/robots.txt', '/llms.txt', '/dados/piloto-obras.csv', '/dados/piloto-obras.json', '/favicon.svg', '/favicon.ico', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png', '/manifest.webmanifest', '/og-radar.png']) {
   try {
     const { body } = await get(base + path);
     if (path === '/radar.html' && !body.includes('/favicon.svg?v=2')) failures.push({ path, issue: 'branded icon missing from map' });
@@ -56,6 +56,24 @@ for (const path of ['/radar.html', '/sitemap.xml', '/robots.txt', '/llms.txt', '
   }
   catch (error) { failures.push({ path, issue: String(error) }); }
 }
+// Sample national routes and every referenced sitemap, without crawling 153k pages.
+const national=JSON.parse(fs.readFileSync('lib/national-manifest.json','utf8'));
+for(const bucket of [national.buckets[0],national.buckets[Math.floor(national.buckets.length/2)],national.buckets.at(-1)]){
+ const row=Object.values(JSON.parse(fs.readFileSync(`public${national.directory}/${bucket}.json`))).find(x=>!enrichment.projects[x.id]);
+ if(!row)continue;
+ const path=`/obras/${row.id}`;
+ try{const {body}=await get(base+path);checked.push(path);for(const marker of [row.id,`href="${origin}${path}"`,'Resumo do cadastro','Fonte e atualização','application/ld+json'])if(!body.includes(marker))failures.push({path,issue:`national content missing: ${marker}`});}
+ catch(error){failures.push({path,issue:String(error)});}
+}
+try{
+ const remoteIndex=(await get(base+'/sitemap-index.xml')).body;
+ const expected=fs.readFileSync('public/sitemap-index.xml','utf8');
+ if(remoteIndex!==expected)failures.push({path:'/sitemap-index.xml',issue:'sitemap index differs from source'});
+ for(const match of expected.matchAll(/<loc>https:\/\/radar-obras\.ricardoguia\.com(\/sitemaps\/[^<]+)<\/loc>/g)){
+  const path=match[1],body=(await get(base+path)).body;checked.push(path);
+  if(body!==fs.readFileSync(`public${path}`,'utf8'))failures.push({path,issue:'sitemap differs from source'});
+ }
+}catch(error){failures.push({path:'/sitemap-index.xml',issue:String(error)});}
 try {
   const liveOverview = JSON.parse((await get(base + '/data/map-overview.json')).body);
   checked.push('/data/map-overview.json');

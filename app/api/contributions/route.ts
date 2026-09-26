@@ -1,5 +1,11 @@
 import { env } from 'cloudflare:workers';
 import { getWork, ORIGIN } from '@/lib/organic';
+import {networkIdentifiers,networkContext,contributionInsertSql} from '@/lib/contribution-network.mjs';
+
+export function GET(request:Request){
+ const {ip,secret}=networkContext(request,(env as unknown as {CONTRIBUTION_NETWORK_SECRET?:string}).CONTRIBUTION_NETWORK_SECRET);
+ return Response.json({available:!!env.DB&&!!ip&&!!secret&&secret.length>=32},{headers:{'Cache-Control':'no-store'}});
+}
 
 export async function POST(request: Request) {
   const fail=(error:string,status=400)=>Response.json({error},{status,headers:{'Cache-Control':'no-store'}});
@@ -29,9 +35,10 @@ export async function POST(request: Request) {
   try {
     if(!env.DB)return fail('O envio está indisponível. Tente novamente mais tarde.',503);
     const now=Date.now();const id=crypto.randomUUID();
-    const hashBytes=await crypto.subtle.digest('SHA-256',new TextEncoder().encode((request.headers.get('cf-connecting-ip') || 'local')+'|'+new Date().toISOString().slice(0,10)));
-    const reporterHash=Array.from(new Uint8Array(hashBytes),x=>x.toString(16).padStart(2,'0')).join('');
-    const result=await env.DB.prepare("INSERT INTO contributions (id,work_id,kind,message,observed_on,source_url,status,created_at,reporter_hash) SELECT ?,?,?,?,?,?,'pending',?,? WHERE (SELECT COUNT(*) FROM contributions WHERE reporter_hash=? AND created_at>?)<5").bind(id,body.workId,body.kind,body.message.trim(),observedOn,sourceUrl,now,reporterHash,reporterHash,now-3600000).run();
+    const {ip,secret}=networkContext(request,(env as unknown as {CONTRIBUTION_NETWORK_SECRET?:string}).CONTRIBUTION_NETWORK_SECRET);
+    if(!ip||!secret)return fail('O envio está temporariamente indisponível. Seu texto continua no formulário.',503);
+    const [reporterHash,previousHash]=await networkIdentifiers(ip,secret,now);
+    const result=await env.DB.prepare(contributionInsertSql).bind(id,body.workId,body.kind,body.message.trim(),observedOn,sourceUrl,now,reporterHash,reporterHash,previousHash,now-3600000).run();
     if(result.meta.changes!==1)return fail('Limite de envios atingido. Tente novamente em uma hora.',429);
     // Retention cleanup must never turn an already-saved submission into an error.
     await env.DB.prepare("UPDATE contributions SET reporter_hash='' WHERE created_at<? AND reporter_hash<>''").bind(now-172800000).run().catch(()=>{});

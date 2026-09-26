@@ -1,5 +1,5 @@
 'use client';
-import { useState, type SyntheticEvent } from 'react';
+import { useEffect, useState, type SyntheticEvent } from 'react';
 import { MessageSquarePlus, CheckCircle2 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -10,6 +10,8 @@ export function ContributionForm({ workId }: { workId: string }) {
   const [kind,setKind]=useState('correction');
   const [state,setState]=useState<'idle'|'sending'|'success'|'error'>('idle');
   const [message,setMessage]=useState('');
+  const [available,setAvailable]=useState<boolean|null>(null);
+  useEffect(()=>{const controller=new AbortController();void fetch('/api/contributions',{signal:controller.signal}).then(response=>response.ok?response.json():null).then(result=>setAvailable(!!result&&typeof result==='object'&&'available' in result&&result.available===true)).catch(()=>{if(!controller.signal.aborted)setAvailable(false);});return()=>controller.abort();},[]);
   async function submit(event: SyntheticEvent<HTMLFormElement>) {
     event.preventDefault(); if(state==='sending')return;
     const form=event.currentTarget; const values=new FormData(form);
@@ -23,7 +25,7 @@ export function ContributionForm({ workId }: { workId: string }) {
   }
   return <section id="colaborar" className="contribution-card" aria-labelledby="contribution-title">
     <div className="contribution-intro"><MessageSquarePlus size={24} aria-hidden="true" /><div><h2 id="contribution-title">Sabe algo sobre esta obra?</h2><p>Ajude a corrigir uma informação, registrar o que observou ou encontrar uma foto pública.</p></div></div>
-    {state==='success'?<div className="contribution-success" aria-live="polite"><CheckCircle2 size={24} aria-hidden="true" /><p>{message}</p><Button variant="outline" onClick={()=>setState('idle')}>Enviar outra contribuição</Button></div>:<form onSubmit={submit}><fieldset disabled={state==='sending'}>
+    {available===false?<p className="context-note">O envio está temporariamente indisponível. Tente novamente mais tarde.</p>:state==='success'?<div className="contribution-success" aria-live="polite"><CheckCircle2 size={24} aria-hidden="true" /><p>{message}</p><Button variant="outline" onClick={()=>setState('idle')}>Enviar outra contribuição</Button></div>:<form onSubmit={submit}><fieldset disabled={state==='sending'||available!==true}>
       <label htmlFor="contribution-kind">O que você quer informar?</label><NativeSelect id="contribution-kind" value={kind} onChange={e=>setKind(e.target.value)}><option value="correction">Corrigir uma informação</option><option value="observation">Informar o andamento observado</option><option value="public_source">Indicar foto ou documento público</option></NativeSelect>
       <label htmlFor="contribution-message">Conte o que você sabe</label><Textarea id="contribution-message" name="message" required minLength={20} maxLength={2000} rows={3} placeholder="Qual informação precisa mudar? O que você observou?" />
       <div className="contribution-fields"><div><label htmlFor="contribution-date">Data da observação{kind==='observation'?'':' (opcional)'}</label><Input id="contribution-date" name="observedOn" type="date" required={kind==='observation'} max={new Date().toISOString().slice(0,10)} /></div><div><label htmlFor="contribution-url">Link público{kind==='public_source'?'':' (opcional)'}</label><Input id="contribution-url" name="sourceUrl" type="url" maxLength={1500} required={kind==='public_source'} placeholder="https://" /></div></div>

@@ -5,6 +5,7 @@ import { DiscoveryShell, PageSchema } from '@/components/discovery';
 import { EvidenceNote, TechnicalSources, WorkEnrichment } from '@/components/work-enrichment';
 import { WorkOverview, WorkLocation, WorkPublicContext } from '@/components/work-overview';
 import { ContributionForm } from '@/components/contribution-form';
+import { WorkClassification } from '@/components/work-classification';
 import { cityPath, data, displayNames, formatDate, getWork, mapLink, workPath, workSlugs } from '@/lib/organic';
 import { pageMetadata } from '@/lib/metadata';
 
@@ -20,13 +21,13 @@ export default async function WorkPage({params}:Props){
   return <DiscoveryShell crumbs={[{name:'Início',path:'/'},{name:'Cidades',path:'/cidades'},{name:city.name+', '+city.uf,path:cityPath(city)},{name:'Projeto '+id,path}]}>
     <PageSchema path={path} name={displayNames[id]} description={'Projeto '+id+' do snapshot Obrasgov. Situação informada: '+work.status} />
     <article className="work-page">
-      <header className="work-heading" id="resumo"><div className="eyebrow"><Link href={cityPath(city)}>{city.name} / {city.uf}</Link> · Projeto {id}</div><h1>{displayNames[id]}</h1><p>{detail.description || work.name}</p><div className="work-heading-actions"><a href="#colaborar">Enviar atualização</a><Link href={mapLink(work)} data-analytics-action="explorar_mapa">Abrir no mapa ↗</Link></div></header>
+      <header className="work-heading" id="resumo"><div className="eyebrow"><Link href={cityPath(city)}>{city.name} / {city.uf}</Link> · Projeto {id}</div><h1>{displayNames[id]}</h1><WorkClassification id={id} /><div className="work-heading-actions"><a href="#colaborar">Enviar atualização</a><Link href={mapLink(work)} data-analytics-action="explorar_mapa">Abrir no mapa ↗</Link></div></header>
       <WorkOverview work={work} />
       <EvidenceNote id={id} />
       <nav className="work-section-nav" aria-label="Nesta ficha"><a href="#resumo">Resumo</a><a href="#localizacao">Localização</a><a href="#documentos">Fotos e documentos</a><a href="#execucao-fisica">Andamento</a><a href="#colaborar">Colaborar</a></nav>
       <div className="work-layout"><div className="work-reading">
         <WorkPublicContext id={id} />
-        <section className="description-section"><h2>Sobre o projeto</h2><p>{detail.description || 'A API consultada não informou uma descrição complementar para este projeto.'}</p><details><summary>Nome e órgão no cadastro</summary><p>{work.name}</p><p>{work.organization || 'Órgão não informado'}</p></details><p className="context-note">Descrição transcrita do cadastro. Não é verificação independente da execução.</p></section>
+        <section className="description-section"><h2>Sobre o projeto</h2><details className="record-details"><summary>Descrição completa e nome no cadastro</summary><p>{detail.description || 'A API consultada não informou uma descrição complementar para este projeto.'}</p>{work.name !== detail.description && <p><strong>Nome cadastrado:</strong> {work.name}</p>}<p><strong>Órgão:</strong> {work.organization || 'Não informado'}</p><p className="context-note">Descrição transcrita do cadastro. Não é verificação independente da execução.</p></details></section>
         <WorkEnrichment id={id} />
         <section className="description-section"><h2>Datas informadas</h2><dl className="detail-list"><div><dt>Início previsto</dt><dd>{formatDate(work.start)}</dd></div><div><dt>Término previsto</dt><dd>{formatDate(work.end)}</dd></div><div><dt>Início efetivo</dt><dd>{formatDate(detail.actualStart)}</dd></div><div><dt>Término efetivo</dt><dd>{formatDate(detail.actualEnd)}</dd></div></dl><p className="context-note">Consulta complementar em {formatDate(detail.checkedAt)}. {inconsistent?'A data efetiva fornecida é anterior ao início previsto no snapshot. ':''}Previsões vencidas não comprovam atraso; situação e datas podem estar desatualizadas ou inconsistentes.</p></section>
         <ContributionForm workId={id} />

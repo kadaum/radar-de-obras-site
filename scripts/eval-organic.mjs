@@ -74,3 +74,22 @@ void test('data page has factual Dataset distributions and public downloads',asy
  const dataset=schemas(html).find(item=>item['@type']==='Dataset');assert.ok(dataset);assert.equal(dataset.distribution.length,2);
  for(const item of dataset.distribution){const url=new URL(item.contentUrl);const result=await fetch(`${base}${url.pathname}`);assert.equal(result.status,200);assert.ok((await result.text()).includes('128622.33-16'));}
 });
+void test('fichas expose distinct metadata and readable official facts without JavaScript',async()=>{
+ const titles=new Set();const descriptions=new Set();
+ for(const id of Object.keys(details)){
+  const {html}=await fetchPage(workPath(id));
+  const title=[...html.matchAll(/<title>([\s\S]*?)<\/title>/g)];
+  const description=[...html.matchAll(/<meta\s+name="description"\s+content="([^"]+)"/g)];
+  assert.equal(title.length,1,id);assert.equal(description.length,1,id);
+  assert.ok(!titles.has(title[0][1]),id);assert.ok(!descriptions.has(description[0][1]),id);
+  titles.add(title[0][1]);descriptions.add(description[0][1]);
+  assert.ok(description[0][1].includes(id),id);
+  const heading=html.match(/<header class="work-heading"[\s\S]*?<\/header>/)?.[0];
+  assert.ok(heading,id);assert.ok(!heading.includes('<p>'),`No duplicate long description above summary: ${id}`);
+  assert.ok(html.includes('Descrição completa e nome no cadastro'),id);
+  assert.ok(html.includes('id="classificacao-oficial"'),id);
+  assert.ok(heading.includes('Classificação oficial'),id);
+  assert.ok(html.includes('Quem administra, repassa e responde pela execução'),id);
+  for(const contract of enrichment.projects[id].contracts){if(contract.supplierCnpj)assert.ok(html.includes(contract.supplierCnpj),id);}
+ }
+});

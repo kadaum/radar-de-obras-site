@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 const base=process.argv[2]||'http://localhost:3004';
 if(!['localhost','127.0.0.1'].includes(new URL(base).hostname))throw new Error('Mutation tests are local-only');
 const valid={workId:'4902.35-23',kind:'correction',message:'Teste local: texto para validar a fila de revisão, sem publicação.'};
-const send=body=>fetch(base+'/api/contributions',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)});
+// Isolate test quotas. Local Wrangler accepts this fixture header; never run on production.
+const testIp=`2001:db8:${crypto.randomUUID().slice(0,4)}::1`;
+const send=body=>fetch(base+'/api/contributions',{method:'POST',headers:{'content-type':'application/json','connection':'close','cf-connecting-ip':testIp},body:JSON.stringify(body)});
 for(const [body,status] of [[{...valid,workId:'missing'},404],[{...valid,status:'approved'},400],[{...valid,message:'curto'},400],[{...valid,sourceUrl:'javascript:alert(1)'},400],[{...valid,kind:'public_source'},400],[{...valid,kind:'observation'},400],[{...valid,observedOn:'2026-02-31'},400],[{...valid,website:'spam'},400]])assert.equal((await send(body)).status,status);
 assert.equal((await fetch(base+'/api/contributions',{method:'POST',headers:{'content-type':'application/json'},body:'x'.repeat(9000)})).status,413);
 assert.equal((await fetch(base+'/api/contributions',{method:'POST',headers:{'content-type':'application/json',origin:'https://untrusted.example'},body:JSON.stringify(valid)})).status,403);
