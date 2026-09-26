@@ -22,7 +22,7 @@ export default function Home() {
         }) }}
       />
       <main className="site-shell">
-        <nav className="map-topbar" aria-label="Explorar o Radar"><h1><Link className="map-topbar-brand" href="/">◈ Radar de Obras</Link></h1><div><Link href="/cidades">Cidades</Link><Link href="/obras">Fichas</Link><Link href="/dados">Dados</Link><Link href="/metodologia">Metodologia</Link></div></nav>
+        <nav className="map-topbar" aria-label="Explorar o Radar"><h1><Link className="map-topbar-brand" href="/">◈ Radar de Obras</Link></h1><div className="map-topbar-links"><Link href="/cidades">Cidades</Link><Link href="/areas">Áreas</Link><Link href="/obras">Fichas</Link><Link href="/dados">Dados</Link><Link href="/metodologia">Metodologia</Link></div><details className="map-mobile-menu"><summary>Explorar <span aria-hidden="true">⌄</span></summary><div><Link href="/cidades">Cidades</Link><Link href="/areas">Áreas</Link><Link href="/obras">Fichas</Link><Link href="/dados">Dados</Link><Link href="/metodologia">Metodologia</Link></div></details></nav>
         <iframe title="Radar de Obras" src="/radar.html" className="radar-frame" allow="geolocation" />
       </main>
     </>

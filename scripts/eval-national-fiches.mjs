@@ -32,7 +32,7 @@ void test('reported impact remains attributed and secondary, including implausib
  assert.ok(impact.includes('Valor atípico — requer verificação'));assert.ok(impact.includes('não prova de erro'));
  assert.ok(!html.match(/<header[\s\S]*?<\/header>/)?.[0].includes('1.213.647.762'));
  assert.ok(html.includes('© OpenStreetMap contributors'));
- const hub=await (await fetch(`${base}/obras`)).text();assert.ok(hub.includes('Buscar uma obra na lista nacional'));assert.ok(hub.includes(snapshot.total.toLocaleString('pt-BR')));
+ const hub=await (await fetch(`${base}/obras`)).text();assert.ok(hub.includes('Buscar na lista nacional'));assert.ok(hub.includes(snapshot.total.toLocaleString('pt-BR')));
  const llms=await (await fetch(`${base}/llms.txt`)).text();assert.ok(llms.includes('/sitemap-index.xml'));assert.ok(!llms.includes('dez projetos com ID'));
 });
 void test('national sitemap matches completeness policy for every record',()=>{

@@ -9,7 +9,8 @@ export function DiscoveryShell({children, crumbs}: {children:React.ReactNode;cru
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header className="discovery-header"><div className="header-inner">
       <Link className="brand" href="/"><span className="brand-mark">◈</span> Radar de Obras</Link>
-      <nav aria-label="Navegação principal"><Link href="/cidades">Cidades</Link><Link href="/areas">Áreas</Link><Link href="/obras">Fichas</Link><Link href="/dados">Dados</Link><Link href="/metodologia">Metodologia</Link><Link className="map-button" href="/">Abrir mapa</Link></nav>
+      <nav className="desktop-site-nav" aria-label="Navegação principal"><Link href="/cidades">Cidades</Link><Link href="/areas">Áreas</Link><Link href="/obras">Fichas</Link><Link href="/dados">Dados</Link><Link href="/metodologia">Metodologia</Link><Link className="map-button" href="/">Abrir mapa</Link></nav>
+      <div className="mobile-site-actions"><Link className="map-button" href="/">Mapa</Link><details className="mobile-site-menu"><summary>Menu <span aria-hidden="true">⌄</span></summary><nav aria-label="Navegação principal no celular"><Link href="/cidades">Cidades</Link><Link href="/areas">Áreas</Link><Link href="/obras">Fichas</Link><Link href="/dados">Dados</Link><Link href="/metodologia">Metodologia</Link></nav></details></div>
     </div></header>
     {crumbs && <><Structured data={breadcrumb(crumbs)} /><nav className="breadcrumbs" aria-label="Caminho">{crumbs.map((item,index)=><span key={item.path}>{index>0&&<span aria-hidden="true">/</span>}<Link href={item.path}>{item.name}</Link></span>)}</nav></>}
     <main className="discovery-main" id="conteudo" tabIndex={-1}>{children}</main>
