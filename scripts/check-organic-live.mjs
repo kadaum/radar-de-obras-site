@@ -1,5 +1,6 @@
 // Read-only weekly health check. Run after publish or from the 90-day heartbeat.
 import fs from 'node:fs';
+import {decodeNationalShard} from '../lib/national-codec.mjs';
 const origin = 'https://radar-obras.ricardoguia.com';
 const base = process.argv[2] || origin;
 const api = 'https://api-publica.obrasgov.gestao.gov.br/obras/data-atualizacao';
@@ -59,7 +60,7 @@ for (const path of ['/radar.html', '/sitemap.xml', '/sitemap-index.xml', '/robot
 // Sample national routes and every referenced sitemap, without crawling 153k pages.
 const national=JSON.parse(fs.readFileSync('lib/national-manifest.json','utf8'));
 for(const bucket of [national.buckets[0],national.buckets[Math.floor(national.buckets.length/2)],national.buckets.at(-1)]){
- const row=Object.values(JSON.parse(fs.readFileSync(`public${national.directory}/${bucket}.json`))).find(x=>!enrichment.projects[x.id]);
+ const row=Object.values(decodeNationalShard(JSON.parse(fs.readFileSync(`public${national.directory}/${bucket}.json`)))).find(x=>!enrichment.projects[x.id]);
  if(!row)continue;
  const path=`/obras/${row.id}`;
  try{const {body}=await get(base+path);checked.push(path);for(const marker of [row.id,`href="${origin}${path}"`,'Resumo do cadastro','Fonte e atualização','application/ld+json'])if(!body.includes(marker))failures.push({path,issue:`national content missing: ${marker}`});}

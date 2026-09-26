@@ -2,6 +2,7 @@ import { headers } from 'next/headers';
 import { env } from 'cloudflare:workers';
 import { ORIGIN, type Work } from './organic';
 import manifest from './national-manifest.json';
+import {decodeNationalShard} from './national-codec.mjs';
 
 export { manifest as nationalManifest };
 export type NationalContext = {
@@ -28,7 +29,7 @@ export async function nationalWork(id:string):Promise<NationalWork|null>{
   const assets=(env as unknown as {ASSETS?:Fetcher}).ASSETS;
   const response=assets ? await assets.fetch(url) : await fetch(url,{signal:AbortSignal.timeout(10000)});
   if(!response.ok)throw new Error('National snapshot unavailable');
-  rows=await response.json() as Record<string,NationalWork>;
+  rows=decodeNationalShard(await response.json()) as Record<string,NationalWork>;
   if(recent.size>=4)recent.delete(recent.keys().next().value!);
   recent.set(url,rows);
  }

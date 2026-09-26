@@ -5,9 +5,10 @@ import manifest from '../lib/national-manifest.json' with {type:'json'};
 import snapshot from '../public/data/projects-manifest.json' with {type:'json'};
 import pilot from '../lib/organic-details.json' with {type:'json'};
 import {indexableNationalWork} from '../lib/national-eligibility.mjs';
+import {decodeNationalShard} from '../lib/national-codec.mjs';
 const base=process.argv[2]||'http://localhost:3004';
 void test('national shards preserve every published record exactly',()=>{
- const rows=new Map();for(const bucket of manifest.buckets){for(const row of Object.values(JSON.parse(fs.readFileSync(`public${manifest.directory}/${bucket}.json`)))){assert.ok(!rows.has(row.id));rows.set(row.id,row);}}
+ const rows=new Map();for(const bucket of manifest.buckets){const context=JSON.parse(fs.readFileSync(`source-data/context/${bucket}.json`));for(const row of Object.values(decodeNationalShard(JSON.parse(fs.readFileSync(`public${manifest.directory}/${bucket}.json`))))){assert.ok(!rows.has(row.id));assert.deepEqual(row.context,context[row.id]);rows.set(row.id,row);}}
  assert.equal(rows.size,snapshot.total);
  for(const file of snapshot.files)for(const row of JSON.parse(fs.readFileSync(`public${file.url}`))){const {context,...base}=rows.get(row.id);assert.deepEqual(base,row);assert.ok(Array.isArray(context.classification));}
 });
@@ -43,7 +44,7 @@ void test('national sitemap matches completeness policy for every record',()=>{
   for(const id of entries){assert.ok(!published.has(id));published.add(id);}
  }
  let expected=0;
- for(const bucket of manifest.buckets)for(const row of Object.values(JSON.parse(fs.readFileSync(`public${manifest.directory}/${bucket}.json`)))){
+ for(const bucket of manifest.buckets)for(const row of Object.values(decodeNationalShard(JSON.parse(fs.readFileSync(`public${manifest.directory}/${bucket}.json`))))){
   const eligible=!pilot[row.id]&&indexableNationalWork(row);assert.equal(published.has(row.id),eligible,row.id);if(eligible)expected++;
  }
  assert.equal(published.size,expected);assert.ok(fs.readFileSync('public/robots.txt','utf8').includes('/sitemap-index.xml'));

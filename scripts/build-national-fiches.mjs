@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {createHash} from 'node:crypto';
+import {encodeNationalShard} from '../lib/national-codec.mjs';
 
 // A request loads one bounded shard, never the entire national database.
 const manifest=JSON.parse(fs.readFileSync('public/data/projects-manifest.json'));
@@ -18,6 +19,7 @@ if(fs.existsSync('public/data/context/manifest.json')){
 const contextManifest=JSON.parse(fs.readFileSync('source-data/context/manifest.json'));
 if(contextManifest.sourceLoad!==manifest.meta.sourceLoad||contextManifest.total!==manifest.total)throw new Error('National context does not match snapshot');
 const buckets=new Map();const ids=new Set();const digest=createHash('sha256');
+digest.update('radar-fiches-v3');
 for(const file of manifest.files){
  const bytes=fs.readFileSync(path.join('public',file.url));digest.update(bytes);
  const rows=JSON.parse(bytes);if(rows.length!==file.rows)throw new Error('Shard count mismatch');
@@ -35,6 +37,6 @@ for(const [bucket,rows] of buckets){
 const hash=digest.digest('hex').slice(0,20);
 const directory=`/data/fiches/${hash}`;
 fs.mkdirSync(`public${directory}`,{recursive:true});
-for(const [bucket,rows] of buckets)fs.writeFileSync(`public${directory}/${bucket}.json`,JSON.stringify(rows));
+for(const [bucket,rows] of buckets)fs.writeFileSync(`public${directory}/${bucket}.json`,JSON.stringify(encodeNationalShard(rows)));
 fs.writeFileSync('lib/national-manifest.json',JSON.stringify({directory,buckets:[...buckets.keys()],total:ids.size,...manifest.meta}));
 console.log(JSON.stringify({projects:ids.size,buckets:buckets.size,directory}));

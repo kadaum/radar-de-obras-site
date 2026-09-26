@@ -151,3 +151,10 @@ Registrar por gate: comando ou procedimento, ambiente, casos, resultado, evidên
 - Base D1 local do Worker de produção estava vazia (caminho dist/server/.wrangler); migration existente foi aplicada somente localmente. Dois envios de teste ficaram pending. Proxy de desenvolvimento perdeu uma conexão POST e respondeu 500; banco confirmou gravação anterior. Este resultado não foi tratado como falha da API de produção nem como sucesso do teste; repetir gate após inspeção do estado.
 - Reexecução isolada passou: eval-contributions.mjs valida persistência, fila privada e limite, com IP de teste único e Connection: close no ambiente local. A falha reproduzida estava no proxy de prévia com conexão reutilizada; não foi adicionada retentativa automática de POST ao produto. Testes de mutação permanecem proibidos fora de localhost/127.0.0.1.
 - Gate pré-publicação: 4 avaliações nacionais, 7 orgânicas, 8 de cache/fallback, 3 de identificador de rede, integração de contribuições e 44 recursos de saúde aprovados; inspeções responsivas registradas nas seções anteriores. Autenticação Google e custos permanecem fora da entrega publicada até validação própria.
+
+### Empacotamento compatível com o limite da hospedagem
+
+- Primeira tentativa de salvar foi rejeitada pelo limite de 256 MiB expandidos; não houve deploy. Corrigida representação das fichas com esquema de colunas por shard e dicionário de textos repetidos (radar-fiches-v3), sem remover informações.
+- Build passou de 306.146.963 para 241.019.372 bytes. eval-national-fiches agora compara também cada campo de contexto reconstruído com source-data para todos os 153.703 IDs: 4/4 aprovado. Saúde 44 recursos sem falhas; TypeScript/lint aprovados.
+- Arquivos intermediários antigos preservados em .sites-runtime e retirados do pacote. Estado local D1 do preview também preservado fora de dist. Preview agora usa --persist-to fora da saída de build; não empacotar SQLite de testes.
+- Windows: workflow requer Git Bash no PATH do processo e TAR_OPTIONS=--force-local para o caminho absoluto com letra de unidade. Nenhuma mudança no PATH global ou nos scripts do plugin.
