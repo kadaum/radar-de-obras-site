@@ -1,6 +1,6 @@
 # Contribuições das fichas
 
-Próxima evolução solicitada: conta com login Google e autenticação obrigatória para novos envios. Escopo e critérios registrados em [backlog.md](backlog.md). Ainda não implementado; a operação abaixo descreve a versão 17.
+Próxima evolução solicitada: conta com login Google e autenticação obrigatória para novos envios. Escopo e critérios registrados em [backlog.md](backlog.md). Ainda não implementado; a operação abaixo descreve o fluxo anônimo vigente na versão 23.
 
 O formulário recebe correção, observação datada ou link público. Não pede nome, e-mail, localização do visitante ou upload. O recebimento só é confirmado após a gravação no D1. Todo envio entra como `pending`; nenhuma rota pública lê a fila e nenhum texto enviado altera status, metadados ou a página automaticamente.
 
@@ -20,8 +20,8 @@ Migrations em `drizzle/` são incluídas no pacote do Site. Aplicar também à b
 
 ### Proteção de rede revisada
 
-Na próxima publicação, o identificador de rede passa a usar HMAC-SHA256 com segredo de runtime exclusivo, em vez de hash com data pública. A consulta atômica conta os identificadores de hoje e ontem dentro da mesma janela móvel de uma hora. A ausência do cabeçalho de rede confiável ou do segredo desabilita o envio, sem criar uma cota compartilhada para todos. Não se usa X-Forwarded-For como substituto. GET /api/contributions informa apenas disponibilidade, sem IP, segredo ou identificador; o formulário consulta esse estado antes de habilitar o envio.
+Desde a versão 19 publicada, o identificador de rede usa HMAC-SHA256 com segredo de runtime exclusivo, em vez de hash com data pública. A consulta atômica conta os identificadores de hoje e ontem dentro da mesma janela móvel de uma hora. A ausência do cabeçalho de rede confiável ou do segredo desabilita o envio, sem criar uma cota compartilhada para todos. Não se usa X-Forwarded-For como substituto. GET /api/contributions informa apenas disponibilidade, sem IP, segredo ou identificador; o formulário consulta esse estado antes de habilitar o envio.
 
-O segredo CONTRIBUTION_NETWORK_SECRET foi configurado no Sites como secreto (revisão 1); aplicação depende de deploy. E-mails não foram adicionados. O login Google continua pendente e esta melhoria não constitui autenticação. A retenção de 48 horas e a fila privada permanecem. A troca de algoritmo reinicia a cota dos hashes antigos na primeira publicação.
+O segredo CONTRIBUTION_NETWORK_SECRET foi configurado no Sites como secreto (revisão 1); aplicado desde a versão 19. E-mails não foram adicionados. O login Google continua pendente e esta melhoria não constitui autenticação. A retenção de 48 horas e a fila privada permanecem. A troca de algoritmo reinicia a cota dos hashes antigos na primeira publicação.
 
-Testes: eval-contribution-network.test.mjs (3/3), incluindo janela na virada UTC contra SQLite real em memória. Cabeçalho de rede no hosting ainda deve ser confirmado por disponibilidade somente leitura após publicação.
+Testes: eval-contribution-network.test.mjs (3/3), incluindo janela na virada UTC contra SQLite real em memória. Disponibilidade em produção confirmada por consulta somente leitura na versão 19.

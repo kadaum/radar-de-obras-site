@@ -17,7 +17,7 @@ void test('national HTML answers core questions without JS or the upstream API',
   const response=await fetch(`${base}/obras/${id}`);assert.equal(response.status,200);
   const html=await response.text();assert.ok(html.includes(id));
   assert.ok(html.includes(`https://radar-obras.ricardoguia.com/obras/${id}`));
-  for(const label of ['Situação informada','Investimento previsto','Organização responsável','Fonte e atualização','Classificação oficial','Eixo, tipo e subtipo oficiais','Quem administra, repassa e responde pela execução','Contratos e andamento','Explorar esta região no mapa'])assert.ok(html.includes(label));
+  for(const label of ['Situação informada','Investimento previsto','Organização responsável','Fonte e atualização','Classificação oficial','Eixo, tipo e subtipo oficiais','Quem administra, repassa e responde pela execução','Contratos, andamento e recursos','Explorar esta região no mapa'])assert.ok(html.includes(label));
   assert.match(html,/<title>[^<]+Radar de Obras/);assert.match(html,/<h1>/);
   assert.ok(html.includes('application/ld+json'));
  }
