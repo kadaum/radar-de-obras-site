@@ -27,7 +27,7 @@ void test('national HTML answers core questions without JS or the upstream API',
 void test('reported impact remains attributed and secondary, including implausible source values',async()=>{
  const response=await fetch(`${base}/obras/13421.16-84`);assert.equal(response.status,200);
  const html=await response.text();
- const impact=html.match(/<details class="record-details"><summary>População e empregos declarados<\/summary>[\s\S]*?Não usamos esses números[\s\S]*?<\/details>/)?.[0];
+ const impact=html.match(/<div class="impact-panel"><h3>População e empregos declarados<\/h3>[\s\S]*?Não usamos esses números[\s\S]*?<\/p><\/div>/)?.[0];
  assert.ok(impact);assert.ok(impact.includes('1.213.647.762'));assert.ok(impact.includes('erros de escala'));
  assert.ok(impact.includes('Valor atípico — requer verificação'));assert.ok(impact.includes('não prova de erro'));
  assert.ok(!html.match(/<header[\s\S]*?<\/header>/)?.[0].includes('1.213.647.762'));

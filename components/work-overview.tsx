@@ -5,19 +5,22 @@ import { Progress } from '@/components/ui/progress';
 import enrichment from '@/lib/work-enrichment.json';
 import { data, formatDate, formatMoney, mapLink, workPath, type Work } from '@/lib/organic';
 
-export function WorkOverview({ work }: { work: Work }) {
+export function WorkOverview({ work, official, collectedAt = data.source.collectedAt }: { work: Work; collectedAt?: string; official?: { percent: number | null; updatedAt: string | null; multiple: boolean; complete: boolean } }) {
   const item = enrichment.projects[work.id as keyof typeof enrichment.projects];
   const reading = item?.executions.length === 1 ? item.executions[0] : null;
-  const percent = reading?.percent;
+  const candidate = official ? official.percent : reading?.percent;
+  const percent = typeof candidate === 'number' && Number.isFinite(candidate) && candidate >= 0 && candidate <= 100 ? candidate : null;
+  const multiple = official ? official.multiple : (item?.executions.length ?? 0) > 1;
+  const updatedAt = official ? official.updatedAt : reading?.updatedAt;
   return <section className="work-overview" aria-label="Resumo da obra">
     <div className="overview-progress" id="situacao-cadastrada">
       <span className="status-label">{work.status || 'Situação não informada'}</span>
-      <div className="progress-heading"><h2>Execução física</h2><strong>{percent != null ? `${percent.toLocaleString('pt-BR')}%` : item?.executions.length>1 ? 'Ver medições' : 'Não informada'}</strong></div>
+      <div className="progress-heading"><h2>Execução física</h2><strong>{percent != null ? `${percent.toLocaleString('pt-BR')}%` : multiple ? 'Ver medições' : 'Não informada'}</strong></div>
       {percent != null && <Progress value={Math.max(0, Math.min(100,percent))} aria-label="Percentual de execução física informado" className="work-progress" />}
-      <p>{reading ? `Registro atualizado em ${formatDate(reading.updatedAt)}.` : item?.executions.length ? 'Consulte os registros disponíveis abaixo.' : 'Não há medição disponível para este ID.'} Percentual físico não confirma entrega ou funcionamento.</p>
+      <p>{official?.complete === false ? 'Consulta complementar indisponível ou parcial.' : updatedAt ? `Registro atualizado em ${formatDate(updatedAt)}.` : multiple ? 'Consulte os registros disponíveis abaixo.' : 'Não há medição única disponível para este ID.'} Percentual físico não confirma entrega ou funcionamento.</p>
       <a href="#execucao-fisica">Ver medição e contexto</a>
     </div>
-    <div className="overview-facts"><div><span>Investimento previsto</span><strong>{formatMoney(work.investmentTotal)}</strong><small>Não representa pagamento</small></div><div><span><CalendarDays size={15} aria-hidden="true" /> Término previsto no cadastro</span><strong>{formatDate(work.end)}</strong><small>Previsão vencida não comprova atraso</small></div><div><span>Base consultada</span><strong>{formatDate(data.source.collectedAt)}</strong><small>Cadastro público Obrasgov</small></div></div>
+    <div className="overview-facts"><div><span>Investimento previsto</span><strong>{formatMoney(work.investmentTotal)}</strong><small>Não representa pagamento</small></div><div><span><CalendarDays size={15} aria-hidden="true" /> Término previsto no cadastro</span><strong>{formatDate(work.end)}</strong><small>Previsão vencida não comprova atraso</small></div><div><span>Base consultada</span><strong>{formatDate(collectedAt)}</strong><small>Cadastro público Obrasgov</small></div></div>
   </section>;
 }
 

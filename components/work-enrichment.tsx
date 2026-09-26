@@ -55,11 +55,11 @@ export function WorkEnrichment({ id }: { id: string }) {
   return <>
     <section className="enrichment-section" aria-labelledby="purpose-title">
       <h2 id="purpose-title">O que o projeto pretende entregar</h2>
-      <details className="record-details"><summary>Metas e finalidade declaradas pelo órgão</summary>
+      <div className="project-purpose">
       {item.globalGoal && <div className="editorial-block"><h3>Meta declarada</h3><p>{cleaned(item.globalGoal)}</p></div>}
       {item.socialFunction && item.socialFunction.trim() !== item.globalGoal?.trim() && <div className="editorial-block"><h3>Finalidade social informada</h3><p>{cleaned(item.socialFunction)}</p></div>}
-      </details>
-      {!!item.classification.length && <details className="record-details" id="classificacao-oficial"><summary>Eixo, tipo e subtipo oficiais</summary><p className="data-caption">Classificação na fonte: {item.classification.map(x => [x.axis,x.type,x.subtype].filter(Boolean).join(' › ')).join('; ')}.</p><p>Classificação declarada no cadastro; não é uma classificação independente do Radar.</p></details>}
+      </div>
+      {!!item.classification.length && <div className="classification-panel" id="classificacao-oficial"><h3>Eixo, tipo e subtipo oficiais</h3><p className="data-caption">Classificação na fonte: {item.classification.map(x => [x.axis,x.type,x.subtype].filter(Boolean).join(' › ')).join('; ')}.</p><p>Classificação declarada no cadastro; não é uma classificação independente do Radar.</p></div>}
       <p className="source-caption">Fonte: cadastro do projeto no Obrasgov. Os textos são declarações do órgão, não verificação independente do benefício entregue.</p>
     </section>
     <section className="enrichment-section" aria-labelledby="actors-title">
@@ -68,11 +68,11 @@ export function WorkEnrichment({ id }: { id: string }) {
         <div><dt>Organização responsável</dt><dd>{item.responsible || 'Não informada'}</dd></div>
         <div><dt>Empresa(s) nos contratos</dt><dd>{item.contracts.length ? names(item.contracts.map(x=>x.supplier).filter((x): x is string=>!!x)) : 'Não identificada nas fontes consultadas'}{item.contracts.length>0 && <> · <a href="#contracts-title">Ver serviços e períodos</a></>}</dd></div>
       </dl>
-      <details className="record-details"><summary>Quem administra, repassa e responde pela execução</summary><dl className="detail-list">
+      <div className="participant-details"><h3>Quem administra os recursos</h3><dl className="detail-list">
         <div><dt>Repassador de recursos</dt><dd>{names(item.repayers)}</dd></div>
         <div><dt>Tomador — administra os recursos</dt><dd>{names(item.takers)}</dd></div>
         <div><dt>Executor no cadastro</dt><dd>{names(item.executors)}</dd></div>
-      </dl><p>O executor é a organização responsável pela intervenção no Obrasgov. Pode contratar uma empresa para construir. Tomador e executor podem ser a mesma organização.</p></details>
+      </dl><p>O executor é a organização responsável pela intervenção no Obrasgov. Pode contratar uma empresa para construir. Tomador e executor podem ser a mesma organização.</p></div>
       <p className="source-caption">Fonte: cadastro e contratos vinculados no Obrasgov. Cada empresa responde pelo objeto e período de seu contrato; o vínculo não comprova atuação atual.</p>
     </section>
     <section id="execucao-fisica" className="enrichment-section" aria-labelledby="progress-title">
@@ -88,8 +88,8 @@ export function WorkEnrichment({ id }: { id: string }) {
       {item.contracts.length ? <div className="record-grid">{item.contracts.map((contract,index) => <article key={`${contract.id}-${index}`} className="record-card">
         <h3>Contrato {contract.number || contract.id}</h3>
         <dl className="compact-list"><div><dt>Empresa contratada</dt><dd>{contract.supplier || 'Não informada'}</dd></div><div><dt>Valor global do contrato</dt><dd>{money(contract.globalValue)}</dd></div></dl>
-        <details><summary>CNPJ, datas e licitação</summary><dl className="compact-list"><div><dt>CNPJ da empresa</dt><dd>{contract.supplierCnpj || 'Não informado'}</dd></div><div><dt>Assinatura</dt><dd>{formatDate(contract.signedAt)}</dd></div><div><dt>Vigência informada</dt><dd>{formatDate(contract.startsAt)} a {formatDate(contract.endsAt)}</dd></div>{contract.tender && <div><dt>Licitação</dt><dd>{contract.tender}</dd></div>}{contract.process && <div><dt>Processo</dt><dd>{contract.process}</dd></div>}</dl></details>
-        {contract.object && <details><summary>Ver objeto do contrato</summary><p>{cleaned(contract.object)}</p></details>}
+        <div className="contract-facts"><dl className="compact-list"><div><dt>CNPJ da empresa</dt><dd>{contract.supplierCnpj || 'Não informado'}</dd></div><div><dt>Assinatura</dt><dd>{formatDate(contract.signedAt)}</dd></div><div><dt>Vigência informada</dt><dd>{formatDate(contract.startsAt)} a {formatDate(contract.endsAt)}</dd></div>{contract.tender && <div><dt>Licitação</dt><dd>{contract.tender}</dd></div>}{contract.process && <div><dt>Processo</dt><dd>{contract.process}</dd></div>}</dl></div>
+        {contract.object && <div className="contract-object"><h4>Objeto do contrato</h4><p>{cleaned(contract.object)}</p></div>}
         {contract.officialUrl && <p><a href={contract.officialUrl} target="_blank" rel="noopener noreferrer">Documento de transparência do contrato ↗</a></p>}
       </article>)}</div> : <p>Nenhum contrato foi retornado pela API para este ID. Isso não prova que não houve contratação.</p>}
       <p className="source-caption">Fonte: contratos vinculados no Obrasgov. Valor global contratual, investimento previsto e pagamento são medidas diferentes.</p>
@@ -97,7 +97,7 @@ export function WorkEnrichment({ id }: { id: string }) {
     </section>
     <section className="enrichment-section" aria-labelledby="commitments-title">
       <h2 id="commitments-title">Empenhos e estudos</h2>
-      {item.commitments.length ? <details className="record-details"><summary>{item.commitments.length} empenho(s) vinculado(s): ver registros</summary><div className="table-scroll"><table className="record-table"><thead><tr><th>Número</th><th>Credor</th><th>Valor do empenho</th><th>Pago informado</th><th>Restos a pagar pagos</th></tr></thead><tbody>{item.commitments.map((commitment,index) => <tr key={`${commitment.number}-${index}`}><td>{commitment.number || 'Não informado'}</td><td>{commitment.creditor || 'Não informado'}</td><td>{money(commitment.amount)}</td><td>{money(commitment.paid)}</td><td>{money(commitment.paidPreviousYears)}</td></tr>)}</tbody></table></div></details> : <p>Nenhum empenho foi retornado pela API para este ID.</p>}
+      {item.commitments.length ? <div className="financial-records"><h3>{item.commitments.length} empenho(s) vinculado(s)</h3><div className="table-scroll"><table className="record-table"><thead><tr><th>Número</th><th>Credor</th><th>Valor do empenho</th><th>Pago informado</th><th>Restos a pagar pagos</th></tr></thead><tbody>{item.commitments.map((commitment,index) => <tr key={`${commitment.number}-${index}`}><td>{commitment.number || 'Não informado'}</td><td>{commitment.creditor || 'Não informado'}</td><td>{money(commitment.amount)}</td><td>{money(commitment.paid)}</td><td>{money(commitment.paidPreviousYears)}</td></tr>)}</tbody></table></div></div> : <p>Nenhum empenho foi retornado pela API para este ID.</p>}
       <p className="source-caption">Fonte: empenhos vinculados no Obrasgov. Os valores são mostrados por registro; não foram somados, pois campos de exercícios e situações diferentes podem se sobrepor.</p>
       {item.studies.length ? <details className="record-details"><summary>{item.studies.length} registro(s) de estudo de viabilidade</summary><ul>{item.studies.map((study,index) => <li key={index}><strong>{study.type || 'Tipo não informado'}:</strong> {study.specification || 'Sem especificação'}</li>)}</ul></details> : <p>Não há estudo de viabilidade retornado pela API para este ID.</p>}
       <p className="source-caption">Fonte: estudos de viabilidade no Obrasgov. A existência de um registro não equivale a acesso ao documento integral.</p>

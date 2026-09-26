@@ -365,3 +365,53 @@ body {
 .contribution-card fieldset { border:0; padding:0; margin:0; min-width:0; }
 
 .contribution-optin{display:flex!important;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;margin:14px 0}.contribution-optin input{width:18px;height:18px;flex:none;margin-top:2px;accent-color:#426536}.contribution-optin span{min-width:0}
+
+/* A shared reading layout for pilot and national work pages. */
+.work-with-navigation{display:grid;grid-template-columns:200px minmax(0,1fr);gap:38px;align-items:start}
+.work-content,.work-reading{min-width:0}
+.work-contents{position:sticky;top:28px;max-height:calc(100dvh - 56px);overflow:auto;padding:8px 0 20px;border-right:1px solid #d9e2d9}
+.contents-label{font-size:11px;font-weight:750;text-transform:uppercase;letter-spacing:.13em;color:#536a5c;margin:0 0 16px 12px}
+.work-contents ol{list-style:none;margin:0;padding:0 14px 0 0;display:grid;gap:4px}
+.work-contents a{display:flex;gap:10px;align-items:baseline;padding:10px 12px;min-height:44px;font-size:13px;line-height:1.45;font-weight:550;color:#506357;text-decoration:none;border-radius:7px;transition:background .16s,color .16s}
+.work-contents a span{font-size:10px;letter-spacing:.04em;font-variant-numeric:tabular-nums;color:#748578;flex:none}
+.work-contents a:hover{background:#edf1e8;color:#154d3b}
+.work-contents a[aria-current=location]{background:#e3ece0;color:#154d3b;font-weight:750;box-shadow:inset 3px 0 #247452}
+.work-contents a:focus-visible{outline:3px solid #175a43;outline-offset:-3px}
+.work-with-navigation [id]{scroll-margin-top:26px}
+.work-with-navigation .work-heading h1{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.13}
+.work-with-navigation .work-overview{margin:24px 0 30px;box-shadow:0 5px 18px #203d2310}
+.work-with-navigation .work-reading>section,.work-with-navigation .work-reading>.location-card{margin:28px 0;padding:28px;background:#fff;border:1px solid #d8e1d7;border-radius:14px}
+.work-with-navigation .work-reading>section>h2,.work-with-navigation .section-heading h2{margin-top:0;font-size:23px;letter-spacing:-.035em;line-height:1.25}
+.work-with-navigation .work-reading p{line-height:1.7;overflow-wrap:anywhere}
+.work-with-navigation .work-reading .source-caption,.work-with-navigation .work-reading .context-note{font-size:12px;line-height:1.6;color:#526457}
+.work-with-navigation .editorial-block{margin:22px 0}
+.work-with-navigation .editorial-block h3,.work-with-navigation .participant-details h3,.work-with-navigation .classification-panel h3{font-size:15px;line-height:1.4;margin:0 0 8px}
+.work-with-navigation .classification-panel{background:#f2f5ee;padding:18px;border-radius:9px;margin-top:22px}
+.work-with-navigation .participant-details{margin-top:24px;padding-top:22px;border-top:1px solid #e0e6dd}
+.work-with-navigation .detail-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
+.work-with-navigation .detail-list>div{min-width:0;padding:14px 0;border-bottom:1px solid #e5eae2}
+.work-with-navigation .detail-list dt{font-size:12px;color:#526457;margin-bottom:5px}
+.work-with-navigation .detail-list dd{font-size:14px;line-height:1.55;overflow-wrap:anywhere;margin:0;font-weight:550}
+.work-with-navigation .record-card{background:#f9faf6;border-color:#dce3d6;padding:22px}
+.work-with-navigation .record-grid{gap:16px}
+.work-with-navigation .record-card h3{font-size:16px;margin-top:0}
+.work-with-navigation .contract-facts{padding-top:8px;margin-top:14px;border-top:1px solid #e0e6dd}
+.work-with-navigation .contract-object h4{font-size:13px;margin:20px 0 6px}
+.work-with-navigation .compact-list{font-size:13px}
+.work-with-navigation .official-subsection{margin-top:32px;border-top:1px solid #dce3d8;padding-top:24px}
+.work-with-navigation .official-subsection>h3{font-size:21px;margin:0 0 18px}
+.work-with-navigation .financial-records h3,.work-with-navigation .financial-records h4{font-size:15px}
+.work-with-navigation .record-table{font-size:12px}
+.work-with-navigation .table-scroll{max-width:100%;overflow:auto;border:1px solid #dce3d8;border-radius:8px}
+.work-with-navigation .mini-map{height:260px}
+.work-with-navigation .nearby-works ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.work-with-navigation .nearby-works li{padding:14px;border:1px solid #dde5d9;border-radius:8px}
+.work-with-navigation .nearby-works a{font-size:13px}
+.work-with-navigation .work-photo{max-width:700px}
+.work-with-navigation .work-photo img{max-height:420px;object-fit:cover}
+.work-with-navigation .impact-panel{background:#f4f6ef;border-radius:8px;padding:18px;margin:22px 0}
+.work-with-navigation .provenance{font-size:13px}
+.work-with-navigation .overview-facts strong{font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+@media(max-width:1000px){.work-with-navigation{grid-template-columns:170px minmax(0,1fr);gap:22px}.work-contents a{font-size:12px;padding:10px 8px}.work-with-navigation .work-overview{grid-template-columns:1fr}.work-with-navigation .overview-facts>div:first-child{grid-column:1/-1}.work-with-navigation .nearby-works ul{grid-template-columns:1fr}}
+@media(max-width:760px){.work-with-navigation{display:block}.work-contents{position:sticky;top:0;z-index:8;max-height:none;margin:-8px -18px 24px;padding:10px 18px;background:#f7f8f2f7;border-right:0;border-bottom:1px solid #d9e2d9;backdrop-filter:blur(8px)}.contents-label{font-size:10px;margin:0 0 5px}.work-contents ol{display:flex;overflow-x:auto;gap:4px;padding:0 0 3px;scrollbar-width:thin}.work-contents li{flex:none}.work-contents a{font-size:12px;min-height:40px;padding:10px 12px;white-space:nowrap}.work-contents a span{display:none}.work-with-navigation [id]{scroll-margin-top:104px}.work-with-navigation .work-reading>section,.work-with-navigation .work-reading>.location-card{padding:20px 17px;margin:22px 0}.work-with-navigation .detail-list{grid-template-columns:1fr}.work-with-navigation .work-heading h1{font-size:1.9rem}.work-with-navigation .overview-facts>div:first-child{grid-column:1/-1}.work-with-navigation .overview-facts>div:last-child{grid-column:auto}.work-with-navigation .overview-facts strong{font-size:20px}.work-with-navigation .overview-progress .progress-heading strong{font-size:26px}.work-with-navigation .work-reading>section>h2{font-size:22px}.work-with-navigation .record-card{padding:16px}.work-with-navigation .location-card{order:initial}}
+@media(prefers-reduced-motion:reduce){.work-contents{backdrop-filter:none}.work-contents a{transition:none}}
