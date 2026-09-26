@@ -70,7 +70,7 @@ try{
  const remoteIndex=(await get(base+'/sitemap-index.xml')).body;
  const expected=fs.readFileSync('public/sitemap-index.xml','utf8');
  if(remoteIndex!==expected)failures.push({path:'/sitemap-index.xml',issue:'sitemap index differs from source'});
- for(const match of expected.matchAll(/<loc>https:\/\/radar-obras\.ricardoguia\.com(\/sitemaps\/[^<]+)<\/loc>/g)){
+ for(const match of expected.matchAll(/<loc>https:\/\/radar-obras\.ricardoguia\.com(\/sitemap-obras-\d+\.xml)<\/loc>/g)){
   const path=match[1],body=(await get(base+path)).body;checked.push(path);
   if(body!==fs.readFileSync(`public${path}`,'utf8'))failures.push({path,issue:'sitemap differs from source'});
  }

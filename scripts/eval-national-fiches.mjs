@@ -39,7 +39,7 @@ void test('national sitemap matches completeness policy for every record',()=>{
  const index=fs.readFileSync('public/sitemap-index.xml','utf8');
  const paths=[...index.matchAll(/<loc>https:\/\/radar-obras\.ricardoguia\.com([^<]+)<\/loc>/g)].map(x=>x[1]);
  const published=new Set();
- for(const path of paths.filter(x=>x.startsWith('/sitemaps/'))){
+ for(const path of paths.filter(x=>/^\/sitemap-obras-\d+\.xml$/.test(x))){
   const xml=fs.readFileSync(`public${path}`,'utf8');const entries=[...xml.matchAll(/<loc>https:\/\/radar-obras\.ricardoguia\.com\/obras\/([^<]+)<\/loc>/g)].map(x=>x[1]);
   assert.ok(entries.length<=50000);assert.ok(Buffer.byteLength(xml)<50*1024*1024);
   for(const id of entries){assert.ok(!published.has(id));published.add(id);}
