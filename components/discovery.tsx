@@ -9,11 +9,11 @@ export function DiscoveryShell({children, crumbs}: {children:React.ReactNode;cru
     <a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
     <header className="discovery-header"><div className="header-inner">
       <Link className="brand" href="/"><span className="brand-mark">◈</span> Radar de Obras</Link>
-      <nav aria-label="Navegação principal"><Link href="/cidades">Cidades</Link><Link href="/obras">Fichas</Link><Link href="/dados">Dados</Link><Link href="/metodologia">Metodologia</Link><Link className="map-button" href="/">Abrir mapa</Link></nav>
+      <nav aria-label="Navegação principal"><Link href="/cidades">Cidades</Link><Link href="/areas">Áreas</Link><Link href="/obras">Fichas</Link><Link href="/dados">Dados</Link><Link href="/metodologia">Metodologia</Link><Link className="map-button" href="/">Abrir mapa</Link></nav>
     </div></header>
     {crumbs && <><Structured data={breadcrumb(crumbs)} /><nav className="breadcrumbs" aria-label="Caminho">{crumbs.map((item,index)=><span key={item.path}>{index>0&&<span aria-hidden="true">/</span>}<Link href={item.path}>{item.name}</Link></span>)}</nav></>}
     <main className="discovery-main" id="conteudo" tabIndex={-1}>{children}</main>
-    <footer className="discovery-footer"><div><strong>Radar de Obras</strong><p>Leitura independente de cadastros públicos. Um registro ausente não prova que uma obra não exista.</p></div><nav aria-label="Links de apoio"><Link href="/guia-de-interpretacao">Como interpretar</Link><Link href="/levantamento" data-analytics-action="comparar_cidades">Levantamento</Link><Link href="/dados">Baixar dados</Link><a href="https://ricardoguia.com/pt/lab" rel="noopener noreferrer" data-analytics-action="abrir_labs">Labs de Ricardo Guia</a></nav></footer>
+    <footer className="discovery-footer"><div><strong>Radar de Obras</strong><p>Leitura independente de cadastros públicos. Um registro ausente não prova que uma obra não exista.</p></div><nav aria-label="Links de apoio"><Link href="/areas">Áreas oficiais</Link><Link href="/guia-de-interpretacao">Como interpretar</Link><Link href="/levantamento" data-analytics-action="comparar_cidades">Levantamento</Link><Link href="/dados">Baixar dados</Link><a href="https://ricardoguia.com/pt/lab" rel="noopener noreferrer" data-analytics-action="abrir_labs">Labs de Ricardo Guia</a></nav></footer>
   </div>;
 }
 export function PageSchema({path,name,description}: {path:string;name:string;description:string}) {

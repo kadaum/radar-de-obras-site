@@ -1,0 +1,9 @@
+# Comparação e estimativa de custo: decisão editorial
+
+A ficha pode comparar fatos distintos já disponíveis, rotulados separadamente: investimento previsto, valor de um contrato, empenho e pagamento informado. Isso não produz um preço justo para a obra. O site não deve publicar um selo “caro”, “barato” ou “sobrepreço” a partir desses totais.
+
+Para estimar custo esperado seria preciso, por projeto: escopo executivo e quantitativos, unidade (área construída, extensão e especificações), localização, data-base, materiais e composição de serviços, BDI, aditivos, fases, atualização monetária e valor contratado/pago da mesma etapa. Também seria necessário tratar amostras comparáveis e casos atípicos, validação humana por profissional habilitado e uma avaliação prospectiva contra exemplos auditados. Muitas fichas Obrasgov não têm esses elementos vinculados em formato utilizável. O nome ou tipo amplo da obra não basta.
+
+Referências de método: [SINAPI da Caixa](https://www.caixa.gov.br/poder-publico/modernizacao-gestao/sinapi/Paginas/default.aspx) para custos referenciais e composições; [orientações do TCU](https://portal.tcu.gov.br/data/files/BF/21/7F/EE/965EC710D79E7EB7F18818A8/Orientacoes_elaboracao_planilhas_orcamentarias_obras_publicas.PDF) sobre especificidade, localização e período de cada orçamento. Usar SICRO em infraestrutura de transportes quando aplicável. Diferença entre investimento previsto e contrato, sozinha, não indica economia ou excesso.
+
+Próxima etapa possível, quando houver dados adequados: piloto pequeno por tipologia homogênea com planilhas oficiais e unidade física verificável, cálculo reproduzível com intervalos e ressalvas, revisão técnica de casos extremos e teste cego antes de qualquer sinal público. Até lá, a interface mantém os valores oficiais nomeados e suas fontes.

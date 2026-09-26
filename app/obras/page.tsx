@@ -12,7 +12,7 @@ export default function Works() {
     <PageSchema path="/obras" name="Fichas de obras públicas" description="Fichas do cadastro nacional Obrasgov e uma seleção de dez projetos com contexto adicional." />
     <Structured data={{'@context':'https://schema.org','@type':'ItemList','@id':`${ORIGIN}/obras#list`,itemListElement:rows.map((row,index)=>({'@type':'ListItem',position:index+1,name:row.name,url:`${ORIGIN}${workPath(row.id)}`}))}} />
     <div className="eyebrow">Cadastro nacional · {manifest.total.toLocaleString('pt-BR')} projetos</div><h1>Projetos com fonte e contexto</h1><p className="lead">Cada projeto da base tem uma ficha com informações do cadastro Obrasgov. O andamento não é verificado em campo e uma previsão vencida, isoladamente, não comprova atraso.</p>
-    <p><Link href="/radar.html?view=list" prefetch={false}>Buscar uma obra na lista nacional →</Link></p>
+    <p><Link href="/radar.html?view=list" prefetch={false}>Buscar uma obra na lista nacional →</Link> · <Link href="/areas">Explorar por área oficial →</Link></p>
     <h2>Seleção com contexto adicional</h2><p>Dez projetos em cinco cidades, com revisão de documentos e fontes complementares. A profundidade das informações varia conforme a disponibilidade pública.</p>
     <div className="city-chips">{data.cities.map(city=><Link key={city.slug} href={cityPath(city)}>{city.name} <span>{city.uf}</span></Link>)}</div>
     <WorkTable rows={rows} selectedOnly />
