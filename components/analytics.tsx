@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
-const MEASUREMENT_ID = 'G-0PDCFQQGBC';
+const MEASUREMENT_IDS = ['G-0PDCFQQGBC', 'G-JQE2V3JLGL'] as const;
 
 type AnalyticsWindow = Window & {
   dataLayer?: unknown[][];
@@ -18,19 +18,21 @@ function initializeAnalytics() {
     analyticsWindow.dataLayer?.push(args);
   };
 
-  if (!document.querySelector(`script[data-google-analytics="${MEASUREMENT_ID}"]`)) {
+  if (!document.querySelector(`script[data-google-analytics="${MEASUREMENT_IDS[0]}"]`)) {
     const script = document.createElement('script');
     script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_ID}`;
-    script.dataset.googleAnalytics = MEASUREMENT_ID;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${MEASUREMENT_IDS[0]}`;
+    script.dataset.googleAnalytics = MEASUREMENT_IDS[0];
     document.head.appendChild(script);
 
     analyticsWindow.gtag('js', new Date());
-    analyticsWindow.gtag('config', MEASUREMENT_ID, {
-      send_page_view: false,
-      allow_google_signals: false,
-      allow_ad_personalization_signals: false,
-    });
+    for (const measurementId of MEASUREMENT_IDS) {
+      analyticsWindow.gtag('config', measurementId, {
+        send_page_view: false,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+      });
+    }
   }
 
   return analyticsWindow.gtag;
@@ -41,12 +43,15 @@ export function Analytics() {
 
   useEffect(() => {
     const path = pathname || '/';
-    initializeAnalytics()?.('event', 'page_view', {
-      send_to: MEASUREMENT_ID,
-      page_location: `${window.location.origin}${path}`,
-      page_path: path,
-      page_title: document.title,
-    });
+    const gtag = initializeAnalytics();
+    for (const measurementId of MEASUREMENT_IDS) {
+      gtag?.('event', 'page_view', {
+        send_to: measurementId,
+        page_location: `${window.location.origin}${path}`,
+        page_path: path,
+        page_title: document.title,
+      });
+    }
   }, [pathname]);
 
   useEffect(() => {
@@ -56,7 +61,10 @@ export function Analytics() {
       const link = target.closest<HTMLElement>('[data-analytics-action]');
       const action = link?.dataset.analyticsAction;
       if (!action || !['abrir_ficha','explorar_mapa','abrir_fonte','exportar_dados','comparar_cidades','abrir_labs'].includes(action)) return;
-      initializeAnalytics()?.('event', action, { send_to: MEASUREMENT_ID, page_path: window.location.pathname });
+      const gtag = initializeAnalytics();
+      for (const measurementId of MEASUREMENT_IDS) {
+        gtag?.('event', action, { send_to: measurementId, page_path: window.location.pathname });
+      }
     };
     document.addEventListener('click', onClick);
     return () => document.removeEventListener('click', onClick);
